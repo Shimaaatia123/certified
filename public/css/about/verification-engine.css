@@ -1,0 +1,1676 @@
+/* =========================================================
+   CERTIFIED — VERIFICATION ENGINE
+   About Page / Section 3
+   Fully scoped
+   ========================================================= */
+
+
+/* =========================================================
+   ROOT
+   ========================================================= */
+
+.verification-engine {
+    position: relative;
+    isolation: isolate;
+
+    width: 100%;
+    min-height: 900px;
+
+    overflow: hidden;
+
+    padding: 30px 24px 20px;
+
+    color: #ffffff;
+
+    background:
+        radial-gradient(
+            circle at 78% 45%,
+            rgba(49, 151, 149, 0.12),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 15% 70%,
+            rgba(48, 91, 180, 0.10),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #061326 0%,
+            #071a31 48%,
+            #061426 100%
+        );
+}
+
+
+/* =========================================================
+   ATMOSPHERE
+   ========================================================= */
+
+.verification-engine__atmosphere {
+    position: absolute;
+    inset: 0;
+
+    z-index: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+.verification-engine__grid {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.22;
+
+    background-image:
+        linear-gradient(
+            rgba(100, 180, 200, 0.045) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(100, 180, 200, 0.045) 1px,
+            transparent 1px
+        );
+
+    background-size: 52px 52px;
+
+    mask-image:
+        radial-gradient(
+            ellipse at center,
+            black 0%,
+            transparent 78%
+        );
+
+    -webkit-mask-image:
+        radial-gradient(
+            ellipse at center,
+            black 0%,
+            transparent 78%
+        );
+}
+
+
+.verification-engine__glow {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(4px);
+
+    opacity: 0.7;
+
+    animation:
+        verificationEngineGlow 10s ease-in-out infinite;
+}
+
+
+.verification-engine__glow--one {
+    width: 420px;
+    height: 420px;
+
+    top: 18%;
+    right: -180px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(49, 151, 149, 0.16),
+            transparent 68%
+        );
+}
+
+
+.verification-engine__glow--two {
+    width: 340px;
+    height: 340px;
+
+    bottom: -120px;
+    left: -120px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(52, 101, 190, 0.12),
+            transparent 68%
+        );
+
+    animation-delay: -5s;
+}
+
+
+@keyframes verificationEngineGlow {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(0, -22px, 0);
+    }
+}
+
+
+/* =========================================================
+   PARTICLES
+   ========================================================= */
+
+.verification-engine__particle {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: rgba(117, 238, 233, 0.8);
+
+    box-shadow:
+        0 0 8px rgba(117, 238, 233, 0.7),
+        0 0 18px rgba(117, 238, 233, 0.25);
+
+    animation:
+        verificationEngineParticle 5s ease-in-out infinite;
+}
+
+
+.verification-engine__particle--1 {
+    top: 15%;
+    left: 12%;
+}
+
+
+.verification-engine__particle--2 {
+    top: 28%;
+    right: 18%;
+
+    animation-delay: -1s;
+}
+
+
+.verification-engine__particle--3 {
+    top: 62%;
+    left: 22%;
+
+    animation-delay: -2s;
+}
+
+
+.verification-engine__particle--4 {
+    bottom: 18%;
+    right: 12%;
+
+    animation-delay: -3s;
+}
+
+
+.verification-engine__particle--5 {
+    top: 48%;
+    left: 48%;
+
+    animation-delay: -4s;
+}
+
+
+@keyframes verificationEngineParticle {
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.verification-engine__container {
+    position: relative;
+    z-index: 2;
+
+    width: min(100%, 1280px);
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.verification-engine__header {
+    max-width: 780px;
+
+    margin: 0 auto 72px;
+
+    text-align: center;
+}
+
+
+.verification-engine__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 20px;
+
+    color: #71d8d3;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 2.8px;
+    text-transform: uppercase;
+}
+
+
+.verification-engine__eyebrow-line {
+    width: 28px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #71d8d3
+        );
+}
+
+
+.verification-engine__title {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(40px, 5vw, 68px);
+    line-height: 1.04;
+    font-weight: 800;
+
+    letter-spacing: -2.5px;
+
+    text-wrap: balance;
+}
+
+
+.verification-engine__title span {
+    display: block;
+
+    color: #57c9c4;
+
+    text-shadow:
+        0 0 30px rgba(49, 151, 149, 0.16);
+}
+
+
+.verification-engine__description {
+    max-width: 650px;
+
+    margin: 24px auto 0;
+
+    color: #8fa1b8;
+
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   PIPELINE
+   ========================================================= */
+
+.verification-engine__pipeline {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 24px;
+
+    margin-bottom: 76px;
+}
+
+
+.verification-engine__pipeline-line {
+    position: absolute;
+
+    top: 28px;
+    left: 10%;
+    right: 10%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(49, 151, 149, 0.12),
+            rgba(49, 151, 149, 0.5),
+            rgba(49, 151, 149, 0.12)
+        );
+
+    z-index: -1;
+}
+
+
+.verification-engine__pipeline-signal {
+    position: absolute;
+
+    top: -2px;
+    left: -5%;
+
+    width: 12%;
+    height: 5px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #70eee8,
+            transparent
+        );
+
+    filter: blur(1px);
+
+    box-shadow:
+        0 0 12px rgba(80, 230, 224, 0.9),
+        0 0 28px rgba(80, 230, 224, 0.4);
+
+    animation:
+        verificationEngineSignal 4.5s linear infinite;
+}
+
+
+@keyframes verificationEngineSignal {
+    0% {
+        left: -5%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+
+.verification-engine__step {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+.verification-engine__step-node {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 56px;
+    height: 56px;
+
+    margin-bottom: 17px;
+
+    border: 1px solid rgba(104, 220, 215, 0.25);
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            rgba(86, 219, 213, 0.14),
+            rgba(8, 25, 45, 0.94)
+        );
+
+    color: #75dcd7;
+
+    box-shadow:
+        0 0 0 7px rgba(49, 151, 149, 0.025),
+        0 0 24px rgba(49, 151, 149, 0.08);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.verification-engine__step.is-active
+.verification-engine__step-node,
+.verification-engine__step--verified
+.verification-engine__step-node {
+    border-color: rgba(100, 230, 223, 0.7);
+
+    box-shadow:
+        0 0 0 7px rgba(49, 151, 149, 0.045),
+        0 0 32px rgba(49, 151, 149, 0.25);
+}
+
+
+.verification-engine__step-node span {
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+}
+
+
+.verification-engine__step-content {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.verification-engine__step-content strong {
+    color: #eaf4f6;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+}
+
+
+.verification-engine__step-content span {
+    color: #71859d;
+
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   CORE
+   ========================================================= */
+
+.verification-engine__core {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(350px, 0.95fr);
+
+    align-items: center;
+
+    gap: clamp(40px, 7vw, 90px);
+}
+
+
+/* =========================================================
+   CERTIFICATE
+   ========================================================= */
+
+.verification-engine__certificate {
+    position: relative;
+
+    width: min(100%, 570px);
+
+    min-height: 380px;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(105, 214, 212, 0.22);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17, 38, 60, 0.92),
+            rgba(7, 20, 37, 0.96)
+        );
+
+    box-shadow:
+        0 35px 80px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.verification-engine__certificate:hover {
+    border-color: rgba(92, 216, 210, 0.4);
+
+    box-shadow:
+        0 40px 90px rgba(0, 0, 0, 0.42),
+        0 0 40px rgba(49, 151, 149, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+
+/* Certificate top line */
+
+.verification-engine__certificate::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #65ddd7,
+            transparent
+        );
+
+    opacity: 0.75;
+}
+
+
+/* =========================================================
+   CERTIFICATE HEADER
+   ========================================================= */
+
+.verification-engine__certificate-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 23px 26px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+
+.verification-engine__certificate-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    color: #edf7f8;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.verification-engine__brand-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 25px;
+    height: 25px;
+
+    border: 1px solid rgba(100, 220, 216, 0.35);
+    border-radius: 7px;
+
+    color: #72e0da;
+
+    background: rgba(49, 151, 149, 0.08);
+}
+
+
+.verification-engine__certificate-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #73ded8;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+
+.verification-engine__certificate-status span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #6ce4dd;
+
+    box-shadow:
+        0 0 10px rgba(108, 228, 221, 0.8);
+}
+
+
+/* =========================================================
+   CERTIFICATE BODY
+   ========================================================= */
+
+.verification-engine__certificate-body {
+    padding: 38px 30px 28px;
+}
+
+
+.verification-engine__certificate-label {
+    display: block;
+
+    margin-bottom: 11px;
+
+    color: #637b95;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+.verification-engine__certificate-body h3 {
+    margin: 0 0 10px;
+
+    color: #f5fbfc;
+
+    font-size: clamp(22px, 3vw, 30px);
+    line-height: 1.2;
+    font-weight: 800;
+
+    letter-spacing: -0.7px;
+}
+
+
+.verification-engine__certificate-body p {
+    max-width: 440px;
+
+    margin: 0;
+
+    color: #8295aa;
+
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+
+.verification-engine__certificate-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 28px 0 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.08),
+            transparent
+        );
+}
+
+
+.verification-engine__certificate-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+
+.verification-engine__certificate-meta div {
+    min-width: 0;
+}
+
+
+.verification-engine__certificate-meta span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #5f7690;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+}
+
+
+.verification-engine__certificate-meta strong {
+    display: block;
+
+    color: #dce9ed;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   CERTIFICATE FOOTER
+   ========================================================= */
+
+.verification-engine__certificate-footer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+
+    align-items: end;
+
+    gap: 25px;
+
+    padding: 20px 30px 25px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+.verification-engine__signature {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.verification-engine__signature span {
+    color: #dce9ed;
+
+    font-family: "Reenie Beanie", cursive;
+
+    font-size: 25px;
+}
+
+
+.verification-engine__signature small {
+    color: #5f7690;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+.verification-engine__qr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 58px;
+    height: 58px;
+
+    padding: 6px;
+
+    border: 1px solid rgba(126, 209, 213, 0.25);
+    border-radius: 7px;
+
+    background: #f5f8f9;
+
+    color: #071326;
+}
+
+
+.verification-engine__qr svg {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =========================================================
+   SCANNER
+   ========================================================= */
+
+.verification-engine__scanner {
+    position: absolute;
+
+    top: -10%;
+
+    left: 8%;
+
+    width: 84%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(103, 242, 235, 0.9),
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px rgba(103, 242, 235, 0.8),
+        0 0 30px rgba(103, 242, 235, 0.3);
+
+    opacity: 0.65;
+
+    animation:
+        verificationEngineScanner 4.8s ease-in-out infinite;
+}
+
+
+@keyframes verificationEngineScanner {
+    0% {
+        top: -5%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 0.85;
+    }
+
+    90% {
+        opacity: 0.7;
+    }
+
+    100% {
+        top: 105%;
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   STATUS PANEL
+   ========================================================= */
+
+.verification-engine__status {
+    width: 100%;
+
+    padding: 27px;
+
+    border: 1px solid rgba(126, 191, 204, 0.15);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16, 34, 54, 0.82),
+            rgba(8, 21, 38, 0.92)
+        );
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 30px 65px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+
+/* =========================================================
+   STATUS HEADER
+   ========================================================= */
+
+.verification-engine__status-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 22px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+.verification-engine__status-eyebrow {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #5d7892;
+
+    font-size: 8px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+
+.verification-engine__status-header h3 {
+    margin: 0;
+
+    color: #eaf4f5;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    letter-spacing: -0.4px;
+}
+
+
+.verification-engine__live {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #70ddd8;
+
+    font-size: 8px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.verification-engine__live i {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #68ddd7;
+
+    box-shadow:
+        0 0 10px rgba(104, 221, 215, 0.8);
+
+    animation:
+        verificationEngineLive 1.6s ease-in-out infinite;
+}
+
+
+@keyframes verificationEngineLive {
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   ID
+   ========================================================= */
+
+.verification-engine__status-id {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    padding: 20px 0;
+}
+
+
+.verification-engine__status-id span {
+    color: #5d7892;
+
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+
+.verification-engine__status-id strong {
+    color: #d9e9ed;
+
+    font-family:
+        "JetBrains Mono",
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size: 12px;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   INTEGRITY
+   ========================================================= */
+
+.verification-engine__integrity {
+    padding-bottom: 22px;
+}
+
+
+.verification-engine__integrity-head {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 9px;
+}
+
+
+.verification-engine__integrity-head span {
+    color: #8397aa;
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+
+.verification-engine__integrity-head strong {
+    color: #70ddd8;
+
+    font-size: 10px;
+}
+
+
+.verification-engine__integrity-bar {
+    width: 100%;
+    height: 5px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.06);
+}
+
+
+.verification-engine__integrity-bar span {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #247f82,
+            #70ddd8
+        );
+
+    box-shadow:
+        0 0 14px rgba(112, 221, 216, 0.35);
+}
+
+
+/* =========================================================
+   CHECKS
+   ========================================================= */
+
+.verification-engine__checks {
+    display: flex;
+    flex-direction: column;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+.verification-engine__check {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+}
+
+
+.verification-engine__check-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 23px;
+    height: 23px;
+
+    flex: 0 0 23px;
+
+    border: 1px solid rgba(105, 218, 212, 0.2);
+    border-radius: 7px;
+
+    color: #6ddbd5;
+
+    background: rgba(49, 151, 149, 0.07);
+
+    font-size: 11px;
+    font-weight: 900;
+}
+
+
+.verification-engine__check div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.verification-engine__check div span {
+    color: #71869b;
+
+    font-size: 9px;
+}
+
+
+.verification-engine__check div strong {
+    color: #dce9ec;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   FINAL
+   ========================================================= */
+
+.verification-engine__final {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: 22px;
+    padding: 17px;
+
+    border: 1px solid rgba(83, 209, 203, 0.18);
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(49, 151, 149, 0.12),
+            rgba(49, 151, 149, 0.025)
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+
+.verification-engine__final-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 39px;
+    height: 39px;
+
+    flex: 0 0 39px;
+
+    border: 1px solid rgba(105, 225, 218, 0.35);
+    border-radius: 50%;
+
+    color: #78e2dc;
+
+    background: rgba(49, 151, 149, 0.1);
+
+    box-shadow:
+        0 0 22px rgba(49, 151, 149, 0.16);
+
+    font-size: 17px;
+    font-weight: 900;
+}
+
+
+.verification-engine__final div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.verification-engine__final strong {
+    color: #e9f8f8;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+.verification-engine__final div span {
+    color: #71879c;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   FOOTER NOTE
+   ========================================================= */
+
+.verification-engine__footer-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    margin-top: 46px;
+
+    color: #5f758c;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+.verification-engine__footer-dot {
+    width: 5px;
+    height: 5px;
+
+    flex: 0 0 5px;
+
+    border-radius: 50%;
+
+    background: #5ed4ce;
+
+    box-shadow:
+        0 0 8px rgba(94, 212, 206, 0.65);
+}
+
+
+/* =========================================================
+   RTL
+   ========================================================= */
+
+[dir="rtl"] .verification-engine {
+    font-family:
+        "Noto Sans Arabic",
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+}
+
+
+[dir="rtl"] .verification-engine__eyebrow {
+    letter-spacing: 0;
+}
+
+
+[dir="rtl"] .verification-engine__eyebrow-line {
+    order: 2;
+
+    background:
+        linear-gradient(
+            270deg,
+            transparent,
+            #71d8d3
+        );
+}
+
+
+[dir="rtl"] .verification-engine__certificate-status,
+[dir="rtl"] .verification-engine__live {
+    direction: ltr;
+}
+
+
+[dir="rtl"] .verification-engine__status {
+    text-align: right;
+}
+
+
+/* =========================================================
+   LARGE TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .verification-engine__core {
+        gap: 40px;
+    }
+
+    .verification-engine__certificate {
+        min-height: 360px;
+    }
+
+    .verification-engine__status {
+        padding: 23px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .verification-engine {
+        padding: 90px 22px 75px;
+    }
+
+    .verification-engine__header {
+        margin-bottom: 60px;
+    }
+
+    .verification-engine__pipeline {
+        gap: 12px;
+    }
+
+    .verification-engine__step-content span {
+        font-size: 9px;
+    }
+
+    .verification-engine__core {
+        grid-template-columns: 1fr;
+
+        max-width: 700px;
+
+        margin: 0 auto;
+    }
+
+    .verification-engine__certificate {
+        max-width: 620px;
+    }
+
+    .verification-engine__status {
+        max-width: 620px;
+
+        margin: 0 auto;
+    }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .verification-engine {
+        padding: 80px 18px 65px;
+    }
+
+    .verification-engine__title {
+        font-size: clamp(37px, 8vw, 52px);
+
+        letter-spacing: -1.5px;
+    }
+
+    .verification-engine__description {
+        font-size: 14px;
+    }
+
+    .verification-engine__pipeline {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+
+        max-width: 430px;
+
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .verification-engine__pipeline-line {
+        top: 28px;
+        bottom: 28px;
+        left: 28px;
+
+        width: 1px;
+        height: auto;
+
+        right: auto;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(49, 151, 149, 0.08),
+                rgba(49, 151, 149, 0.45),
+                rgba(49, 151, 149, 0.08)
+            );
+    }
+
+    .verification-engine__pipeline-signal {
+        top: -5%;
+        left: -2px;
+
+        width: 5px;
+        height: 12%;
+
+        animation-name: verificationEngineSignalVertical;
+    }
+
+    @keyframes verificationEngineSignalVertical {
+
+        0% {
+            top: -5%;
+        }
+
+        100% {
+            top: 100%;
+        }
+    }
+
+    .verification-engine__step {
+        display: grid;
+        grid-template-columns: 56px 1fr;
+
+        align-items: center;
+
+        gap: 18px;
+
+        min-height: 92px;
+
+        text-align: left;
+    }
+
+    .verification-engine__step-node {
+        margin: 0;
+    }
+
+    .verification-engine__step-content {
+        align-items: flex-start;
+    }
+
+    [dir="rtl"] .verification-engine__step {
+        text-align: right;
+    }
+
+    .verification-engine__certificate {
+        min-height: auto;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+    .verification-engine {
+        padding: 68px 15px 55px;
+    }
+
+    .verification-engine__header {
+        margin-bottom: 48px;
+    }
+
+    .verification-engine__eyebrow {
+        margin-bottom: 16px;
+
+        font-size: 9px;
+
+        letter-spacing: 2px;
+    }
+
+    .verification-engine__title {
+        font-size: clamp(32px, 9vw, 43px);
+
+        line-height: 1.08;
+    }
+
+    .verification-engine__description {
+        margin-top: 18px;
+
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .verification-engine__pipeline {
+        margin-bottom: 52px;
+    }
+
+    .verification-engine__step {
+        grid-template-columns: 48px 1fr;
+
+        min-height: 78px;
+
+        gap: 14px;
+    }
+
+    .verification-engine__step-node {
+        width: 48px;
+        height: 48px;
+    }
+
+    .verification-engine__step-content strong {
+        font-size: 12px;
+    }
+
+    .verification-engine__step-content span {
+        font-size: 9px;
+    }
+
+    .verification-engine__pipeline-line {
+        left: 24px;
+    }
+
+    .verification-engine__certificate {
+        border-radius: 15px;
+    }
+
+    .verification-engine__certificate-header {
+        padding: 18px 17px;
+    }
+
+    .verification-engine__certificate-brand {
+        font-size: 10px;
+    }
+
+    .verification-engine__certificate-status {
+        font-size: 7px;
+    }
+
+    .verification-engine__certificate-body {
+        padding: 28px 18px 22px;
+    }
+
+    .verification-engine__certificate-body h3 {
+        font-size: 22px;
+    }
+
+    .verification-engine__certificate-body p {
+        font-size: 11px;
+    }
+
+    .verification-engine__certificate-meta {
+        gap: 12px;
+    }
+
+    .verification-engine__certificate-meta strong {
+        font-size: 9px;
+    }
+
+    .verification-engine__certificate-footer {
+        padding: 17px 18px 20px;
+    }
+
+    .verification-engine__status {
+        padding: 19px;
+        border-radius: 15px;
+    }
+
+    .verification-engine__status-header h3 {
+        font-size: 18px;
+    }
+
+    .verification-engine__final {
+        padding: 14px;
+    }
+
+    .verification-engine__footer-note {
+        font-size: 9px;
+
+        line-height: 1.5;
+    }
+}
+
+
+/* =========================================================
+   EXTRA SMALL
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .verification-engine {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .verification-engine__title {
+        font-size: 31px;
+    }
+
+    .verification-engine__certificate-header {
+        gap: 10px;
+    }
+
+    .verification-engine__certificate-status {
+        letter-spacing: 0.5px;
+    }
+
+    .verification-engine__certificate-body h3 {
+        font-size: 20px;
+    }
+
+    .verification-engine__certificate-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .verification-engine__qr {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .verification-engine *,
+    .verification-engine *::before,
+    .verification-engine *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+}

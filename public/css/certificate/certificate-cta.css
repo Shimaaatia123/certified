@@ -1,0 +1,1623 @@
+/*=====================================================================
+#
+#                    CERTIFICATE CTA
+#
+#======================================================================*/
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+/* ==========================================================
+   CTA ROOT LAYER
+========================================================== */
+
+.cert-cta {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.cert-cta {
+    --cta-bg-1: #020817;
+    --cta-bg-2: #071a36;
+    --cta-bg-3: #0b2c55;
+
+    --cta-primary: #2563eb;
+    --cta-primary-light: #60a5fa;
+    --cta-secondary: #0ea5e9;
+    --cta-accent: #14b8a6;
+
+    --cta-white: #f8fbff;
+    --cta-muted: #a8bad3;
+
+    --cta-border: rgba(148, 163, 184, 0.16);
+    --cta-glass: rgba(255, 255, 255, 0.055);
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    padding: 64px 0 56px;
+
+    background:
+        radial-gradient(
+            circle at 15% 50%,
+            rgba(37, 99, 235, 0.18),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 45%,
+            rgba(14, 165, 233, 0.16),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            var(--cta-bg-1) 0%,
+            var(--cta-bg-2) 50%,
+            var(--cta-bg-3) 100%
+        );
+}
+
+/* ==========================================================
+   GLOBAL SECTION SAFETY
+========================================================== */
+.cert-cta,
+.cert-cta * {
+    box-sizing: border-box;
+}
+
+.cert-cta a {
+    text-decoration: none;
+}
+
+/* ==========================================================
+   BACKGROUND
+========================================================== */
+
+.cert-cta__grid {
+    position: absolute;
+    inset: 0;
+
+    z-index: 0;
+
+    opacity: 0.055;
+
+    background-image:
+        linear-gradient(
+            rgba(96, 165, 250, 0.16) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(96, 165, 250, 0.16) 1px,
+            transparent 1px
+        );
+
+    background-size: 72px 72px;
+
+    mask-image:
+        radial-gradient(
+            circle at center,
+            #000 20%,
+            transparent 85%
+        );
+}
+
+
+.cert-cta__aurora {
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    opacity: 0.2;
+}
+
+
+.cert-cta__aurora--1 {
+    top: -220px;
+    left: 5%;
+
+    background: rgba(37, 99, 235, 0.75);
+}
+
+
+.cert-cta__aurora--2 {
+    right: -180px;
+    bottom: -240px;
+
+    background: rgba(20, 184, 166, 0.55);
+}
+
+
+.cert-cta__orb {
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            rgba(255,255,255,0.4),
+            rgba(96,165,250,0.12) 35%,
+            transparent 72%
+        );
+
+    filter: blur(1px);
+
+    animation:
+        certCtaFloat 8s ease-in-out infinite;
+}
+
+
+.cert-cta__orb--1 {
+    width: 90px;
+    height: 90px;
+
+    left: 7%;
+    top: 20%;
+}
+
+
+.cert-cta__orb--2 {
+    width: 55px;
+    height: 55px;
+
+    right: 12%;
+    top: 65%;
+
+    animation-delay: -3s;
+}
+
+
+@keyframes certCtaFloat {
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(0, -14px, 0);
+    }
+}
+
+/* ==========================================================
+   PREMIUM STAR FIELD
+========================================================== */
+
+
+.cert-cta__star {
+    position: absolute;
+
+    display: block;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: #dbeafe;
+
+    box-shadow:
+        0 0 5px #93c5fd,
+        0 0 12px rgba(96, 165, 250, 0.9);
+
+    opacity: 0.85;
+
+    z-index: 4;
+
+    animation:
+        certCtaStarTwinkle
+        var(--star-duration, 3.5s)
+        ease-in-out
+        infinite;
+
+        opacity: 1;
+}
+
+
+/* ----------------------------------------------------------
+   Star Positions
+---------------------------------------------------------- */
+
+.cert-cta__star:nth-child(1) {
+    top: 12%;
+    left: 8%;
+    --star-duration: 3.2s;
+}
+
+.cert-cta__star:nth-child(2) {
+    top: 24%;
+    left: 18%;
+    width: 3px;
+    height: 3px;
+    --star-duration: 4.4s;
+}
+
+.cert-cta__star:nth-child(3) {
+    top: 9%;
+    left: 34%;
+    --star-duration: 2.8s;
+}
+
+.cert-cta__star:nth-child(4) {
+    top: 31%;
+    left: 47%;
+    width: 3px;
+    height: 3px;
+    --star-duration: 5s;
+}
+
+.cert-cta__star:nth-child(5) {
+    top: 15%;
+    left: 63%;
+    --star-duration: 3.8s;
+}
+
+.cert-cta__star:nth-child(6) {
+    top: 27%;
+    left: 78%;
+    width: 3px;
+    height: 3px;
+    --star-duration: 4.7s;
+}
+
+.cert-cta__star:nth-child(7) {
+    top: 18%;
+    left: 91%;
+    --star-duration: 3.4s;
+}
+
+.cert-cta__star:nth-child(8) {
+    top: 70%;
+    left: 11%;
+    --star-duration: 4.1s;
+}
+
+.cert-cta__star:nth-child(9) {
+    top: 82%;
+    left: 27%;
+    width: 3px;
+    height: 3px;
+    --star-duration: 5.2s;
+}
+
+.cert-cta__star:nth-child(10) {
+    top: 74%;
+    left: 58%;
+    --star-duration: 3.6s;
+}
+
+.cert-cta__star:nth-child(11) {
+    top: 86%;
+    left: 74%;
+    width: 3px;
+    height: 3px;
+    --star-duration: 4.8s;
+}
+
+.cert-cta__star:nth-child(12) {
+    top: 67%;
+    left: 93%;
+    --star-duration: 3s;
+}
+
+
+@keyframes certCtaStarTwinkle {
+
+    0%,
+    100% {
+        opacity: 0.18;
+        transform: scale(0.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+
+
+/* ==========================================================
+   EXTRA PREMIUM LIGHT
+========================================================== */
+
+.cert-cta__card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    border-radius: inherit;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(147, 197, 253, 0.09),
+            transparent 32%
+        );
+
+    opacity: 0.9;
+
+    z-index: 1;
+}
+
+
+/* ==========================================================
+   MOBILE PERFORMANCE
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .cert-cta__mouse-glow {
+        display: none;
+    }
+
+    .cert-cta__star:nth-child(n+9) {
+        display: none;
+    }
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cert-cta__star {
+        animation: none;
+        opacity: 0.4;
+    }
+
+}
+/* ==========================================================
+   PARTICLES
+========================================================== */
+
+.cert-cta__particles span {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: rgba(147, 197, 253, 0.8);
+
+    box-shadow:
+        0 0 12px rgba(96, 165, 250, 0.8);
+
+    animation:
+        certCtaParticle 5s ease-in-out infinite;
+}
+
+
+.cert-cta__particles span:nth-child(1) {
+    left: 10%;
+    top: 25%;
+}
+
+.cert-cta__particles span:nth-child(2) {
+    left: 22%;
+    top: 72%;
+    animation-delay: -1s;
+}
+
+.cert-cta__particles span:nth-child(3) {
+    left: 38%;
+    top: 18%;
+    animation-delay: -2s;
+}
+
+.cert-cta__particles span:nth-child(4) {
+    left: 52%;
+    top: 78%;
+    animation-delay: -3s;
+}
+
+.cert-cta__particles span:nth-child(5) {
+    left: 67%;
+    top: 24%;
+    animation-delay: -1.5s;
+}
+
+.cert-cta__particles span:nth-child(6) {
+    left: 79%;
+    top: 62%;
+    animation-delay: -2.5s;
+}
+
+.cert-cta__particles span:nth-child(7) {
+    left: 90%;
+    top: 32%;
+    animation-delay: -4s;
+}
+
+.cert-cta__particles span:nth-child(8) {
+    left: 46%;
+    top: 42%;
+    animation-delay: -3.5s;
+}
+
+
+@keyframes certCtaParticle {
+
+    0%,
+    100% {
+        opacity: 0.25;
+        transform: translateY(0) scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-12px) scale(1.15);
+    }
+}
+
+
+/* ==========================================================
+   MAIN GLASS CARD
+========================================================== */
+
+.cert-cta__card {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.08fr)
+        minmax(360px, 0.92fr);
+
+    align-items: center;
+
+    min-height: 470px;
+
+    padding: 54px 58px;
+
+    border: 1px solid var(--cta-border);
+
+    border-radius: 34px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.075),
+            rgba(255,255,255,0.025)
+        );
+
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.32),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    overflow: hidden;
+}
+
+
+.cert-cta__card::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 25%,
+            rgba(96,165,250,0.08) 50%,
+            transparent 75%
+        );
+
+    opacity: 0.7;
+}
+
+
+/* ==========================================================
+   SCAN LINE
+========================================================== */
+
+.cert-cta__scan {
+    position: absolute;
+
+    top: 0;
+    left: -25%;
+
+    width: 20%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.16),
+            transparent
+        );
+
+    filter: blur(18px);
+
+    transform: skewX(-18deg);
+
+    pointer-events: none;
+
+    animation:
+        certCtaScan 7s linear infinite;
+}
+
+
+@keyframes certCtaScan {
+
+    0% {
+        left: -25%;
+    }
+
+    100% {
+        left: 125%;
+    }
+}
+
+
+/* ==========================================================
+   CORNERS
+========================================================== */
+
+.cert-cta__corner {
+    position: absolute;
+
+    width: 34px;
+    height: 34px;
+
+    pointer-events: none;
+
+    opacity: 0.8;
+}
+
+
+.cert-cta__corner::before,
+.cert-cta__corner::after {
+    content: "";
+
+    position: absolute;
+
+    background: var(--cta-primary-light);
+}
+
+
+.cert-cta__corner::before {
+    width: 100%;
+    height: 1px;
+}
+
+
+.cert-cta__corner::after {
+    width: 1px;
+    height: 100%;
+}
+
+
+.cert-cta__corner--tl {
+    top: 20px;
+    left: 20px;
+}
+
+.cert-cta__corner--tr {
+    top: 20px;
+    right: 20px;
+    transform: rotate(90deg);
+}
+
+.cert-cta__corner--br {
+    right: 20px;
+    bottom: 20px;
+    transform: rotate(180deg);
+}
+
+.cert-cta__corner--bl {
+    bottom: 20px;
+    left: 20px;
+    transform: rotate(270deg);
+}
+
+
+/* ==========================================================
+   CONTENT
+========================================================== */
+
+.cert-cta__content {
+    position: relative;
+    z-index: 3;
+
+    max-width: 670px;
+}
+
+
+.cert-cta__badge {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 9px;
+
+    padding: 8px 15px;
+
+    border: 1px solid rgba(96,165,250,0.22);
+
+    border-radius: 999px;
+
+    background: rgba(37,99,235,0.09);
+
+    color: #bfdbfe;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+
+.cert-cta__badge-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #34d399;
+
+    box-shadow:
+        0 0 12px rgba(52,211,153,0.85);
+
+    animation:
+        certCtaPulse 2s ease-in-out infinite;
+}
+
+
+@keyframes certCtaPulse {
+
+    0%,
+    100% {
+        opacity: 0.55;
+        transform: scale(0.85);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.cert-cta__title {
+    margin: 20px 0 16px;
+
+    max-width: 650px;
+
+    color: var(--cta-white);
+
+    font-size: clamp(2.2rem, 4vw, 4rem);
+
+    font-weight: 800;
+
+    line-height: 1.08;
+
+    letter-spacing: -0.035em;
+}
+
+
+.cert-cta__title span {
+    display: inline;
+
+    background:
+        linear-gradient(
+            90deg,
+            #60a5fa,
+            #38bdf8,
+            #2dd4bf
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+.cert-cta__description {
+    max-width: 600px;
+
+    margin: 0;
+
+    color: var(--cta-muted);
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+}
+
+
+/* ==========================================================
+   ACTIONS
+========================================================== */
+
+.cert-cta__actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 13px;
+
+    margin-top: 27px;
+}
+
+
+.cert-cta__button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height: 50px;
+
+    padding: 0 20px;
+
+    border-radius: 14px;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.cert-cta__button--primary {
+    color: #fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #0ea5e9
+        );
+
+    box-shadow:
+        0 12px 30px rgba(37,99,235,0.28);
+}
+
+
+.cert-cta__button--secondary {
+    border: 1px solid rgba(148,163,184,0.22);
+
+    color: #dbeafe;
+
+    background:
+        rgba(255,255,255,0.045);
+}
+
+
+.cert-cta__button-arrow {
+    transition:
+        transform 0.3s ease;
+}
+
+
+.cert-cta__button:hover {
+    transform: translateY(-3px);
+}
+
+
+.cert-cta__button--primary:hover {
+    box-shadow:
+        0 18px 38px rgba(37,99,235,0.38);
+}
+
+
+.cert-cta__button--secondary:hover {
+    border-color:
+        rgba(96,165,250,0.48);
+
+    background:
+        rgba(96,165,250,0.08);
+}
+
+
+.cert-cta__button:hover
+.cert-cta__button-arrow {
+    transform: translateX(4px);
+}
+
+
+/* ==========================================================
+   TRUST INDICATORS
+========================================================== */
+
+.cert-cta__trust {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+
+.cert-cta__trust-item {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #9fb4cf;
+
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+
+.cert-cta__trust-icon {
+    display: inline-grid;
+
+    place-items: center;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    color: #60a5fa;
+
+    background:
+        rgba(37,99,235,0.12);
+}
+
+
+.cert-cta__trust-separator {
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(148,163,184,0.35);
+}
+
+
+/* ==========================================================
+   VISUAL
+========================================================== */
+
+.cert-cta__visual {
+    position: relative;
+
+    display: grid;
+
+    place-items: center;
+
+    min-height: 350px;
+
+    z-index: 2;
+}
+
+
+.cert-cta__visual-ring {
+    position: absolute;
+
+    border: 1px solid rgba(96,165,250,0.12);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    animation:
+        certCtaRing 8s linear infinite;
+}
+
+
+.cert-cta__visual-ring--1 {
+    width: 330px;
+    height: 330px;
+}
+
+
+.cert-cta__visual-ring--2 {
+    width: 250px;
+    height: 250px;
+
+    animation-direction: reverse;
+
+    animation-duration: 11s;
+}
+
+
+.cert-cta__visual-ring--3 {
+    width: 175px;
+    height: 175px;
+
+    animation-duration: 14s;
+}
+
+
+@keyframes certCtaRing {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ==========================================================
+   MINI CERTIFICATE
+========================================================== */
+
+.cert-cta__certificate {
+    position: relative;
+
+    width: min(100%, 330px);
+    aspect-ratio: 1.42 / 1;
+
+    padding: 20px;
+
+    border: 1px solid rgba(96,165,250,0.3);
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0b1f3c,
+            #061226
+        );
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,0.45),
+        0 0 55px rgba(37,99,235,0.16),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+
+    transform:
+        perspective(900px)
+        rotateY(-8deg)
+        rotateX(3deg);
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+
+    z-index: 3;
+}
+
+
+.cert-cta__certificate::before {
+    content: "";
+
+    position: absolute;
+    inset: 9px;
+
+    border: 1px solid rgba(96,165,250,0.16);
+
+    border-radius: 14px;
+
+    pointer-events: none;
+}
+
+
+.cert-cta__certificate-glow {
+    position: absolute;
+
+    inset: 20%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(37,99,235,0.25),
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+}
+
+
+/* ==========================================================
+   CERTIFICATE HEADER
+========================================================== */
+
+.cert-cta__certificate-header {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    z-index: 2;
+}
+
+
+.cert-cta__certificate-logo {
+    display: grid;
+
+    place-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    color: #bfdbfe;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37,99,235,0.25),
+            rgba(14,165,233,0.12)
+        );
+
+    border: 1px solid rgba(96,165,250,0.2);
+}
+
+
+.cert-cta__certificate-header strong {
+    display: block;
+
+    color: #f8fbff;
+
+    font-size: 0.9rem;
+}
+
+
+.cert-cta__certificate-header small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #7fa0c6;
+
+    font-size: 0.64rem;
+}
+
+
+/* ==========================================================
+   CERTIFICATE BODY
+========================================================== */
+
+.cert-cta__certificate-body {
+    position: absolute;
+
+    top: 50%;
+    left: 20px;
+    right: 20px;
+
+    transform: translateY(-50%);
+
+    text-align: center;
+
+    z-index: 2;
+}
+
+
+.cert-cta__certificate-body span {
+    display: block;
+
+    color: #7fb0e9;
+
+    font-size: 0.55rem;
+
+    letter-spacing: 0.2em;
+}
+
+
+.cert-cta__certificate-body strong {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #f8fbff;
+
+    font-size: 1.55rem;
+
+    letter-spacing: 0.08em;
+}
+
+
+.cert-cta__certificate-line {
+    width: 65px;
+    height: 2px;
+
+    margin: 12px auto 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #60a5fa,
+            transparent
+        );
+}
+
+
+/* ==========================================================
+   CERTIFICATE FOOTER
+========================================================== */
+
+.cert-cta__certificate-footer {
+    position: absolute;
+
+    left: 20px;
+    right: 20px;
+    bottom: 17px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    z-index: 2;
+}
+
+
+.cert-cta__certificate-footer span {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: #7894b6;
+
+    font-size: 0.57rem;
+}
+
+
+.cert-cta__certificate-footer i {
+    color: #60a5fa;
+}
+
+
+/* ==========================================================
+   FLOATING CARDS
+========================================================== */
+
+.cert-cta__floating {
+    position: absolute;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 10px 13px;
+
+    border: 1px solid rgba(148,163,184,0.15);
+
+    border-radius: 14px;
+
+    background:
+        rgba(5,18,38,0.84);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+
+    backdrop-filter: blur(12px);
+
+    z-index: 5;
+
+    animation:
+        certCtaFloat 5s ease-in-out infinite;
+}
+
+
+.cert-cta__floating span {
+    display: grid;
+
+    place-items: center;
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 11px;
+
+    color: #93c5fd;
+
+    background:
+        rgba(37,99,235,0.14);
+}
+
+
+.cert-cta__floating strong {
+    display: block;
+
+    color: #f8fbff;
+
+    font-size: 0.75rem;
+}
+
+
+.cert-cta__floating small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #7592b4;
+
+    font-size: 0.58rem;
+}
+
+
+.cert-cta__floating--top {
+    top: 24px;
+    right: 2px;
+}
+
+
+.cert-cta__floating--bottom {
+    left: 0;
+    bottom: 28px;
+
+    animation-delay: -2.5s;
+}
+
+
+/* ==========================================================
+   FOOTER DECORATION
+========================================================== */
+
+.cert-cta__footer-line {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 20px;
+}
+
+
+.cert-cta__footer-line span {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #60a5fa;
+
+    box-shadow:
+        0 0 12px rgba(96,165,250,0.8);
+}
+
+
+.cert-cta__footer-line span:nth-child(2) {
+    width: 55px;
+    height: 1px;
+
+    border-radius: 0;
+
+    box-shadow: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(96,165,250,0.65),
+            transparent
+        );
+}
+
+
+/* ==========================================================
+   RESPONSIVE — 1200px
+========================================================== */
+
+@media (max-width: 1200px) {
+
+    .cert-cta__card {
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(320px, 0.8fr);
+
+        padding: 48px;
+    }
+
+    .cert-cta__title {
+        font-size: clamp(2.15rem, 4vw, 3.4rem);
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE — 992px
+========================================================== */
+
+@media (max-width: 992px) {
+
+    .cert-cta {
+        padding: 28px 0 22px;
+    }
+
+
+    .cert-cta__card {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        min-height: 0;
+
+        padding: 44px 38px;
+    }
+
+
+    .cert-cta__content {
+        max-width: 760px;
+
+        margin-inline: auto;
+
+        text-align: center;
+    }
+
+
+    .cert-cta__description {
+        margin-inline: auto;
+    }
+
+
+    .cert-cta__actions,
+    .cert-cta__trust {
+        justify-content: center;
+    }
+
+
+    .cert-cta__visual {
+        min-height: 320px;
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE — 768px
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .cert-cta {
+        padding: 24px 0 18px;
+    }
+
+
+    .cert-cta__card {
+        padding: 36px 24px;
+
+        border-radius: 26px;
+    }
+
+
+    .cert-cta__title {
+        font-size: 2.25rem;
+
+        line-height: 1.14;
+    }
+
+
+    .cert-cta__description {
+        font-size: 0.94rem;
+
+        line-height: 1.75;
+    }
+
+
+    .cert-cta__actions {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .cert-cta__button {
+        width: 100%;
+    }
+
+
+    .cert-cta__trust {
+        gap: 10px;
+    }
+
+
+    .cert-cta__trust-separator {
+        display: none;
+    }
+
+
+    .cert-cta__visual {
+        min-height: 290px;
+    }
+
+
+    .cert-cta__certificate {
+        width: min(100%, 300px);
+    }
+
+
+    .cert-cta__floating--top {
+        right: 2%;
+    }
+
+
+    .cert-cta__floating--bottom {
+        left: 2%;
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE — 576px
+========================================================== */
+
+@media (max-width: 576px) {
+
+    .cert-cta__card {
+        padding: 30px 18px;
+
+        border-radius: 22px;
+    }
+
+
+    .cert-cta__badge {
+        font-size: 0.68rem;
+    }
+
+
+    .cert-cta__title {
+        margin-top: 16px;
+
+        font-size: 1.85rem;
+    }
+
+
+    .cert-cta__description {
+        font-size: 0.9rem;
+    }
+
+
+    .cert-cta__visual {
+        min-height: 250px;
+    }
+
+
+    .cert-cta__certificate {
+        width: 260px;
+    }
+
+
+    .cert-cta__visual-ring--1 {
+        width: 270px;
+        height: 270px;
+    }
+
+
+    .cert-cta__visual-ring--2 {
+        width: 210px;
+        height: 210px;
+    }
+
+
+    .cert-cta__visual-ring--3 {
+        width: 150px;
+        height: 150px;
+    }
+
+
+    .cert-cta__floating {
+        padding: 8px 10px;
+    }
+
+
+    .cert-cta__floating span {
+        width: 31px;
+        height: 31px;
+    }
+
+
+    .cert-cta__floating--top {
+        top: 5px;
+        right: 0;
+    }
+
+
+    .cert-cta__floating--bottom {
+        bottom: 5px;
+        left: 0;
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE — 400px
+========================================================== */
+
+@media (max-width: 400px) {
+
+    .cert-cta__card {
+        padding: 26px 15px;
+    }
+
+
+    .cert-cta__title {
+        font-size: 1.65rem;
+    }
+
+
+    .cert-cta__visual {
+        min-height: 220px;
+    }
+
+
+    .cert-cta__certificate {
+        width: 225px;
+
+        padding: 15px;
+    }
+
+
+    .cert-cta__certificate-body strong {
+        font-size: 1.2rem;
+    }
+
+
+    .cert-cta__floating {
+        transform: scale(0.85);
+    }
+
+
+    .cert-cta__trust-item {
+        font-size: 0.7rem;
+    }
+
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cert-cta *,
+    .cert-cta *::before,
+    .cert-cta *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}

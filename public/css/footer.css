@@ -1,0 +1,1069 @@
+/* ==========================================================
+                        FOOTER
+========================================================== */
+
+.footer {
+    position: relative;
+    overflow: hidden;
+
+    padding: 90px 0 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a 0%,
+            #16213e 45%,
+            #1e3a8a 100%
+        );
+
+    color: #fff;
+
+    isolation: isolate;
+}
+
+
+/* ==========================================================
+                    TOP DIVIDER
+========================================================== */
+
+.footer-top-divider {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    z-index: 10;
+}
+
+.footer-top-divider span {
+    position: absolute;
+
+    top: 0;
+    left: -30%;
+
+    width: 30%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #38bdf8,
+            #ffffff,
+            #8b5cf6,
+            transparent
+        );
+
+    filter: blur(0.5px);
+
+    animation:
+        footerDivider 5s linear infinite;
+}
+
+@keyframes footerDivider {
+
+    from {
+        left: -30%;
+    }
+
+    to {
+        left: 130%;
+    }
+
+}
+
+
+/* ==========================================================
+                    BACKGROUND STARS
+========================================================== */
+
+.footer-stars {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.footer-stars::before,
+.footer-stars::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            circle,
+            #ffffff 1.3px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle,
+            #60a5fa 1.2px,
+            transparent 1.4px
+        ),
+        radial-gradient(
+            circle,
+            #93c5fd 1.2px,
+            transparent 1.4px
+        );
+
+    background-size:
+        180px 180px,
+        260px 260px,
+        320px 320px;
+
+    animation:
+        footerStarsMove 55s linear infinite;
+
+    opacity: 0.45;
+}
+
+.footer-stars::after {
+    animation-duration: 80s;
+    opacity: 0.22;
+}
+
+@keyframes footerStarsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-220px);
+    }
+
+}
+
+
+/* ==========================================================
+                    BACKGROUND GLOW
+========================================================== */
+
+.footer::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(59, 130, 246, 0.15),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom left,
+            rgba(6, 182, 212, 0.12),
+            transparent 40%
+        );
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* ==========================================================
+                    AURORA
+========================================================== */
+
+.footer-aurora {
+    position: absolute;
+
+    top: -45%;
+    left: -35%;
+
+    width: 60%;
+    height: 220%;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 0%,
+            transparent 42%,
+            rgba(255, 255, 255, 0.02) 47%,
+            rgba(56, 189, 248, 0.08) 50%,
+            rgba(255, 255, 255, 0.14) 52%,
+            rgba(139, 92, 246, 0.08) 55%,
+            transparent 60%,
+            transparent 100%
+        );
+
+    transform: rotate(-18deg);
+
+    filter: blur(12px);
+
+    animation:
+        footerAurora 11s linear infinite;
+
+    opacity: 0.9;
+
+    z-index: 1;
+}
+
+@keyframes footerAurora {
+
+    0% {
+        transform:
+            translateX(-120%)
+            rotate(-18deg);
+    }
+
+    100% {
+        transform:
+            translateX(320%)
+            rotate(-18deg);
+    }
+
+}
+
+
+/* ==========================================================
+                    MAIN CONTENT
+========================================================== */
+
+.footer-content {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr
+        1fr
+        1fr
+        1fr;
+
+    gap: 60px;
+
+    z-index: 2;
+}
+
+
+/* ==========================================================
+                    BRAND
+========================================================== */
+
+.footer-brand {
+    position: relative;
+}
+
+
+/* ================= Logo ================= */
+
+.footer-logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    width: fit-content;
+
+    text-decoration: none;
+
+    margin-bottom: 25px;
+}
+
+.footer-logo img {
+    width: 52px;
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+.footer-logo:hover img {
+    transform:
+        rotate(-8deg)
+        scale(1.12);
+
+    filter:
+        drop-shadow(
+            0 0 18px
+            rgba(96, 165, 250, 0.55)
+        );
+}
+
+
+/* ================= Certified ================= */
+
+.footer-logo-text {
+    font-size: 1.8rem;
+
+    font-weight: 800;
+
+    background:
+        linear-gradient(
+            90deg,
+            #60a5fa,
+            #38bdf8,
+            #8b5cf6
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter:
+        drop-shadow(
+            0 0 10px
+            rgba(96, 165, 250, 0.35)
+        )
+        drop-shadow(
+            0 0 22px
+            rgba(139, 92, 246, 0.18)
+        );
+}
+
+.footer-logo-c {
+    display: inline-block;
+
+    background:
+        linear-gradient(
+            180deg,
+            #38bdf8,
+            #2563eb,
+            #8b5cf6
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(56, 189, 248, 0.45)
+        );
+
+    transform-origin: center;
+
+    will-change: transform;
+}
+
+
+/* ==========================================================
+                    C LOGO ANIMATION
+========================================================== */
+
+/*
+    Elegant brand animation:
+    The C rotates once every few seconds.
+*/
+
+.footer-logo-c {
+    animation:
+        footerLogoCRotate 7s ease-in-out infinite;
+}
+
+@keyframes footerLogoCRotate {
+
+    0%,
+    72%,
+    100% {
+        transform:
+            rotate(0deg)
+            scale(1);
+    }
+
+    78% {
+        transform:
+            rotate(90deg)
+            scale(1.06);
+    }
+
+    84% {
+        transform:
+            rotate(180deg)
+            scale(1.08);
+    }
+
+    90% {
+        transform:
+            rotate(270deg)
+            scale(1.06);
+    }
+
+    96% {
+        transform:
+            rotate(360deg)
+            scale(1);
+    }
+
+}
+
+
+/* ================= Hover ================= */
+
+.footer-logo:hover .footer-logo-c {
+    animation: footerLogoCHover 0.8s ease;
+}
+
+@keyframes footerLogoCHover {
+
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.12);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+
+}
+
+
+/* ==========================================================
+                    DESCRIPTION
+========================================================== */
+
+.footer-description {
+    max-width: 360px;
+
+    color:
+        rgba(255, 255, 255, 0.72);
+
+    line-height: 1.9;
+
+    margin-bottom: 30px;
+}
+
+
+/* ==========================================================
+                    FOOTER COLUMNS
+========================================================== */
+
+.footer-column {
+    position: relative;
+}
+
+.footer-column h4 {
+    font-size: 1.15rem;
+
+    margin-bottom: 25px;
+
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+                    DESKTOP TOGGLE
+========================================================== */
+
+.footer-toggle {
+    all: unset;
+
+    display: block;
+
+    width: 100%;
+
+    color: #fff;
+
+    font-size: 1.15rem;
+
+    font-weight: 700;
+
+    cursor: default;
+
+    position: relative;
+
+    padding-bottom: 10px;
+
+    margin-bottom: 25px;
+}
+
+.footer-toggle::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 40px;
+    height: 3px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #3b82f6,
+            #60a5fa
+        );
+}
+
+.footer-toggle i {
+    display: none;
+}
+
+
+/* ==========================================================
+                    FOOTER MENU
+========================================================== */
+
+.footer-menu {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+
+    max-height: none;
+
+    overflow: visible;
+}
+
+.footer-menu li {
+    margin-bottom: 16px;
+
+    color:
+        rgba(255, 255, 255, 0.72);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* ==========================================================
+                    FOOTER LINKS
+========================================================== */
+
+.footer-menu a {
+    color:
+        rgba(255, 255, 255, 0.72);
+
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+
+    position: relative;
+}
+
+.footer-menu a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -5px;
+
+    width: 0;
+    height: 2px;
+
+    background: #3b82f6;
+
+    transition:
+        width 0.3s ease;
+}
+
+.footer-menu a:hover {
+    color: #fff;
+
+    transform: translateX(4px);
+}
+
+.footer-menu a:hover::after {
+    width: 100%;
+}
+
+
+/* ==========================================================
+                    CONTACT ITEMS
+========================================================== */
+
+.footer-menu li a {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.footer-contact-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.footer-contact-item i,
+.footer-menu li a i {
+    width: 18px;
+
+    flex-shrink: 0;
+}
+
+
+/* ==========================================================
+                    SOCIAL
+========================================================== */
+
+.footer-social {
+    display: flex;
+
+    gap: 14px;
+}
+
+.footer-social a {
+    position: relative;
+
+    width: 46px;
+    height: 46px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(10px);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.footer-social a::before {
+    content: "";
+
+    position: absolute;
+
+    top: -100%;
+    left: -100%;
+
+    width: 220%;
+    height: 220%;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent,
+            rgba(255, 255, 255, 0.35),
+            transparent
+        );
+
+    transform: rotate(25deg);
+
+    transition: 0.6s;
+}
+
+.footer-social a:hover {
+    transform:
+        translateY(-6px)
+        scale(1.08);
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #38bdf8
+        );
+
+    box-shadow:
+        0 12px 35px
+        rgba(37, 99, 235, 0.45),
+        0 0 35px
+        rgba(96, 165, 250, 0.35);
+}
+
+.footer-social i {
+    position: relative;
+
+    z-index: 2;
+
+    transition:
+        transform 0.35s ease;
+}
+
+.footer-social a:hover i {
+    transform:
+        scale(1.2)
+        rotate(-8deg);
+}
+
+.footer-social a:hover::before {
+    top: 100%;
+    left: 100%;
+}
+
+
+/* ==========================================================
+                    FOOTER BOTTOM
+========================================================== */
+
+.footer-bottom {
+    position: relative;
+
+    margin-top: 70px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    text-align: center;
+
+    color:
+        rgba(255, 255, 255, 0.65);
+
+    z-index: 2;
+}
+
+.footer-bottom p {
+    margin: 0;
+
+    line-height: 1.8;
+}
+
+
+/* ==========================================================
+                    GLOW LINE
+========================================================== */
+
+.footer-glow-line {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    overflow: hidden;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    z-index: 5;
+}
+
+.footer-glow-line::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -35%;
+
+    width: 35%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #60a5fa,
+            #ffffff,
+            #60a5fa,
+            transparent
+        );
+
+    filter: blur(0.5px);
+
+    animation:
+        footerGlow 5s linear infinite;
+}
+
+@keyframes footerGlow {
+
+    from {
+        left: -35%;
+    }
+
+    to {
+        left: 135%;
+    }
+
+}
+
+
+/* ==========================================================
+                    SCROLL REVEAL
+                    FOOTER ONLY
+========================================================== */
+
+.footer .reveal-up {
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.footer .reveal-up.active {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ==========================================================
+                    TABLET
+========================================================== */
+
+@media (max-width: 992px) {
+
+    .footer-content {
+        grid-template-columns:
+            1fr
+            1fr;
+
+        gap: 45px;
+    }
+
+}
+
+
+/* ==========================================================
+                    MOBILE ACCORDION
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .footer {
+        padding: 70px 0 20px;
+    }
+
+
+    /* ================= Layout ================= */
+
+    .footer-content {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+        text-align: center;
+    }
+
+
+    /* ================= Brand ================= */
+
+    .footer-logo {
+        justify-content: center;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer-description {
+        margin:
+            auto
+            auto
+            30px;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+
+    /* ================= Column ================= */
+
+    .footer-column {
+        width: 100%;
+
+        background:
+            rgba(255, 255, 255, 0.03);
+
+        border:
+            1px solid
+            rgba(255, 255, 255, 0.08);
+
+        border-radius: 22px;
+
+        overflow: hidden;
+
+        backdrop-filter: blur(10px);
+
+        transition:
+            transform 0.35s ease,
+            border-color 0.35s ease,
+            background 0.35s ease;
+    }
+
+    .footer-column:hover {
+        transform: translateY(-4px);
+
+        border-color:
+            rgba(96, 165, 250, 0.2);
+    }
+
+
+    /* ================= Toggle ================= */
+
+    .footer-toggle {
+        all: unset;
+
+        box-sizing: border-box;
+
+        width: 100%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        padding: 18px 22px;
+
+        color: #fff;
+
+        font-size: 17px;
+
+        font-weight: 700;
+
+        cursor: pointer;
+
+        text-align: inherit;
+    }
+
+    .footer-toggle::after {
+        display: none;
+    }
+
+    .footer-toggle i {
+        display: block;
+
+        flex-shrink: 0;
+
+        font-size: 16px;
+
+        transition:
+            transform 0.35s ease;
+    }
+
+
+    /* ================= Menu ================= */
+
+    .footer-menu {
+        max-height: 0;
+
+        overflow: hidden;
+
+        padding:
+            0 22px;
+
+        transition:
+            max-height 0.4s ease,
+            padding 0.4s ease;
+    }
+
+    .footer-menu li {
+        justify-content: flex-start;
+
+        margin-bottom: 18px;
+
+        text-align: start;
+    }
+
+
+    /* ================= Active ================= */
+
+    .footer-column.active {
+        background:
+            rgba(255, 255, 255, 0.055);
+
+        border-color:
+            rgba(96, 165, 250, 0.2);
+    }
+
+    .footer-column.active .footer-menu {
+        max-height: 400px;
+
+        padding-bottom: 18px;
+    }
+
+    .footer-column.active .footer-toggle i {
+        transform: rotate(180deg);
+    }
+
+}
+
+
+/* ==========================================================
+                    SMALL MOBILE
+========================================================== */
+
+@media (max-width: 576px) {
+
+    .footer-logo-text {
+        font-size: 1.6rem;
+    }
+
+    .footer-logo img {
+        width: 46px;
+    }
+
+    .footer-social a {
+        width: 42px;
+        height: 42px;
+    }
+
+    .footer-bottom {
+        margin-top: 50px;
+    }
+
+    .footer-bottom p {
+        font-size: 14px;
+    }
+
+}
+
+
+/* ==========================================================
+                    REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .footer *,
+    .footer *::before,
+    .footer *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+
+}

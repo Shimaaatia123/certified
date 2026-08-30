@@ -1,0 +1,1276 @@
+.courses-section {
+    padding-bottom: 70px;
+    background: #0f172a;
+    color: #fff;
+}
+
+/* Header */
+.courses-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.courses-title {
+    font-size: 40px;
+    font-weight: 800;
+}
+
+/* ================= Description ================= */
+
+.courses-desc {
+    max-width: 720px;
+
+    margin: 18px auto 0;
+
+    padding: 12px 20px;
+
+    color:#ffffff;
+
+    font-size: 1.12rem;
+
+    font-weight: 400;
+
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.08);
+
+    line-height: 1.9;
+
+    text-align: center;
+
+    transition:
+        color 0.35s ease,
+        transform 0.35s ease,
+        text-shadow 0.35s ease;
+}
+
+/* Hover */
+
+.courses-desc:hover {
+   
+    transform: translateY(-3px);
+
+    text-shadow: 0 0 18px rgba(59, 130, 246, 0.25);
+}
+
+/* Filters */
+
+.courses-filters {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+
+   margin-top: 10px;
+
+   margin-bottom: 50px;
+
+    padding: 10px 22px 0;
+
+}
+
+.filter-btn {
+    position: relative;
+
+    padding: 10px 22px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    color: #fff;
+
+    font-weight: 600;
+
+    letter-spacing: 0.3px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* Hover */
+
+.filter-btn:hover {
+    transform: translateY(-4px);
+
+    color: #fff;
+
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+}
+
+/* Click */
+
+.filter-btn:active {
+    transform: scale(0.94);
+}
+
+/* Active */
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+}
+
+/* Shine Effect */
+
+.filter-btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 60%;
+
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+    );
+
+    transition: left 0.6s ease;
+}
+
+.filter-btn:hover::before {
+    left: 150%;
+}
+
+/* Card */
+.course-card {
+    position: relative;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.06),
+        rgba(255, 255, 255, 0.03)
+    );
+
+    backdrop-filter: blur(14px);
+
+    overflow: hidden;
+}
+
+.course-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    padding: 1px;
+
+    background: linear-gradient(
+        135deg,
+        transparent,
+        rgba(59, 130, 246, 0.55),
+        transparent
+    );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+
+    mask-composite: exclude;
+
+    opacity: 0;
+
+    transition: 0.4s;
+}
+
+.course-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: -150%;
+
+    left: -40%;
+
+    width: 60%;
+
+    height: 300%;
+
+    background: linear-gradient(
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.08),
+        rgba(255, 255, 255, 0)
+    );
+
+    transform: rotate(25deg);
+
+    animation: cardShine 5s linear infinite;
+}
+
+.course-card:hover {
+    box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.35),
+        0 0 35px rgba(59, 130, 246, 0.18),
+        0 0 70px rgba(59, 130, 246, 0.08);
+}
+
+.course-card:hover::before {
+    opacity: 1;
+}
+
+.course-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 45px rgba(37, 99, 235, 0.18);
+    border-color: rgba(59, 130, 246, 0.4);
+}
+
+.courses-section .row > div {
+    display: flex;
+}
+
+.course-card {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    height: 100%;
+
+    border-radius: 28px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition:
+        transform 0.45s,
+        box-shadow 0.45s,
+        border-color 0.45s;
+
+    cursor: pointer;
+    isolation: isolate;
+}
+
+.course-content {
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+}
+
+.course-footer {
+    margin-top: auto;
+}
+
+/* Image */
+.course-image {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 28px 28px 0 0;
+}
+
+.course-image img {
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.7s ease,
+        filter 0.7s ease;
+
+    backface-visibility: hidden;
+
+    transform: translateZ(0);
+}
+
+.course-card:hover .course-image img {
+    transform: scale(1.08);
+
+    filter: brightness(1.15) contrast(1.08) saturate(1.08);
+}
+
+.course-card:hover .course-image::after {
+    opacity: 1;
+}
+
+.course-image::after {
+    background: linear-gradient(
+        to top,
+        rgba(15, 23, 42, 0.35),
+        transparent 65%
+    );
+
+    opacity: 0;
+
+    transition: 0.4s;
+}
+
+.course-image::before {
+    content: "";
+
+    position: absolute;
+
+    top: -120%;
+
+    left: -40%;
+
+    width: 45%;
+
+    height: 300%;
+
+    background: linear-gradient(
+        transparent,
+        rgba(255, 255, 255, 0.16),
+        transparent
+    );
+
+    transform: rotate(25deg);
+
+    animation: courseImageShine 6s linear infinite;
+}
+
+/* Badge */
+.course-badge {
+    position: absolute;
+
+    top: 16px;
+
+    left: 16px;
+
+    padding: 8px 16px;
+
+    border-radius: 999px;
+
+    background: rgba(37, 99, 235, 0.95);
+
+    color: #fff;
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+
+    transition: 0.35s;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    letter-spacing: 0.8px;
+
+    text-transform: uppercase;
+}
+
+.course-card:hover .course-badge {
+    transform: translateY(-3px);
+}
+
+/* Content */
+.course-content {
+    padding: 20px;
+}
+
+.course-content h3 {
+    color: #fff;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    line-height: 1.35;
+
+    margin-bottom: 14px;
+
+    transition: 0.35s;
+}
+
+.course-card:hover .course-content h3 {
+    color: #93c5fd;
+}
+
+.course-content p {
+    color: rgba(255, 255, 255, 0.82);
+
+    line-height: 1.8;
+
+    font-size: 15px;
+
+    margin-bottom: 24px;
+}
+
+/* Footer */
+.course-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.course-btn {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #60a5fa;
+
+    transition: 0.35s;
+}
+
+.course-btn i {
+    transition: 0.35s;
+}
+
+.course-card:hover .course-btn {
+    color: #fff;
+}
+
+.course-card:hover .course-btn i {
+    transform: translateX(6px);
+}
+
+.course-time {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ==========================================================
+                    PREMIUM ACTIVE NAVIGATION
+========================================================== */
+
+.nav-link {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+
+    color: #374151;
+
+    font-size: 0.98rem;
+
+    font-weight: 500;
+
+    transition:
+        color 0.35s ease,
+        transform 0.35s ease;
+}
+
+/* ================= Hover ================= */
+
+.nav-link:hover {
+    color: #2563eb;
+
+    transform: translateY(-1px);
+}
+
+/* ================= Active ================= */
+
+.nav-link.active {
+    color: #2563eb !important;
+
+    font-weight: 700;
+}
+
+/* ================= Premium Indicator ================= */
+
+.nav-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -12px;
+
+    transform: translateX(-50%) scaleX(0.2);
+
+    opacity: 0;
+
+    width: 34px;
+
+    height: 4px;
+
+    border-radius: 999px;
+
+    background: linear-gradient(90deg, #60a5fa, #2563eb, #1d4ed8);
+
+    box-shadow:
+        0 0 10px rgba(37, 99, 235, 0.45),
+        0 0 18px rgba(37, 99, 235, 0.25);
+
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease;
+}
+
+/* Hover + Active */
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    opacity: 1;
+
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* ================= Arrow ================= */
+
+.nav-arrow {
+    font-size: 0.72rem;
+
+    transition:
+        transform 0.35s ease,
+        color 0.35s ease;
+}
+
+.nav-link:hover .nav-arrow {
+    transform: translateY(1px);
+}
+
+.nav-link.active .nav-arrow {
+    color: #2563eb;
+
+    transform: rotate(180deg);
+}
+
+/* ==========================================================
+                    SCROLL REVEAL
+========================================================== */
+
+.section-divider {
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.section-divider.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+/* ==========================================================
+            COURSES → HERO TRANSITION
+========================================================== */
+
+.courses-transition {
+    position: relative;
+
+    width: 100%;
+
+    height:70px;
+
+    margin-top: 35px;
+
+    overflow: visible;
+}
+
+/* ================= Glow ================= */
+
+.transition-glow {
+    position: absolute;
+
+    top: 0;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(700px, 60vw);
+
+    height: 120px;
+
+    border-radius: 50%;
+
+    background: rgba(37, 99, 235, 0.22);
+
+    filter: blur(65px);
+    animation: glowMove 5s ease-in-out infinite;
+}
+
+/* ================= Line ================= */
+
+.transition-border {
+    position: absolute;
+
+    top: 20px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(900px, 80%);
+
+    height: 2px;
+
+    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+}
+
+/* ================= Curve ================= */
+
+.transition-curve {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 100%;
+
+    height: 40px;
+
+    background: #0f172a;
+
+    border-radius: 100% 100% 0 0;
+}
+
+/* ================= Circle ================= */
+
+.transition-icon{
+
+    position:absolute;
+
+    left:50%;
+
+    top:-16px;
+
+    transform:translateX(-50%);
+
+    width:72px;
+
+    height:72px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    color:#fff;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6
+    );
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+        0 0 18px rgba(37,99,235,.45),
+        0 0 45px rgba(37,99,235,.25);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
+}
+
+.transition-icon::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120%;
+
+    left:-40%;
+
+    width:45%;
+
+    height:300%;
+
+    background:linear-gradient(
+
+        transparent,
+
+        rgba(255,255,255,.45),
+
+        transparent
+
+    );
+
+    transform:rotate(25deg);
+
+    animation:transitionIconShine 4s linear infinite;
+
+}
+
+.transition-icon:hover{
+
+    transform:
+        translateX(-50%)
+        translateY(-6px)
+        scale(1.08);
+
+    box-shadow:
+        0 0 25px rgba(59,130,246,.6),
+        0 0 55px rgba(37,99,235,.45),
+        0 0 90px rgba(96,165,250,.25);
+
+}
+
+.transition-icon i{
+
+    position:relative;
+
+    z-index:2;
+
+    transition:
+        transform .35s ease;
+
+}
+
+.transition-icon:hover i{
+
+    transform:translateY(4px);
+
+}
+
+.courses-stars {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.courses-stars span {
+    position: absolute;
+
+    width: 4px;
+
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: #7dd3fc;
+
+    box-shadow:
+        0 0 8px #60a5fa,
+        0 0 18px #2563eb;
+
+    animation: courseStar 3s ease-in-out infinite;
+}
+
+.courses-stars span:nth-child(1) {
+    top: 8%;
+    left: 10%;
+}
+.courses-stars span:nth-child(2) {
+    top: 20%;
+    left: 28%;
+}
+.courses-stars span:nth-child(3) {
+    top: 14%;
+    left: 55%;
+}
+.courses-stars span:nth-child(4) {
+    top: 32%;
+    left: 80%;
+}
+.courses-stars span:nth-child(5) {
+    top: 48%;
+    left: 15%;
+}
+.courses-stars span:nth-child(6) {
+    top: 60%;
+    left: 35%;
+}
+.courses-stars span:nth-child(7) {
+    top: 72%;
+    left: 60%;
+}
+.courses-stars span:nth-child(8) {
+    top: 82%;
+    left: 90%;
+}
+.courses-stars span:nth-child(9) {
+    top: 55%;
+    left: 75%;
+}
+.courses-stars span:nth-child(10) {
+    top: 30%;
+    left: 5%;
+}
+
+.course-card {
+    transform-style: preserve-3d;
+
+    perspective: 1200px;
+}
+
+.course-card:hover .course-content {
+    transform: translateY(-4px);
+}
+
+.course-content {
+    transition: 0.35s;
+}
+
+.course-card:hover .course-badge {
+    transform: translateY(-4px) scale(1.06);
+}
+
+.course-card:hover .course-btn {
+    letter-spacing: 0.4px;
+}
+
+@keyframes courseStar {
+    0%,
+    100% {
+        opacity: 0.2;
+
+        transform: scale(0.6);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform: scale(1.7);
+    }
+}
+
+@keyframes cardShine {
+    from {
+        left: -50%;
+    }
+
+    to {
+        left: 150%;
+    }
+}
+
+@keyframes glowMove {
+    0%,
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.08);
+    }
+}
+
+@keyframes courseImageShine {
+    from {
+        left: -50%;
+    }
+
+    to {
+        left: 150%;
+    }
+}
+
+@keyframes transitionPulse{
+
+    0%,100%{
+
+        transform:translateX(-50%) scale(1);
+
+    }
+
+    50%{
+
+        transform:translateX(-50%) scale(1.04);
+
+    }
+
+}
+
+/* ==========================================================
+        COURSES VISIBILITY FIX
+========================================================== */
+
+.courses-section,
+.courses-section .container,
+.courses-section .courses-header,
+.courses-section .courses-subtitle,
+.courses-section .courses-title,
+.courses-section .courses-desc,
+.courses-section .courses-filters,
+.courses-section .row {
+    opacity:1 !important;
+    visibility:visible !important;
+}
+
+/* DEBUG COURSES HEADER */
+
+
+
+.courses-subtitle {
+    color: #67c8ff !important;
+}
+
+.courses-title {
+    color: white !important;
+}
+
+.courses-title span {
+
+    color:#67c8ff !important;
+
+  text-shadow:
+        0 1px 2px rgba(0,0,0,.35),
+        0 0 8px rgba(103,200,255,.35);
+
+}
+
+.courses-section {
+    padding-top: 120px !important;
+}
+
+/* ==========================================================
+        COURSES HEADER PREMIUM BOX
+========================================================== */
+
+.courses-header {
+    position: relative;
+    max-width: 850px;
+    margin: 0 auto 50px;
+    padding: 35px 40px;
+
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(103,200,255,0.35);
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 0 30px rgba(103,200,255,0.15),
+        inset 0 0 25px rgba(255,255,255,0.03);
+
+    backdrop-filter: blur(12px);
+}
+
+.courses-header::before {
+
+    content: "";
+    position: absolute;
+
+    top: -50%;
+    left: -80%;
+
+    width: 60%;
+    height: 200%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(103,200,255,0.35),
+        transparent
+    );
+
+    transform: rotate(25deg);
+
+    animation: coursesShine 5s infinite;
+
+}
+
+@keyframes coursesShine {
+
+    0% {
+        left: -80%;
+    }
+
+    40% {
+        left: 130%;
+    }
+
+    100% {
+        left: 130%;
+    }
+
+}
+
+.courses-subtitle {
+
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    border-radius: 50px;
+
+    background: rgba(103,200,255,0.12);
+
+    border: 1px solid rgba(103,200,255,0.3);
+
+    letter-spacing: 1px;
+
+}
+
+.courses-title {
+
+    margin-top: 18px;
+
+    font-size: clamp(32px,4vw,52px);
+
+    font-weight: 800;
+
+}
+
+.courses-header {
+
+    animation: headerFloat 6s ease-in-out infinite;
+
+}
+
+
+@keyframes headerFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+}
+
+/* ==========================================================
+        COURSE CARDS SCROLL REVEAL
+========================================================== */
+
+.course-card {
+
+    opacity: 0;
+    transform: translateY(25px) scale(.98);
+
+    transition:
+        opacity .35s ease,
+        transform .35s cubic-bezier(.22,1,.36,1);
+
+}
+
+
+/* عند الظهور */
+
+.course-card.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+/* تأخير بسيط بين الكروت */
+
+.courses-section .row > div:nth-child(1) .course-card {
+    transition-delay: .05s;
+}
+
+.courses-section .row > div:nth-child(2) .course-card {
+    transition-delay: .12s;
+}
+
+.courses-section .row > div:nth-child(3) .course-card {
+    transition-delay: .19s;
+}
+
+.courses-section .row > div:nth-child(4) .course-card {
+    transition-delay: .26s;
+}
+
+.courses-section .row > div:nth-child(5) .course-card {
+    transition-delay: .33s;
+}
+
+.courses-section .row > div:nth-child(6) .course-card {
+    transition-delay: .40s;
+}
+
+/* ==========================================================
+   COURSES — CARD SIZE REFINEMENT
+   Small Professional Reduction
+   Keeps Grid / Hover / Animation / Responsive Intact
+========================================================== */
+
+.courses-section .course-card {
+    width: 100%;
+}
+
+
+/* ================= COURSE IMAGE ================= */
+
+.courses-section .course-image img {
+    height: 190px;
+}
+
+
+/* ================= COURSE CONTENT ================= */
+
+.courses-section .course-content {
+    padding: 17px;
+}
+
+
+/* ================= COURSE TITLE ================= */
+
+.courses-section .course-content h3 {
+    font-size: 19px;
+    line-height: 1.35;
+    margin-bottom: 10px;
+}
+
+
+/* ================= COURSE DESCRIPTION ================= */
+
+.courses-section .course-content p {
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 18px;
+}
+
+
+/* ================= COURSE FOOTER ================= */
+
+.courses-section .course-footer {
+    margin-top: 10px;
+}
+
+
+/* ================= COURSE BADGE ================= */
+
+.courses-section .course-badge {
+    top: 13px;
+    left: 13px;
+    padding: 7px 13px;
+    font-size: 0.74rem;
+}
+
+
+/* ================= COURSE BUTTON ================= */
+
+.courses-section .course-btn {
+    font-size: 14px;
+}
+
+
+/* ================= COURSE TIME ================= */
+
+.courses-section .course-time {
+    font-size: 11px;
+}
+
+/* ==========================================================
+   CERTIFIED — COURSES SMART GRID
+   Responsive • Dynamic • Centered Incomplete Row
+========================================================== */
+
+.courses-section .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+
+    align-items: stretch;
+}
+
+
+/* ==========================================================
+   CARD WRAPPER
+========================================================== */
+
+.courses-section .courses-grid > div {
+    width: 100%;
+}
+
+
+/* ==========================================================
+   7th card / incomplete final row
+   Center the last item automatically
+========================================================== */
+
+@media (min-width: 992px) {
+
+    /*
+       When the total number of cards leaves exactly one
+       item on the last row, center that item.
+    */
+
+    .courses-section .courses-grid > div:last-child:nth-child(3n + 1) {
+        grid-column: 2;
+    }
+
+}
+
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .courses-section .courses-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    /*
+       5 cards → 2 + 2 + 1
+       Center the last card.
+    */
+
+    .courses-section .courses-grid > div:last-child:nth-child(2n + 1) {
+        grid-column: 1 / -1;
+        width: 50%;
+        justify-self: center;
+    }
+
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 767px) {
+
+    .courses-section .courses-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .courses-section .courses-grid > div {
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,130 @@
+/* ===========================================
+                HERO SECTION
+=========================================== */
+
+.hero-section{
+
+    padding-top:140px;
+
+    padding-bottom:90px;
+
+}
+
+.hero-content{
+
+    text-align:center;
+
+}
+
+.hero-title{
+
+    font-size:58px;
+
+    font-weight:800;
+
+    color:#1E293B;
+
+}
+
+.hero-title i{
+
+    color:#2563EB;
+
+    margin-right:12px;
+
+}
+
+.hero-subtitle{
+
+    margin-top:15px;
+
+    font-size:22px;
+
+    color:#64748B;
+
+}
+
+/* ===========================================
+                HERO BUTTONS
+=========================================== */
+
+.hero-buttons{
+
+    margin-top:40px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.btn-primary-hero{
+
+    background:linear-gradient(135deg,#2563EB,#06B6D4);
+
+    color:white;
+
+    padding:16px 34px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.35s;
+
+    box-shadow:0 18px 35px rgba(37,99,235,.25);
+
+}
+
+.btn-primary-hero:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.btn-secondary-hero{
+
+    border:2px solid #2563EB;
+
+    color:#2563EB;
+
+    padding:16px 34px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+.btn-secondary-hero:hover{
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+.hero-image{
+
+    width:100%;
+
+    max-width:900px;
+
+    margin-top:70px;
+
+    display:block;
+
+    margin-inline:auto;
+
+}
+

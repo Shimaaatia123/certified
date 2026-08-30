@@ -1,0 +1,1022 @@
+/* ==========================================================
+                        FAQ SECTION
+========================================================== */
+
+.faq-section {
+    position: relative;
+
+    padding: 70px 30px;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(37, 99, 235, 0.07),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at top right,
+            rgba(96, 165, 250, 0.07),
+            transparent 32%
+        ),
+        #f8fbff;
+
+    z-index: 1;
+}
+
+
+/* ==========================================================
+                        CONTAINER
+========================================================== */
+
+.faq-section .container {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* ==========================================================
+                        NOISE
+========================================================== */
+
+.faq-noise {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        url("https://www.transparenttextures.com/patterns/noise.png");
+
+    opacity: 0.03;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* ==========================================================
+                    BACKGROUND GLOW
+========================================================== */
+
+.faq-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background: rgba(37, 99, 235, 0.05);
+
+    filter: blur(90px);
+
+    top: -120px;
+    left: -140px;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.faq-section::after {
+    content: "";
+
+    position: absolute;
+
+    width: 360px;
+    height: 360px;
+
+    border-radius: 50%;
+
+    background: rgba(96, 165, 250, 0.05);
+
+    filter: blur(90px);
+
+    right: -100px;
+    bottom: -120px;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* ==========================================================
+                        FAQ HEADER
+========================================================== */
+
+.faq-heading {
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 750px;
+
+    margin: 0 auto 70px;
+
+    text-align: center;
+}
+
+
+/* ==========================================================
+                        BADGE
+========================================================== */
+
+.faq-badge {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 10px 20px;
+
+    margin-bottom: 25px;
+
+    border-radius: 50px;
+
+    background: rgba(37, 99, 235, 0.08);
+
+    color: #2563eb;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.7px;
+
+    text-transform: uppercase;
+
+    position: relative;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.12);
+
+    animation:
+        faqFloatingBadge 4s ease-in-out infinite;
+
+    transition:
+        transform 0.35s ease;
+}
+
+.faq-badge::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.9),
+            transparent
+        );
+
+    transition:
+        left 0.8s ease;
+
+    pointer-events: none;
+}
+
+.faq-heading:hover .faq-badge {
+    transform: translateY(-3px);
+}
+
+.faq-heading:hover .faq-badge::before {
+    left: 140%;
+}
+
+.faq-badge i {
+    font-size: 18px;
+}
+
+
+/* ==========================================================
+                        TITLE
+========================================================== */
+
+.faq-title {
+    position: relative;
+
+    display: inline-block;
+
+    margin: 0 0 22px;
+
+    color: #0f172a;
+
+    font-size: clamp(34px, 5vw, 48px);
+
+    font-weight: 800;
+
+    line-height: 1.15;
+}
+
+html[dir="rtl"] .faq-title {
+    line-height: 1.4;
+}
+
+
+/* ==========================================================
+                    TITLE UNDERLINE
+========================================================== */
+
+.faq-title::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -18px;
+
+    width: 90px;
+    height: 5px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #60a5fa
+        );
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.25);
+
+    transform: translateX(-50%);
+}
+
+
+/* ==========================================================
+                        DESCRIPTION
+========================================================== */
+
+.faq-text {
+    max-width: 650px;
+
+    margin: 35px auto 0;
+
+    color: #64748b;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+
+    transition:
+        color 0.35s ease;
+}
+
+html[dir="rtl"] .faq-text {
+    line-height: 2;
+}
+
+.faq-heading:hover .faq-text {
+    color: #475569;
+}
+
+
+/* ==========================================================
+                        FAQ LIST
+========================================================== */
+
+.faq-list {
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+}
+
+
+/* ==========================================================
+                        FAQ CARD
+========================================================== */
+
+.faq-item {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(37, 99, 235, 0.08);
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.05),
+        0 1px 2px rgba(15, 23, 42, 0.04);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease,
+        background 0.4s ease;
+}
+
+
+/* ==========================================================
+                        BORDER GLOW
+========================================================== */
+
+.faq-item::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    padding: 1px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37, 99, 235, 0.25),
+            transparent,
+            rgba(96, 165, 250, 0.25)
+        );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+
+    mask-composite: exclude;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.4s ease;
+
+    pointer-events: none;
+
+    z-index: 4;
+}
+
+
+/* ==========================================================
+                        SHINE
+========================================================== */
+
+.faq-item::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255, 255, 255, 0.35),
+            transparent
+        );
+
+    transform: translateX(-130%);
+
+    transition:
+        transform 0.7s ease;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* ==========================================================
+                    ACTIVE BAR
+========================================================== */
+
+.faq-item .active-bar {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 5px;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #2563eb,
+            #60a5fa
+        );
+
+    transform:
+        scaleY(0);
+
+    transform-origin: top;
+
+    transition:
+        transform 0.35s ease;
+
+    z-index: 5;
+}
+
+
+/* ==========================================================
+                        HOVER
+========================================================== */
+
+.faq-item:hover {
+    transform:
+        translateY(-8px)
+        scale(1.015);
+
+    border-color:
+        rgba(37, 99, 235, 0.15);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.98),
+            rgba(250, 252, 255, 1)
+        );
+
+    box-shadow:
+        0 25px 70px rgba(37, 99, 235, 0.12),
+        0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.faq-item:hover::after {
+    opacity: 1;
+}
+
+.faq-item:hover::before {
+    transform:
+        translateX(130%);
+}
+
+
+/* ==========================================================
+                    ACTIVE ACCORDION STATE
+========================================================== */
+
+.faq-item.active {
+    border-color: #2563eb;
+
+    background: #fff;
+
+    box-shadow:
+        0 28px 80px rgba(37, 99, 235, 0.14);
+
+    transform:
+        translateY(-4px);
+}
+
+.faq-item.active .active-bar {
+    transform:
+        scaleY(1);
+}
+
+.faq-item.active::after {
+    opacity: 1;
+}
+
+
+/* ==========================================================
+                        QUESTION
+========================================================== */
+
+.faq-question {
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+
+    padding: 30px 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    text-align: inherit;
+
+    transition:
+        padding 0.3s ease,
+        background 0.3s ease;
+}
+
+.faq-item:hover .faq-question {
+    padding-left: 40px;
+}
+
+
+/* ==========================================================
+                    QUESTION LEFT
+========================================================== */
+
+.faq-question-left {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+/* ==========================================================
+                    QUESTION ICON
+========================================================== */
+
+.faq-question-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #dbeafe
+        );
+
+    box-shadow:
+        0 8px 20px rgba(37, 99, 235, 0.08);
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.faq-question-icon i {
+    color: #2563eb;
+
+    font-size: 20px;
+
+    transition:
+        color 0.35s ease;
+}
+
+
+/* ==========================================================
+                    QUESTION TEXT
+========================================================== */
+
+.faq-question-left > span {
+    flex: 1;
+
+    color: #0f172a;
+
+    font-size: 1.08rem;
+
+    font-weight: 800;
+
+    letter-spacing: -0.2px;
+
+    line-height: 1.5;
+
+    transition:
+        color 0.3s ease;
+}
+
+html[dir="rtl"] .faq-question-left > span {
+    line-height: 1.7;
+}
+
+.faq-item:hover .faq-question-left > span {
+    color: #2563eb;
+}
+
+
+/* ==========================================================
+                    QUESTION ICON HOVER
+========================================================== */
+
+.faq-item:hover .faq-question-icon {
+    transform:
+        scale(1.08);
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #3b82f6
+        );
+}
+
+.faq-item:hover .faq-question-icon i {
+    color: #fff;
+}
+
+
+/* ==========================================================
+                    ACTIVE QUESTION ICON
+========================================================== */
+
+.faq-item.active .faq-question-icon {
+    transform:
+        scale(1.08);
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #3b82f6
+        );
+
+    box-shadow:
+        0 12px 30px rgba(37, 99, 235, 0.25);
+}
+
+.faq-item.active .faq-question-icon i {
+    color: #fff;
+}
+
+
+/* ==========================================================
+                        ARROW
+========================================================== */
+
+.faq-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    background: #eff6ff;
+
+    transition:
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.faq-icon i {
+    color: #2563eb;
+
+    font-size: 18px;
+
+    transition:
+        transform 0.4s cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        ),
+        color 0.3s ease;
+}
+
+
+/* Only the arrow rotates */
+
+.faq-item.active .faq-icon {
+    background: #2563eb;
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.25);
+}
+
+.faq-item.active .faq-icon i {
+    color: #fff;
+
+    transform:
+        rotate(180deg);
+}
+
+
+/* ==========================================================
+                        ANSWER
+========================================================== */
+
+.faq-answer {
+    display: grid;
+
+    grid-template-rows: 0fr;
+
+    overflow: hidden;
+
+    transition:
+        grid-template-rows 0.45s ease;
+}
+
+.faq-answer-content {
+    min-height: 0;
+
+    padding: 0 34px 30px;
+
+    color: #64748b;
+
+    font-size: 15.5px;
+
+    line-height: 1.9;
+
+    opacity: 0;
+
+    transform:
+        translateY(-12px);
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+}
+
+
+/* Open answer */
+
+.faq-item.active .faq-answer {
+    grid-template-rows: 1fr;
+}
+
+.faq-item.active .faq-answer-content {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* ==========================================================
+                    QUESTION ICON COLORS
+========================================================== */
+
+.faq-item:nth-child(2) .faq-question-icon {
+    background:
+        linear-gradient(
+            135deg,
+            #ecfeff,
+            #cffafe
+        );
+}
+
+.faq-item:nth-child(2) .faq-question-icon i {
+    color: #0891b2;
+}
+
+.faq-item:nth-child(3) .faq-question-icon {
+    background:
+        linear-gradient(
+            135deg,
+            #fef9c3,
+            #fde68a
+        );
+}
+
+.faq-item:nth-child(3) .faq-question-icon i {
+    color: #ca8a04;
+}
+
+.faq-item:nth-child(4) .faq-question-icon {
+    background:
+        linear-gradient(
+            135deg,
+            #dcfce7,
+            #bbf7d0
+        );
+}
+
+.faq-item:nth-child(4) .faq-question-icon i {
+    color: #16a34a;
+}
+
+
+/* ==========================================================
+                    BADGE ANIMATION
+========================================================== */
+
+@keyframes faqFloatingBadge {
+
+    0% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-4px);
+    }
+
+    100% {
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* ==========================================================
+                    SCROLL REVEAL
+                    FAQ ONLY
+========================================================== */
+
+/*
+    IMPORTANT:
+    is-visible is ONLY for reveal animation.
+    active is ONLY for accordion state.
+*/
+
+.faq-section .faq-reveal {
+    opacity: 0;
+
+    transform:
+        translateY(50px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.faq-section .faq-reveal.is-visible {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* ==========================================================
+                        RESPONSIVE
+========================================================== */
+
+@media (max-width: 992px) {
+
+    .faq-heading {
+        margin-bottom: 55px;
+    }
+
+    .faq-title {
+        font-size: 40px;
+    }
+
+    .faq-list {
+        max-width: 100%;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .faq-section {
+        padding: 70px 0;
+    }
+
+    .faq-heading {
+        margin-bottom: 45px;
+    }
+
+    .faq-title {
+        font-size: 30px;
+
+        line-height: 1.35;
+    }
+
+    .faq-text {
+        margin-top: 28px;
+
+        font-size: 15px;
+
+        line-height: 1.8;
+    }
+
+    .faq-question {
+        padding: 20px;
+
+        gap: 15px;
+    }
+
+    .faq-item:hover .faq-question {
+        padding-left: 20px;
+    }
+
+    .faq-question-left {
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+    .faq-question-left > span {
+        font-size: 16px;
+
+        line-height: 1.5;
+    }
+
+    .faq-question-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .faq-question-icon i {
+        font-size: 18px;
+    }
+
+    .faq-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .faq-answer-content {
+        padding:
+            0 20px 20px;
+
+        font-size: 15px;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .faq-item {
+        border-radius: 18px;
+    }
+
+    .faq-question {
+        padding: 18px;
+    }
+
+    .faq-question-left > span {
+        font-size: 15px;
+    }
+
+    .faq-answer-content {
+        font-size: 14px;
+
+        line-height: 1.8;
+    }
+}
+
+
+/* ==========================================================
+                    REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .faq-badge {
+        animation: none;
+    }
+
+    .faq-section .faq-reveal {
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+    }
+
+    .faq-item,
+    .faq-question,
+    .faq-question-icon,
+    .faq-icon,
+    .faq-icon i,
+    .faq-answer,
+    .faq-answer-content {
+        transition: none;
+    }
+}

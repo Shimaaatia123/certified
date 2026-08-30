@@ -1,0 +1,719 @@
+/* ==========================================================
+                    HOW IT WORKS
+========================================================== */
+
+.how-section {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding: 50px 0;
+}
+
+
+/* ==========================================================
+                    BACKGROUND GLOW
+========================================================== */
+
+.how-section::after {
+    content: "";
+
+    position: absolute;
+
+    top: -140px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 900px;
+    height: 220px;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    background: radial-gradient(
+        ellipse at center,
+        rgba(37, 99, 235, 0.16) 0%,
+        rgba(96, 165, 250, 0.10) 35%,
+        rgba(255, 255, 255, 0) 75%
+    );
+
+    filter: blur(45px);
+}
+
+
+/* ==========================================================
+                    HEADER
+========================================================== */
+
+.how-section .how-header {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 50px;
+}
+
+
+/* ==========================================================
+                    SECTION HEADING
+========================================================== */
+
+.how-section .section-heading {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 22px;
+}
+
+
+/* ==========================================================
+                    PREMIUM DIVIDER
+========================================================== */
+
+.how-section .section-divider-top {
+    position: relative;
+
+    width: 180px;
+    height: 3px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #0f3fbf,
+        #2563eb,
+        #60a5fa,
+        #2563eb,
+        #0f3fbf,
+        transparent
+    );
+}
+
+.how-section .section-divider-top::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    left: -25%;
+
+    width: 25%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0.95),
+        #ffffff,
+        rgba(255, 255, 255, 0.95),
+        rgba(255, 255, 255, 0.15),
+        transparent
+    );
+
+    filter:
+        blur(0.5px)
+        drop-shadow(0 0 8px rgba(255, 255, 255, 0.95))
+        drop-shadow(0 0 18px rgba(255, 255, 255, 0.7));
+
+    animation: howPremiumDivider 3.4s linear infinite;
+}
+
+@keyframes howPremiumDivider {
+    from {
+        left: -25%;
+    }
+
+    to {
+        left: 125%;
+    }
+}
+
+
+/* ==========================================================
+                    HOW BADGE
+========================================================== */
+
+.how-section .how-badge {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 10px;
+
+    padding: 8px 18px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    letter-spacing: 0.6px;
+
+    color: #2563eb;
+
+    text-transform: uppercase;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    border: 1px solid rgba(37, 99, 235, 0.18);
+
+    border-radius: 50px;
+
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.08);
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+.how-section .how-badge::before {
+    content: "";
+
+    width: 10px;
+    height: 10px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #06b6d4
+    );
+
+    box-shadow:
+        0 0 0 6px rgba(37, 99, 235, 0.12),
+        0 0 18px rgba(37, 99, 235, 0.45);
+
+    animation: howBadgePulse 2s infinite;
+}
+
+.how-section .how-badge:hover {
+    transform: translateY(-3px);
+
+    background: rgba(79, 124, 255, 0.12);
+
+    box-shadow:
+        0 18px 40px rgba(79, 124, 255, 0.18);
+}
+
+.how-section .how-badge i {
+    font-size: 13px;
+
+    color: #2563eb;
+
+    animation: howBadgeRotate 5s linear infinite;
+}
+
+@keyframes howBadgePulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+@keyframes howBadgeRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ==========================================================
+                    TITLE
+========================================================== */
+
+.how-section .how-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+
+    font-weight: 800;
+
+    line-height: 1.15;
+
+    letter-spacing: -1px;
+
+    color: #0f172a;
+
+    margin-bottom: 16px;
+
+    background: linear-gradient(
+        135deg,
+        #0f172a,
+        #2563eb
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    text-wrap: balance;
+}
+
+
+/* ==========================================================
+                    SUBTITLE
+========================================================== */
+
+.how-section .how-subtitle {
+    max-width: 620px;
+
+    margin: 0 auto 48px;
+
+    font-size: 17px;
+
+    line-height: 1.85;
+
+    color: #64748b;
+}
+
+
+/* ==========================================================
+                    STEPS WRAPPER
+========================================================== */
+
+.how-section .how-steps-wrapper {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* ==========================================================
+                    TIMELINE LINE
+========================================================== */
+
+.how-section .steps-line {
+    position: absolute;
+
+    top: 40px;
+
+    left: 50%;
+
+    width: calc(100% - 220px);
+
+    height: 4px;
+
+    transform:
+        translateX(-50%)
+        scaleX(0);
+
+    transform-origin: left;
+
+    border-radius: 50px;
+
+    overflow: hidden;
+
+    z-index: 0;
+
+    background: rgba(79, 124, 255, 0.12);
+
+    transition: transform 1.2s ease;
+}
+
+
+/* Moving Gradient */
+
+.how-section .steps-line::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        #4f7cff,
+        #6ee7ff,
+        #4f7cff
+    );
+
+    background-size: 200% 100%;
+
+    animation: howFlowLine 4s linear infinite;
+
+    opacity: 0.95;
+}
+
+.how-section .steps-line.active {
+    transform:
+        translateX(-50%)
+        scaleX(1);
+}
+
+@keyframes howFlowLine {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+
+/* ==========================================================
+                    CARDS
+========================================================== */
+
+.how-section .how-card {
+    position: relative;
+
+    z-index: 2;
+
+    height: 100%;
+
+    padding: 30px 22px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    backdrop-filter: blur(12px);
+
+    border-radius: 24px;
+
+    border: 1px solid rgba(148, 163, 184, 0.18);
+
+    box-shadow:
+        0 22px 55px rgba(15, 23, 42, 0.12),
+        0 8px 18px rgba(15, 23, 42, 0.08);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+
+    overflow: hidden;
+}
+
+.how-section .how-card:hover {
+    transform: translateY(-10px);
+
+    border-color: #4f7cff;
+
+    box-shadow:
+        0 35px 80px rgba(15, 23, 42, 0.2),
+        0 12px 30px rgba(15, 23, 42, 0.12);
+}
+
+
+/* ==========================================================
+                    STEP NUMBER
+========================================================== */
+
+.how-section .step-number {
+    position: absolute;
+
+    top: 18px;
+    right: 22px;
+
+    font-size: 46px;
+
+    font-weight: 800;
+
+    color: rgba(79, 124, 255, 0.08);
+
+    pointer-events: none;
+
+    user-select: none;
+
+    transition: transform 0.35s ease;
+}
+
+.how-section .how-card:hover .step-number {
+    transform: scale(1.1);
+}
+
+
+/* ==========================================================
+                    STEP ICON
+========================================================== */
+
+.how-section .step-icon {
+    width: 72px;
+    height: 72px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    color: #ffffff;
+
+    background: linear-gradient(
+        135deg,
+        #4f7cff,
+        #6ee7ff
+    );
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 15px 35px rgba(79, 124, 255, 0.28);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.how-section .how-card:hover .step-icon {
+    transform: rotate(-8deg) scale(1.08);
+}
+
+
+/* ==========================================================
+                    CARD TEXT
+========================================================== */
+
+.how-section .how-card h4 {
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: #0f172a;
+
+    margin-bottom: 16px;
+}
+
+.how-section .how-card p {
+    color: #64748b;
+
+    line-height: 1.8;
+
+    margin: 0;
+}
+
+
+/* ==========================================================
+                    TIMELINE NODE
+========================================================== */
+
+.how-section .timeline-node {
+    position: absolute;
+
+    top: -18px;
+    left: 50%;
+
+    width: 22px;
+    height: 22px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+
+    border: 3px solid #4f7cff;
+
+    border-radius: 50%;
+
+    z-index: 5;
+}
+
+.how-section .timeline-node span {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #4f7cff;
+
+    transform: scale(0);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.how-section .how-reveal-step.active .timeline-node span {
+    transform: scale(1);
+
+    box-shadow:
+        0 0 0 8px rgba(79, 124, 255, 0.15),
+        0 0 20px rgba(79, 124, 255, 0.45);
+}
+
+.how-section .how-reveal-step.active .timeline-node {
+    border-color: #6ee7ff;
+}
+
+
+/* ==========================================================
+                    SCROLL REVEAL
+========================================================== */
+
+.how-section .how-reveal-step {
+    opacity: 0;
+
+    transform: translateY(60px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+
+    will-change: opacity, transform;
+}
+
+.how-section .how-reveal-step.active {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ==========================================================
+                    RESPONSIVE — TABLET
+========================================================== */
+
+@media (max-width: 992px) {
+
+    .how-section {
+        padding: 70px 0;
+    }
+
+    .how-section .how-header {
+        margin-bottom: 40px;
+    }
+
+    .how-section .steps-line {
+        display: none;
+    }
+}
+
+
+/* ==========================================================
+                    RESPONSIVE — MOBILE
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .how-section {
+        padding: 60px 0;
+    }
+
+    .how-section .how-title {
+        font-size: 30px;
+    }
+
+    .how-section .how-subtitle {
+        font-size: 15px;
+
+        line-height: 1.8;
+
+        margin-bottom: 35px;
+    }
+
+    .how-section .how-card {
+        padding: 28px 20px;
+    }
+
+    .how-section .section-heading {
+        gap: 10px;
+    }
+
+    .how-section .section-divider-top {
+        width: 150px;
+    }
+}
+
+
+/* ==========================================================
+                    RESPONSIVE — SMALL MOBILE
+========================================================== */
+
+@media (max-width: 576px) {
+
+    .how-section {
+        padding: 55px 0;
+    }
+
+    .how-section .how-title {
+        font-size: 26px;
+    }
+
+    .how-section .how-subtitle {
+        font-size: 14px;
+    }
+
+    .how-section .how-badge {
+        font-size: 13px;
+
+        padding: 7px 15px;
+    }
+
+    .how-section .section-divider-top {
+        width: 120px;
+    }
+
+    .how-section .how-card {
+        padding: 24px 18px;
+
+        border-radius: 20px;
+    }
+
+    .how-section .step-icon {
+        width: 64px;
+        height: 64px;
+
+        font-size: 24px;
+
+        border-radius: 18px;
+    }
+
+    .how-section .how-card h4 {
+        font-size: 20px;
+    }
+
+    .how-section .how-card p {
+        font-size: 15px;
+    }
+
+    .how-section .step-number {
+        font-size: 40px;
+
+        top: 15px;
+        right: 18px;
+    }
+}
+
+/* ==========================================================
+        HOW IT WORKS — STEP NUMBER VISIBILITY
+        Scoped Override — Safe & Isolated
+========================================================== */
+
+.how-section .how-card .step-number {
+    color: rgba(79, 91, 255, 0.45);
+
+    opacity: 1;
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    user-select: none;
+}

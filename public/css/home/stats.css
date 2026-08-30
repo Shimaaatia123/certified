@@ -1,0 +1,1159 @@
+/*=========================================================
+                    STATS SECTION
+    ---------------------------------------------------------
+    Purpose:
+    Defines the main layout, spacing, background and visual
+    identity of the Statistics section.
+
+    Isolation:
+    Section-specific selectors are scoped under
+    `.stats-section` to prevent CSS conflicts with other
+    sections of the application.
+=========================================================*/
+
+
+
+/*=========================================================
+                    BACKGROUND LAYER
+    ---------------------------------------------------------
+    Contains all decorative elements behind the content.
+=========================================================*/
+
+.stats-section .stats-bg {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+/*=========================================================
+                    BACKGROUND GRID
+    ---------------------------------------------------------
+    Creates the subtle technical grid pattern.
+=========================================================*/
+
+.stats-section .bg-grid {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(37, 99, 235, 0.04) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(37, 99, 235, 0.04) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+}
+
+
+/*=========================================================
+                    BACKGROUND BLOBS
+    ---------------------------------------------------------
+    Soft blurred shapes used as decorative ambient lighting.
+=========================================================*/
+
+.stats-section .bg-blob {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(70px);
+
+    opacity: 0.35;
+
+    animation:
+        blobFloat 10s ease-in-out infinite;
+}
+
+
+/* First background blob */
+.stats-section .blob-1 {
+    width: 320px;
+
+    height: 320px;
+
+    top: -100px;
+
+    left: -120px;
+
+    background: #60a5fa;
+}
+
+
+/* Second background blob */
+.stats-section .blob-2 {
+    width: 260px;
+
+    height: 260px;
+
+    right: -80px;
+
+    bottom: -80px;
+
+    background: #22d3ee;
+
+    animation-delay: 3s;
+}
+
+
+/* Blob floating animation */
+@keyframes blobFloat {
+
+    50% {
+        transform:
+            translateY(-25px)
+            scale(1.08);
+    }
+
+}
+
+
+/*=========================================================
+                    FLOATING CIRCLES
+    ---------------------------------------------------------
+    Decorative outlined circles that slowly move vertically.
+=========================================================*/
+
+.stats-section .floating-circle {
+    position: absolute;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(37, 99, 235, 0.15);
+
+    animation:
+        circleFloat 10s ease-in-out infinite;
+}
+
+
+/* Floating circle 01 */
+.stats-section .circle-1 {
+    width: 100px;
+
+    height: 100px;
+
+    left: 10%;
+
+    top: 20%;
+}
+
+
+/* Floating circle 02 */
+.stats-section .circle-2 {
+    width: 60px;
+
+    height: 60px;
+
+    right: 12%;
+
+    top: 30%;
+
+    animation-delay: 2s;
+}
+
+
+/* Floating circle 03 */
+.stats-section .circle-3 {
+    width: 140px;
+
+    height: 140px;
+
+    right: 8%;
+
+    bottom: 10%;
+
+    animation-delay: 4s;
+}
+
+
+/* Floating circle animation */
+@keyframes circleFloat {
+
+    50% {
+        transform:
+            translateY(-20px)
+            rotate(8deg);
+    }
+
+}
+
+
+/*=========================================================
+                    SECTION HEADER
+=========================================================*/
+
+.stats-section .stats-header {
+    position: relative;
+
+    z-index: 2;
+
+    margin-bottom: 70px;
+}
+
+
+/*=========================================================
+                    SECTION BADGE
+=========================================================*/
+
+.stats-section .stats-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 24px;
+
+    margin-bottom: 18px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(37, 99, 235, 0.08);
+
+    border:
+        1px solid
+        rgba(37, 99, 235, 0.12);
+
+    color: #2563eb;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.6px;
+
+    text-transform: uppercase;
+
+    position: relative;
+
+    overflow: hidden;
+
+    max-width: 100%;
+
+    flex-wrap: wrap;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+/* Badge shine layer */
+.stats-section .stats-badge::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    left: -140%;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255, 255, 255, 0.9),
+            transparent
+        );
+
+    transition:
+        left 0.9s ease;
+}
+
+
+/* Badge hover effect */
+.stats-section .stats-badge:hover {
+    transform:
+        translateY(-3px)
+        scale(1.05);
+
+    border-color:
+        rgba(37, 99, 235, 0.25);
+
+    box-shadow:
+        0 15px 35px
+        rgba(37, 99, 235, 0.15);
+}
+
+
+/* Trigger badge shine */
+.stats-section .stats-badge:hover::before {
+    left: 140%;
+}
+
+
+/* Badge icon animation */
+.stats-section .stats-badge i {
+    font-size: 15px;
+
+    animation:
+        badgePulse 2s ease-in-out infinite;
+}
+
+
+/* Badge icon pulse */
+@keyframes badgePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+}
+
+
+/*=========================================================
+                    SECTION TITLE
+=========================================================*/
+
+.stats-section .stats-title {
+    margin: 0;
+
+    font-size:
+        clamp(2rem, 4vw, 3rem);
+
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    color: #0f172a;
+
+    text-wrap: balance;
+}
+
+
+/*=========================================================
+                    STATISTIC CARD
+=========================================================*/
+
+.stats-section .stat-box {
+    position: relative;
+
+    overflow: hidden;
+
+    height: 100%;
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.95),
+            rgba(248, 251, 255, 0.92)
+        );
+
+    backdrop-filter: blur(18px);
+
+    border:
+        1px solid
+        rgba(37, 99, 235, 0.12);
+
+    box-shadow:
+        0 25px 70px
+        rgba(15, 23, 42, 0.08),
+
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.7);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+/* Decorative glow inside each card */
+.stats-section .stat-box::before {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+
+    height: 220px;
+
+    top: -100px;
+
+    right: -100px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(37, 99, 235, 0.15),
+            transparent 70%
+        );
+}
+
+
+/* Card hover state */
+.stats-section .stat-box:hover {
+    transform:
+        translateY(-10px)
+        scale(1.03);
+
+    border-color:
+        rgba(37, 99, 235, 0.25);
+
+    box-shadow:
+        0 35px 80px
+        rgba(15, 23, 42, 0.12);
+}
+
+
+/*=========================================================
+                    STATISTIC ICON
+=========================================================*/
+
+.stats-section .stat-icon {
+    width: 80px;
+
+    height: 80px;
+
+    margin:
+        0 auto 25px;
+
+    border-radius: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 32px;
+
+    color: #fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #06b6d4
+        );
+
+    box-shadow:
+        0 18px 40px
+        rgba(37, 99, 235, 0.25);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+    flex-shrink: 0;
+}
+
+
+/* Ensure Font Awesome icons inherit the card icon styling */
+.stats-section .stat-icon i {
+    display: inline-block;
+
+    color: #fff;
+
+    font-size: inherit;
+
+    line-height: 1;
+}
+
+
+/* Icon hover animation */
+.stats-section .stat-box:hover .stat-icon {
+    transform:
+        translateY(-6px)
+        rotate(-6deg)
+        scale(1.08);
+
+    box-shadow:
+        0 28px 60px
+        rgba(37, 99, 235, 0.35);
+}
+
+
+/*=========================================================
+                    COUNTER
+=========================================================*/
+
+.stats-section .counter {
+    margin-bottom: 12px;
+
+    font-size: 52px;
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #06b6d4
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    word-break: keep-all;
+
+    white-space: nowrap;
+}
+
+
+/* Statistic title */
+.stats-section .stat-box h5 {
+    margin-bottom: 12px;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: #0f172a;
+
+    text-wrap: balance;
+}
+
+
+/* Statistic description */
+.stats-section .stat-box p {
+    margin: 0;
+
+    max-width: 220px;
+
+    margin-inline: auto;
+
+    color: #64748b;
+
+    line-height: 1.8;
+
+    font-size: 15px;
+}
+
+
+/*=========================================================
+                    MOUSE GLOW
+    ---------------------------------------------------------
+    The glow is visually restricted to the Stats section.
+    JavaScript controls its position and opacity.
+=========================================================*/
+
+.stats-section .mouse-glow {
+    position: absolute;
+
+    width: 320px;
+
+    height: 320px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(37, 99, 235, 0.18),
+            transparent 70%
+        );
+
+    transform:
+        translate(-50%, -50%);
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    filter: blur(18px);
+
+    transition:
+        opacity 0.3s ease;
+}
+
+
+/*=========================================================
+                    REVEAL ANIMATION
+    ---------------------------------------------------------
+    Elements start hidden and become visible after the
+    IntersectionObserver adds the `.show` class.
+=========================================================*/
+
+.stats-section .reveal-up {
+    opacity: 0;
+
+    transform:
+        translateY(60px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+/* Visible state */
+.stats-section .reveal-up.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* Sequential animation delays */
+.stats-section .delay-1 {
+    transition-delay: 0.15s;
+}
+
+
+.stats-section .delay-2 {
+    transition-delay: 0.3s;
+}
+
+
+.stats-section .delay-3 {
+    transition-delay: 0.45s;
+}
+
+
+/*=========================================================
+                    RESPONSIVE — TABLET
+=========================================================*/
+
+@media (max-width: 992px) {
+
+    .stats-section .stats-header {
+        margin-bottom: 50px;
+    }
+
+
+    .stats-section .stat-box {
+        padding: 35px 24px;
+    }
+
+
+    .stats-section .stats-title {
+        text-align: center;
+    }
+
+}
+
+
+/*=========================================================
+                    RESPONSIVE — MOBILE
+=========================================================*/
+
+@media (max-width: 768px) {
+
+    .stats-section .stats-header {
+        margin-bottom: 42px;
+    }
+
+
+    .stats-section .stats-badge {
+        font-size: 13px;
+
+        padding:
+            10px 18px;
+    }
+
+
+    .stats-section .counter {
+        font-size: 38px;
+    }
+
+
+    .stats-section .stat-icon {
+        width: 68px;
+
+        height: 68px;
+
+        font-size: 26px;
+
+        margin-bottom: 20px;
+    }
+
+
+    .stats-section .stat-box {
+        padding: 32px 22px;
+
+        border-radius: 22px;
+    }
+
+
+    .stats-section .stat-box h5 {
+        font-size: 20px;
+    }
+
+
+    .stats-section .stat-box p {
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+}
+
+
+/*=========================================================
+                    RESPONSIVE — SMALL MOBILE
+=========================================================*/
+
+@media (max-width: 480px) {
+
+    .stats-section {
+        padding: 70px 0;
+    }
+
+
+    .stats-section .stats-title {
+        font-size: 30px;
+    }
+
+
+    .stats-section .counter {
+        font-size: 34px;
+    }
+
+
+    .stats-section .stat-icon {
+        width: 60px;
+
+        height: 60px;
+
+        font-size: 22px;
+    }
+
+
+    .stats-section .stat-box {
+        padding: 28px 18px;
+    }
+
+}
+/*=========================================================
+            CUSTOM STATS ICONS
+    ---------------------------------------------------------
+    Purpose:
+    Provides lightweight CSS-built visual icons for the
+    Statistics cards.
+
+    Dependency:
+    None.
+
+    Font Awesome:
+    Not required by this section.
+
+    Isolation:
+    All selectors are scoped to `.stats-section` to ensure
+    that these custom shapes cannot affect other sections.
+=========================================================*/
+
+
+/*=========================================================
+                    ICON CONTAINER
+=========================================================*/
+
+.stats-section .stat-icon {
+    position: relative;
+
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #06b6d4
+        );
+
+    box-shadow:
+        0 18px 40px
+        rgba(37, 99, 235, 0.25);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+    overflow: hidden;
+}
+
+
+/*=========================================================
+                    ICON LIGHT
+    ---------------------------------------------------------
+    Adds a subtle internal highlight to the icon container.
+=========================================================*/
+
+.stats-section .stat-icon::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 1px;
+
+    border-radius: 21px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.16),
+            transparent 55%
+        );
+
+    pointer-events: none;
+}
+
+
+/*=========================================================
+                    USERS ICON
+=========================================================*/
+
+.stats-section .stat-icon-users {
+    --icon-color: #ffffff;
+}
+
+
+/* Main user head */
+.stats-section .user-head-main {
+    position: absolute;
+
+    width: 17px;
+    height: 17px;
+
+    top: 21px;
+    left: 31px;
+
+    border-radius: 50%;
+
+    background: var(--icon-color);
+}
+
+
+/* Main user body */
+.stats-section .user-body-main {
+    position: absolute;
+
+    width: 31px;
+    height: 18px;
+
+    left: 24px;
+    bottom: 20px;
+
+    border-radius:
+        18px 18px 8px 8px;
+
+    background: var(--icon-color);
+}
+
+
+/* Secondary user head */
+.stats-section .user-head-secondary {
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    top: 27px;
+    left: 51px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.72);
+}
+
+
+/* Secondary user body */
+.stats-section .user-body-secondary {
+    position: absolute;
+
+    width: 19px;
+    height: 12px;
+
+    right: 15px;
+    bottom: 21px;
+
+    border-radius:
+        14px 14px 6px 6px;
+
+    background:
+        rgba(255, 255, 255, 0.72);
+}
+
+
+/*=========================================================
+                    CERTIFICATE ICON
+=========================================================*/
+
+.stats-section .stat-icon-certificate {
+    --icon-color: #ffffff;
+}
+
+
+/* Certificate circular seal */
+.stats-section .certificate-ring {
+    position: absolute;
+
+    width: 39px;
+    height: 39px;
+
+    border:
+        3px solid
+        var(--icon-color);
+
+    border-radius: 50%;
+}
+
+
+/* Inner certificate circle */
+.stats-section .certificate-center {
+    position: absolute;
+
+    width: 13px;
+    height: 13px;
+
+    border:
+        2px solid
+        rgba(255, 255, 255, 0.9);
+
+    border-radius: 50%;
+}
+
+
+/* Certificate ribbon */
+.stats-section .certificate-ribbon {
+    position: absolute;
+
+    width: 10px;
+    height: 24px;
+
+    bottom: 13px;
+
+    background: var(--icon-color);
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            100% 100%,
+            50% 72%,
+            0 100%
+        );
+}
+
+
+/* Left ribbon */
+.stats-section .certificate-ribbon-left {
+    left: 27px;
+
+    transform: rotate(-18deg);
+}
+
+
+/* Right ribbon */
+.stats-section .certificate-ribbon-right {
+    right: 27px;
+
+    transform: rotate(18deg);
+}
+
+
+/*=========================================================
+                    SUCCESS ICON
+=========================================================*/
+
+.stats-section .stat-icon-success {
+    --icon-color: #ffffff;
+}
+
+
+/* Star */
+.stats-section .success-star {
+    position: relative;
+
+    z-index: 2;
+
+    color: var(--icon-color);
+
+    font-size: 42px;
+
+    line-height: 1;
+
+    text-shadow:
+        0 4px 12px
+        rgba(255, 255, 255, 0.25);
+}
+
+
+/*=========================================================
+                    AWARD ICON
+=========================================================*/
+
+.stats-section .stat-icon-award {
+    --icon-color: #ffffff;
+}
+
+
+/* Award medal */
+.stats-section .award-medal {
+    position: absolute;
+
+    width: 36px;
+    height: 36px;
+
+    top: 18px;
+
+    border:
+        3px solid
+        var(--icon-color);
+
+    border-radius: 50%;
+}
+
+
+/* Medal center */
+.stats-section .award-medal::after {
+    content: "";
+
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    top: 11px;
+    left: 11px;
+
+    border-radius: 50%;
+
+    background:
+        var(--icon-color);
+}
+
+
+/* Award ribbons */
+.stats-section .award-ribbon {
+    position: absolute;
+
+    width: 13px;
+    height: 28px;
+
+    bottom: 12px;
+
+    background:
+        var(--icon-color);
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            100% 100%,
+            50% 75%,
+            0 100%
+        );
+}
+
+
+/* Left award ribbon */
+.stats-section .award-ribbon-left {
+    left: 25px;
+
+    transform: rotate(-16deg);
+}
+
+
+/* Right award ribbon */
+.stats-section .award-ribbon-right {
+    right: 25px;
+
+    transform: rotate(16deg);
+}
+
+
+/*=========================================================
+                    ICON HOVER
+    ---------------------------------------------------------
+    Applies the existing Stats card interaction to the
+    custom CSS icons.
+=========================================================*/
+
+.stats-section .stat-box:hover .stat-icon {
+    transform:
+        translateY(-6px)
+        rotate(-6deg)
+        scale(1.08);
+
+    box-shadow:
+        0 28px 60px
+        rgba(37, 99, 235, 0.35);
+}
+
+
+/*=========================================================
+                    MOBILE ICON SIZING
+=========================================================*/
+
+@media (max-width: 768px) {
+
+    .stats-section .stat-icon {
+        width: 68px;
+        height: 68px;
+
+        margin-bottom: 20px;
+
+        border-radius: 19px;
+    }
+
+
+    .stats-section .stat-icon::before {
+        border-radius: 18px;
+    }
+
+
+    .stats-section .success-star {
+        font-size: 35px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .stats-section .stat-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+
+    .stats-section .success-star {
+        font-size: 30px;
+    }
+
+}

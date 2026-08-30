@@ -1,0 +1,240 @@
+/* ==========================================================
+                    BACK TO TOP
+========================================================== */
+
+.back-to-top {
+    position: fixed;
+
+    bottom: 20px;
+
+    right: 20px;
+
+    width: 60px;
+
+    height: 60px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    background: rgba(255, 255, 255, 0.14);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.18),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 999;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: scale(0.7);
+
+    transition: 0.35s;
+}
+
+.back-to-top::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -2px;
+
+    border-radius: 50%;
+
+    background: conic-gradient(
+        from 0deg,
+
+        transparent,
+        rgba(96, 165, 250, 0.65),
+        transparent,
+        rgba(255, 255, 255, 0.8),
+        transparent
+    );
+
+    animation: ringRotate 6s linear infinite;
+
+    opacity: 0.7;
+
+    z-index: 0;
+}
+
+.back-to-top::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 3px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    opacity: 0.88;
+
+    z-index: 1;
+}
+
+.back-to-top .ripple {
+    position: absolute;
+
+    width: 12px;
+
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: rgba(37, 99, 235, 0.25);
+
+    transform: scale(0);
+
+    pointer-events: none;
+}
+
+.back-to-top.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0) scale(1);
+
+     animation: pulseGlow 2.8s ease-in-out infinite;
+}
+
+.back-to-top:hover {
+    transform: translateY(-6px) scale(1.08);
+
+    box-shadow:
+        0 18px 45px rgba(37, 99, 235, 0.3),
+        0 0 35px rgba(96, 165, 250, 0.25);
+}
+
+.back-to-top:hover i {
+    transform: translateY(-5px) scale(1.15);
+
+    color: #1d4ed8;
+}
+
+.back-to-top i {
+    position: relative;
+
+    z-index: 3;
+
+    color: #2563eb;
+
+    font-size: 20px;
+
+    transition: 0.35s ease;
+
+    animation: arrowFloat 2s ease-in-out infinite;
+}
+
+/* ================= Progress Ring ================= */
+
+.progress-ring {
+    position: absolute;
+
+    inset: 0;
+
+    transform: rotate(-90deg);
+
+    z-index: 2;
+}
+
+.progress-ring-bg {
+    fill: none;
+
+    stroke: #e2e8f0;
+
+    stroke-width: 4;
+}
+
+.progress-ring-circle {
+    fill: none;
+
+    stroke: #2563eb;
+
+    stroke-width: 4;
+
+    stroke-linecap: round;
+
+    stroke-dasharray: 163.36;
+
+    stroke-dashoffset: 163.36;
+
+    transition: stroke-dashoffset 0.15s linear;
+}
+
+/* ================= Mobile ================= */
+
+@keyframes ringRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulseGlow {
+    0%,
+    100% {
+        box-shadow: 0 0 0 rgba(37, 99, 235, 0.25);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(37, 99, 235, 0.35);
+    }
+}
+
+@keyframes arrowFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.back-to-top.clicked {
+    transform: scale(0.92);
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        right: 16px;
+
+        bottom: 16px;
+
+        width: 52px;
+
+        height: 52px;
+    }
+
+    .back-to-top i {
+        font-size: 18px;
+    }
+}

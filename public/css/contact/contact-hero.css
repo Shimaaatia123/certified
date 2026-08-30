@@ -1,0 +1,2258 @@
+/* =========================================================
+   CERTIFIED — CONTACT HERO
+   Secure Communication Gateway
+   ========================================================= */
+
+
+/* =========================================================
+   ROOT
+   ========================================================= */
+
+.contact-hero {
+    --contact-bg-deep: #050816;
+    --contact-bg-mid: #08152f;
+    --contact-bg-blue: #061b35;
+
+    --contact-blue: #3b82f6;
+    --contact-cyan: #22d3ee;
+    --contact-violet: #8b5cf6;
+
+    --contact-white: #f8fbff;
+    --contact-text: #d5dfef;
+    --contact-muted: #8fa3bd;
+
+    position: relative;
+    isolation: isolate;
+
+    min-height: min(900px, 100svh);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    overflow: hidden;
+
+    color: var(--contact-white);
+
+    background:
+        radial-gradient(
+            circle at 78% 42%,
+            rgba(34, 211, 238, 0.08),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 15% 70%,
+            rgba(59, 130, 246, 0.08),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            var(--contact-bg-deep) 0%,
+            var(--contact-bg-mid) 52%,
+            var(--contact-bg-blue) 100%
+        );
+}
+
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+.contact-hero__background {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+.contact-hero__grid {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.18;
+
+    background-image:
+        linear-gradient(
+            rgba(96, 165, 250, 0.055) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(96, 165, 250, 0.055) 1px,
+            transparent 1px
+        );
+
+    background-size: 72px 72px;
+
+    mask-image:
+        radial-gradient(
+            ellipse at center,
+            black 0%,
+            transparent 78%
+        );
+}
+
+
+.contact-hero__orb {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(70px);
+
+    opacity: 0.35;
+
+    animation:
+        contactHeroOrbFloat
+        14s
+        ease-in-out
+        infinite;
+}
+
+
+.contact-hero__orb--one {
+    width: 420px;
+    height: 420px;
+
+    top: -180px;
+    right: -100px;
+
+    background: rgba(34, 211, 238, 0.13);
+}
+
+
+.contact-hero__orb--two {
+    width: 340px;
+    height: 340px;
+
+    bottom: -180px;
+    left: 10%;
+
+    background: rgba(59, 130, 246, 0.12);
+
+    animation-delay: -6s;
+}
+
+
+.contact-hero__line {
+    position: absolute;
+
+    width: 65%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(34, 211, 238, 0.16),
+            transparent
+        );
+
+    opacity: 0.5;
+}
+
+
+.contact-hero__line--one {
+    top: 28%;
+    right: -15%;
+
+    transform: rotate(-12deg);
+}
+
+
+.contact-hero__line--two {
+    bottom: 24%;
+    left: -15%;
+
+    transform: rotate(10deg);
+}
+
+
+/* =========================================================
+   ATMOSPHERIC PARTICLES
+   ========================================================= */
+
+.contact-hero__particles {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   MICRO STARS
+   ========================================================= */
+
+.contact-hero__star {
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    border-radius: 50%;
+
+    background: rgba(186, 230, 253, 0.8);
+
+    box-shadow:
+        0 0 8px rgba(125, 211, 252, 0.55);
+
+    animation:
+        contactStarTwinkle
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+.contact-hero__star--1 {
+    top: 17%;
+    left: 11%;
+    animation-delay: -1s;
+}
+
+.contact-hero__star--2 {
+    top: 28%;
+    left: 42%;
+    animation-delay: -2.4s;
+}
+
+.contact-hero__star--3 {
+    top: 15%;
+    right: 27%;
+    animation-delay: -3.2s;
+}
+
+.contact-hero__star--4 {
+    top: 66%;
+    left: 7%;
+    animation-delay: -1.8s;
+}
+
+.contact-hero__star--5 {
+    right: 9%;
+    bottom: 28%;
+    animation-delay: -3.8s;
+}
+
+.contact-hero__star--6 {
+    right: 38%;
+    bottom: 12%;
+    animation-delay: -0.6s;
+}
+
+
+/* =========================================================
+   SPARKLES
+   ========================================================= */
+
+.contact-hero__spark {
+    position: absolute;
+
+    color: rgba(103, 232, 249, 0.5);
+
+    font-size: 12px;
+
+    line-height: 1;
+
+    filter:
+        drop-shadow(
+            0 0 7px
+            rgba(34, 211, 238, 0.45)
+        );
+
+    animation:
+        contactSparkle
+        5.5s
+        ease-in-out
+        infinite;
+}
+
+
+.contact-hero__spark--1 {
+    top: 22%;
+    right: 45%;
+    animation-delay: -2s;
+}
+
+.contact-hero__spark--2 {
+    top: 49%;
+    left: 7%;
+    font-size: 9px;
+    animation-delay: -4.1s;
+}
+
+.contact-hero__spark--3 {
+    right: 11%;
+    top: 18%;
+    font-size: 8px;
+    animation-delay: -1.2s;
+}
+
+.contact-hero__spark--4 {
+    right: 29%;
+    bottom: 15%;
+    font-size: 10px;
+    animation-delay: -3.4s;
+}
+
+
+/* =========================================================
+   DATA PARTICLES
+   ========================================================= */
+
+.contact-hero__data {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: #22d3ee;
+
+    box-shadow:
+        0 0 10px rgba(34, 211, 238, 0.8);
+
+    opacity: 0.35;
+}
+
+
+.contact-hero__data--1 {
+    left: 18%;
+    bottom: 10%;
+
+    animation:
+        contactDataTravelOne
+        11s
+        linear
+        infinite;
+}
+
+
+.contact-hero__data--2 {
+    left: 72%;
+    top: 13%;
+
+    animation:
+        contactDataTravelTwo
+        14s
+        linear
+        infinite;
+}
+
+
+.contact-hero__data--3 {
+    right: 18%;
+    bottom: 30%;
+
+    animation:
+        contactDataTravelThree
+        9s
+        linear
+        infinite;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes contactStarTwinkle {
+
+    0%,
+    100% {
+        opacity: 0.18;
+        transform: scale(0.7);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: scale(1.25);
+    }
+}
+
+
+@keyframes contactSparkle {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.5) rotate(0deg);
+    }
+
+    35% {
+        opacity: 0.2;
+    }
+
+    55% {
+        opacity: 0.85;
+        transform: scale(1) rotate(45deg);
+    }
+
+    75% {
+        opacity: 0.25;
+    }
+}
+
+
+@keyframes contactDataTravelOne {
+
+    0% {
+        transform:
+            translate3d(0, 35px, 0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.5;
+    }
+
+    80% {
+        opacity: 0.25;
+    }
+
+    100% {
+        transform:
+            translate3d(85px, -140px, 0);
+        opacity: 0;
+    }
+}
+
+
+@keyframes contactDataTravelTwo {
+
+    0% {
+        transform:
+            translate3d(-40px, 0, 0);
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.45;
+    }
+
+    75% {
+        opacity: 0.2;
+    }
+
+    100% {
+        transform:
+            translate3d(80px, 100px, 0);
+        opacity: 0;
+    }
+}
+
+
+@keyframes contactDataTravelThree {
+
+    0% {
+        transform:
+            translate3d(0, 50px, 0);
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.45;
+    }
+
+    75% {
+        opacity: 0.2;
+    }
+
+    100% {
+        transform:
+            translate3d(-60px, -120px, 0);
+        opacity: 0;
+    }
+}
+
+.contact-hero__visual::before {
+    content: "";
+
+    position: absolute;
+
+    width: 360px;
+    height: 360px;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(34, 211, 238, 0.09),
+            rgba(59, 130, 246, 0.035) 42%,
+            transparent 72%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+    animation:
+        contactAmbientGlow
+        7s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes contactAmbientGlow {
+
+    0%,
+    100% {
+        opacity: 0.65;
+        transform:
+            translate(-50%, -50%)
+            scale(0.95);
+    }
+
+    50% {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
+    }
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.contact-hero__container {
+    width: min(1180px, calc(100% - 48px));
+
+    margin-inline: auto;
+
+    padding-block: clamp(100px, 12vh, 150px);
+
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(400px, 0.95fr);
+
+    align-items: center;
+
+    gap: clamp(50px, 7vw, 110px);
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.contact-hero__content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 680px;
+}
+
+
+.contact-hero__eyebrow {
+    width: fit-content;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 25px;
+    padding: 9px 14px;
+
+    border: 1px solid rgba(96, 165, 250, 0.18);
+
+    border-radius: 999px;
+
+    background: rgba(10, 25, 49, 0.42);
+
+    color: #a9c7e8;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    backdrop-filter: blur(14px);
+}
+
+
+.contact-hero__eyebrow-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--contact-cyan);
+
+    box-shadow:
+        0 0 0 4px rgba(34, 211, 238, 0.08),
+        0 0 18px rgba(34, 211, 238, 0.7);
+
+    animation:
+        contactHeroPulse
+        2.8s
+        ease-in-out
+        infinite;
+}
+
+
+.contact-hero__title {
+    max-width: 780px;
+
+    margin: 0;
+
+    font-size: clamp(
+        3rem,
+        6vw,
+        5.7rem
+    );
+
+    line-height: 0.98;
+
+    font-weight: 700;
+
+    letter-spacing: -0.045em;
+
+    text-wrap: balance;
+}
+
+
+.contact-hero__description {
+    max-width: 610px;
+
+    margin: 28px 0 0;
+
+    color: var(--contact-text);
+
+    font-size: clamp(
+        1rem,
+        1.35vw,
+        1.12rem
+    );
+
+    line-height: 1.85;
+}
+
+
+.contact-hero__actions {
+    margin-top: 36px;
+}
+
+
+.contact-hero__button {
+    min-height: 56px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 0 24px;
+
+    border: 1px solid rgba(125, 211, 252, 0.38);
+
+    border-radius: 15px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(59, 130, 246, 0.95),
+            rgba(37, 99, 235, 0.78)
+        );
+
+    box-shadow:
+        0 12px 35px rgba(37, 99, 235, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14);
+
+    text-decoration: none;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    transition:
+        transform 220ms ease,
+        box-shadow 220ms ease,
+        border-color 220ms ease;
+}
+
+
+.contact-hero__button:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(125, 211, 252, 0.7);
+
+    box-shadow:
+        0 18px 42px rgba(37, 99, 235, 0.28),
+        0 0 30px rgba(34, 211, 238, 0.08);
+}
+
+
+.contact-hero__button-icon {
+    width: 18px;
+    height: 18px;
+
+    transition:
+        transform 220ms ease;
+}
+
+
+.contact-hero__button:hover
+.contact-hero__button-icon {
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   TRUST MICRO BAR
+   ========================================================= */
+
+.contact-hero__trust {
+    margin-top: 26px;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    color: var(--contact-muted);
+
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+
+.contact-hero__trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.contact-hero__trust-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #34d399;
+
+    box-shadow:
+        0 0 10px rgba(52, 211, 153, 0.55);
+}
+
+
+.contact-hero__trust-item svg {
+    width: 15px;
+    height: 15px;
+
+    color: #7dd3fc;
+}
+
+
+.contact-hero__trust-divider {
+    width: 1px;
+    height: 15px;
+
+    background: rgba(148, 163, 184, 0.2);
+}
+
+
+/* =========================================================
+   SIGNAL CONSOLE
+   ========================================================= */
+
+.contact-hero__visual {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+
+    z-index: 2;
+}
+
+
+.contact-signal {
+    position: relative;
+
+    width: min(100%, 480px);
+
+    padding: 22px;
+
+    border: 1px solid rgba(96, 165, 250, 0.19);
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15, 31, 59, 0.78),
+            rgba(5, 14, 31, 0.66)
+        );
+
+    box-shadow:
+        0 35px 90px rgba(0, 0, 0, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    backdrop-filter: blur(22px);
+
+    overflow: hidden;
+}
+
+
+.contact-signal::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: inherit;
+
+    background:
+        radial-gradient(
+            circle at 50% 42%,
+            rgba(34, 211, 238, 0.08),
+            transparent 35%
+        );
+
+    pointer-events: none;
+}
+
+
+.contact-signal__top {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 17px;
+
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+
+.contact-signal__system {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #b9cbe0;
+
+    font-size: 0.68rem;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+
+.contact-signal__status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #34d399;
+
+    box-shadow:
+        0 0 0 4px rgba(52, 211, 153, 0.08),
+        0 0 14px rgba(52, 211, 153, 0.55);
+
+    animation:
+        contactHeroPulse
+        2.6s
+        ease-in-out
+        infinite;
+}
+
+
+.contact-signal__code {
+    color: #57708f;
+
+    font-family: monospace;
+
+    font-size: 0.68rem;
+
+    letter-spacing: 0.1em;
+}
+
+
+.contact-signal__heading {
+    position: relative;
+
+    padding-top: 24px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.contact-signal__label {
+    color: #eaf4ff;
+
+    font-size: 0.92rem;
+    font-weight: 700;
+
+    letter-spacing: 0.04em;
+}
+
+
+.contact-signal__sub {
+    color: #7187a2;
+
+    font-size: 0.72rem;
+}
+
+
+/* =========================================================
+   SIGNAL CORE
+   ========================================================= */
+
+.contact-signal__core {
+    position: relative;
+
+    height: 250px;
+
+    display: grid;
+    place-items: center;
+}
+
+
+.contact-signal__rings {
+    position: relative;
+
+    width: 185px;
+    height: 185px;
+
+    display: grid;
+    place-items: center;
+}
+
+
+.contact-signal__rings > span {
+    position: absolute;
+
+    inset: 0;
+
+    border: 1px solid rgba(34, 211, 238, 0.14);
+
+    border-radius: 50%;
+
+    animation:
+        contactSignalRing
+        5s
+        linear
+        infinite;
+}
+
+
+.contact-signal__rings > span:nth-child(2) {
+    inset: 20px;
+
+    border-color: rgba(59, 130, 246, 0.18);
+
+    animation-delay: -1.5s;
+}
+
+
+.contact-signal__rings > span:nth-child(3) {
+    inset: 43px;
+
+    border-color: rgba(139, 92, 246, 0.2);
+
+    animation-delay: -3s;
+}
+
+
+.contact-signal__core-center {
+    position: relative;
+
+    width: 86px;
+    height: 86px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    border: 1px solid rgba(125, 211, 252, 0.24);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(34, 211, 238, 0.12),
+            rgba(8, 21, 47, 0.95) 68%
+        );
+
+    box-shadow:
+        0 0 35px rgba(34, 211, 238, 0.12),
+        inset 0 0 20px rgba(34, 211, 238, 0.04);
+}
+
+
+.contact-signal__core-dot {
+    width: 7px;
+    height: 7px;
+
+    margin-bottom: 4px;
+
+    border-radius: 50%;
+
+    background: var(--contact-cyan);
+
+    box-shadow:
+        0 0 12px rgba(34, 211, 238, 0.9);
+
+    animation:
+        contactHeroPulse
+        2s
+        ease-in-out
+        infinite;
+}
+
+
+.contact-signal__core-center strong {
+    color: #edf8ff;
+
+    font-size: 0.62rem;
+
+    letter-spacing: 0.14em;
+
+    text-transform: uppercase;
+}
+
+
+.contact-signal__core-center small {
+    color: #62d9ed;
+
+    font-size: 0.55rem;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   DIAGNOSTICS
+   ========================================================= */
+
+.contact-signal__diagnostics {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+
+    padding: 12px 0;
+
+    border-top: 1px solid rgba(148, 163, 184, 0.08);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+
+.contact-signal__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 8px 4px;
+
+    font-family: monospace;
+
+    font-size: 0.69rem;
+}
+
+
+.contact-signal__row span {
+    color: #6f849f;
+}
+
+
+.contact-signal__row strong {
+    color: #8be5ef;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.contact-signal__footer {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-top: 17px;
+}
+
+
+.contact-signal__footer > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+.contact-signal__footer span {
+    color: #617893;
+
+    font-family: monospace;
+
+    font-size: 0.61rem;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+
+.contact-signal__footer strong {
+    color: #c5d8ec;
+
+    font-family: monospace;
+
+    font-size: 0.72rem;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   STATUS BAR
+   ========================================================= */
+
+.contact-hero__status-bar {
+    position: relative;
+
+    border-top: 1px solid rgba(96, 165, 250, 0.1);
+
+    background: rgba(3, 10, 24, 0.32);
+
+    backdrop-filter: blur(12px);
+}
+
+
+.contact-hero__status-inner {
+    width: min(1180px, calc(100% - 48px));
+
+    min-height: 52px;
+
+    margin-inline: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    color: #6f87a3;
+
+    font-family: monospace;
+
+    font-size: 0.62rem;
+
+    letter-spacing: 0.09em;
+
+    text-transform: uppercase;
+}
+
+
+.contact-hero__status-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.contact-hero__status-indicator {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #34d399;
+
+    box-shadow:
+        0 0 9px rgba(52, 211, 153, 0.7);
+}
+
+
+.contact-hero__status-separator {
+    width: 1px;
+    height: 13px;
+
+    background: rgba(100, 116, 139, 0.25);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes contactHeroPulse {
+
+    0%,
+    100% {
+        opacity: 0.55;
+        transform: scale(0.92);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+@keyframes contactHeroOrbFloat {
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(18px, -22px, 0);
+    }
+}
+
+
+@keyframes contactSignalRing {
+
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.025);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 980px) {
+
+    .contact-hero__container {
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+
+        padding-block: 110px 80px;
+    }
+
+
+    .contact-hero__content {
+        max-width: 760px;
+    }
+
+
+    .contact-hero__visual {
+        justify-content: flex-start;
+    }
+
+
+    .contact-signal {
+        width: min(100%, 520px);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+    .contact-hero {
+        min-height: auto;
+    }
+
+
+    .contact-hero__container {
+        width: min(100% - 32px, 520px);
+
+        padding-block: 88px 55px;
+
+        gap: 45px;
+    }
+
+
+    .contact-hero__eyebrow {
+        margin-bottom: 20px;
+
+        padding: 8px 11px;
+
+        font-size: 0.62rem;
+
+        letter-spacing: 0.1em;
+    }
+
+
+    .contact-hero__title {
+        font-size: clamp(
+            2.65rem,
+            12vw,
+            4rem
+        );
+
+        line-height: 1.02;
+
+        letter-spacing: -0.04em;
+    }
+
+
+    .contact-hero__description {
+        margin-top: 22px;
+
+        font-size: 0.96rem;
+
+        line-height: 1.75;
+    }
+
+
+    .contact-hero__actions {
+        margin-top: 28px;
+    }
+
+
+    .contact-hero__button {
+        width: 100%;
+    }
+
+
+    .contact-hero__trust {
+        gap: 10px;
+
+        font-size: 0.7rem;
+    }
+
+
+    .contact-hero__visual {
+        width: 100%;
+    }
+
+
+    .contact-signal {
+        padding: 17px;
+
+        border-radius: 22px;
+    }
+
+
+    .contact-signal__core {
+        height: 205px;
+    }
+
+
+    .contact-signal__rings {
+        width: 150px;
+        height: 150px;
+    }
+
+
+    .contact-signal__core-center {
+        width: 75px;
+        height: 75px;
+    }
+
+
+    .contact-signal__footer {
+        gap: 12px;
+    }
+
+
+    .contact-hero__status-inner {
+        width: calc(100% - 32px);
+
+        padding-block: 15px;
+
+        gap: 9px 13px;
+
+        justify-content: flex-start;
+
+        font-size: 0.56rem;
+    }
+
+
+    .contact-hero__status-separator {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   ARABIC / RTL
+   ========================================================= */
+
+html[lang="ar"] .contact-hero {
+    direction: rtl;
+}
+
+
+html[lang="ar"] .contact-hero__title,
+html[lang="ar"] .contact-hero__description {
+    text-align: right;
+}
+
+
+html[lang="ar"] .contact-hero__eyebrow {
+    letter-spacing: 0;
+
+    text-transform: none;
+}
+
+
+html[lang="ar"] .contact-hero__button-icon {
+    transform: scaleX(-1);
+}
+
+
+html[lang="ar"] .contact-hero__button:hover
+.contact-hero__button-icon {
+    transform:
+        scaleX(-1)
+        translateX(3px);
+}
+
+
+html[lang="ar"] .contact-signal {
+    direction: rtl;
+}
+
+
+html[lang="ar"] .contact-signal__code,
+html[lang="ar"] .contact-signal__row,
+html[lang="ar"] .contact-signal__footer {
+    direction: ltr;
+}
+
+
+html[lang="ar"] .contact-hero__status-inner {
+    direction: rtl;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .contact-hero *,
+    .contact-hero *::before,
+    .contact-hero *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* =========================================================
+   CERTIFIED — CONTACT HERO
+   CINEMATIC MOTION SYSTEM
+   ========================================================= */
+
+
+/* =========================================================
+   CINEMATIC REVEAL SWEEP
+   ========================================================= */
+
+.contact-hero__sweep,
+.contact-hero__sweep-glow {
+    position: absolute;
+    top: -20%;
+    bottom: -20%;
+
+    left: -25%;
+
+    width: 18%;
+    min-width: 180px;
+
+    pointer-events: none;
+
+    transform: skewX(-12deg);
+
+    opacity: 0;
+
+    z-index: 3;
+}
+
+
+.contact-hero__sweep {
+    background: 
+        linear-gradient( 
+            90deg, 
+            transparent 0%, 
+            rgba(34, 211, 238, 0.02) 25%, 
+            rgba(103, 232, 249, 0.20) 48%, 
+            rgba(59, 130, 246, 0.10) 62%, 
+            transparent 100% 
+        ); 
+
+    filter: blur(2px); 
+
+    animation: 
+        contactCinematicSweep 
+        6s 
+        cubic-bezier(.16,.84,.32,1) 
+        0s 
+        infinite;
+}
+
+
+.contact-hero__sweep-glow {
+    width: 34%; 
+
+    background: 
+        radial-gradient( 
+            ellipse at center, 
+            rgba(34, 211, 238, 0.11), 
+            rgba(59, 130, 246, 0.045) 35%, 
+            transparent 72% 
+        ); 
+
+    filter: blur(35px); 
+
+    animation: 
+        contactCinematicSweepGlow 
+        6.5s 
+        cubic-bezier(.16,.84,.32,1) 
+        0.2s 
+        infinite;
+}
+
+
+@keyframes contactCinematicSweep {
+
+    0% {
+        left: -30%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.95;
+    }
+
+    50% {
+        opacity: 0.75;
+    }
+
+    85% {
+        opacity: 0.25;
+    }
+
+    100% {
+        left: 115%;
+        opacity: 0;
+    }
+}
+
+
+@keyframes contactCinematicSweepGlow {
+
+    0% {
+        left: -40%;
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.9;
+    }
+
+    50% {
+        opacity: 0.65;
+    }
+
+    80% {
+        opacity: 0.18;
+    }
+
+    100% {
+        left: 120%;
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   DATA STREAM NETWORK
+   ========================================================= */
+
+.contact-hero__data-streams {
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    animation:
+        contactStreamsAppear
+        1s
+        ease
+        900ms
+        forwards;
+}
+
+
+.contact-hero__stream {
+    position: absolute;
+
+    height: 1px;
+
+    width: 180px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(34, 211, 238, 0.06),
+            rgba(103, 232, 249, 0.55),
+            transparent
+        );
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(34, 211, 238, 0.35)
+        );
+
+    opacity: 0.5;
+
+    animation:
+        contactDataStream
+        7s
+        linear
+        infinite;
+}
+
+
+.contact-hero__stream::after {
+    content: "";
+
+    position: absolute;
+
+    right: 18px;
+    top: -1px;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: #67e8f9;
+
+    box-shadow:
+        0 0 8px rgba(34, 211, 238, 0.9);
+}
+
+
+.contact-hero__stream--1 {
+    top: 23%;
+    left: -220px;
+
+    animation-duration: 8s;
+}
+
+
+.contact-hero__stream--2 {
+    top: 39%;
+    left: -280px;
+
+    animation-duration: 10s;
+    animation-delay: -4s;
+
+    transform: scaleX(0.7);
+}
+
+
+.contact-hero__stream--3 {
+    top: 58%;
+    left: -180px;
+
+    animation-duration: 7s;
+    animation-delay: -2s;
+
+    transform: scaleX(1.2);
+}
+
+
+.contact-hero__stream--4 {
+    top: 71%;
+    left: -250px;
+
+    animation-duration: 11s;
+    animation-delay: -7s;
+
+    transform: scaleX(0.8);
+}
+
+
+.contact-hero__stream--5 {
+    top: 84%;
+    left: -200px;
+
+    animation-duration: 9s;
+    animation-delay: -5s;
+
+    transform: scaleX(0.65);
+}
+
+
+@keyframes contactDataStream {
+
+    0% {
+        transform:
+            translate3d(-10vw, 0, 0)
+            scaleX(0.8);
+
+        opacity: 0;
+    }
+
+    12% {
+        opacity: 0.5;
+    }
+
+    65% {
+        opacity: 0.28;
+    }
+
+    100% {
+        transform:
+            translate3d(125vw, 0, 0)
+            scaleX(1);
+
+        opacity: 0;
+    }
+}
+
+
+@keyframes contactStreamsAppear {
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   CONSOLE 3D DEPTH
+   ========================================================= */
+
+.contact-signal {
+    transform-style: preserve-3d;
+
+    will-change:
+        transform,
+        box-shadow;
+}
+
+
+.contact-signal::after {
+    content: "";
+
+    position: absolute;
+    inset: 1px;
+
+    border-radius: 27px;
+
+    background:
+        radial-gradient(
+            circle at var(--signal-mouse-x, 50%)
+                       var(--signal-mouse-y, 50%),
+            rgba(34, 211, 238, 0.11),
+            transparent 30%
+        );
+
+    pointer-events: none;
+
+    opacity: 0.8;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   EDGE ENERGY
+   ========================================================= */
+
+.contact-signal__edge-energy {
+    position: absolute;
+    inset: -1px;
+
+    border-radius: 29px;
+
+    pointer-events: none;
+
+    z-index: 10;
+
+    background:
+        conic-gradient(
+            from 0deg,
+            transparent 0deg,
+            transparent 295deg,
+            rgba(34, 211, 238, 0.05) 310deg,
+            rgba(103, 232, 249, 0.95) 325deg,
+            rgba(59, 130, 246, 0.5) 337deg,
+            transparent 350deg,
+            transparent 360deg
+        );
+
+    animation:
+        contactEdgeEnergy
+        5s
+        linear
+        1.2s
+        infinite;
+
+    opacity: 0.95;
+
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+
+    mask-composite: exclude;
+
+    padding: 1px;
+}
+
+
+@keyframes contactEdgeEnergy {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   INTERNAL SCANNING LINE
+   ========================================================= */
+
+.contact-signal__scan-line {
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+
+    top: -5%;
+
+    height: 1px;
+
+    pointer-events: none;
+
+    z-index: 8;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(34, 211, 238, 0.8),
+            rgba(255, 255, 255, 0.8),
+            rgba(34, 211, 238, 0.8),
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px rgba(34, 211, 238, 0.5),
+        0 0 30px rgba(34, 211, 238, 0.18);
+
+    opacity: 0;
+
+    animation:
+        contactConsoleScan
+        6s
+        ease-in-out
+        2.8s
+        infinite;
+}
+
+
+@keyframes contactConsoleScan {
+
+    0% {
+        top: -5%;
+        opacity: 0;
+    }
+
+    8% {
+        opacity: 0.7;
+    }
+
+    48% {
+        opacity: 0.4;
+    }
+
+    52% {
+        opacity: 0;
+    }
+
+    100% {
+        top: 105%;
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   CORNER SYSTEM
+   ========================================================= */
+
+.contact-signal__corner {
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    z-index: 11;
+
+    pointer-events: none;
+
+    opacity: 0.7;
+}
+
+
+.contact-signal__corner::before,
+.contact-signal__corner::after {
+    content: "";
+
+    position: absolute;
+
+    background: rgba(103, 232, 249, 0.55);
+
+    box-shadow:
+        0 0 8px rgba(34, 211, 238, 0.25);
+}
+
+
+.contact-signal__corner::before {
+    width: 100%;
+    height: 1px;
+}
+
+
+.contact-signal__corner::after {
+    width: 1px;
+    height: 100%;
+}
+
+
+.contact-signal__corner--tl {
+    top: 12px;
+    left: 12px;
+}
+
+
+.contact-signal__corner--tr {
+    top: 12px;
+    right: 12px;
+
+    transform: rotate(90deg);
+}
+
+
+.contact-signal__corner--br {
+    right: 12px;
+    bottom: 12px;
+
+    transform: rotate(180deg);
+}
+
+
+.contact-signal__corner--bl {
+    left: 12px;
+    bottom: 12px;
+
+    transform: rotate(270deg);
+}
+
+
+/* =========================================================
+   TRANSMISSION PULSE
+   ========================================================= */
+
+.contact-signal__transmission {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 90px;
+    height: 90px;
+
+    margin-left: -45px;
+    margin-top: -45px;
+
+    border: 1px solid rgba(34, 211, 238, 0.4);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    animation:
+        contactTransmission
+        4s
+        cubic-bezier(.16,.84,.32,1)
+        1.4s
+        infinite;
+}
+
+
+.contact-signal__transmission--two {
+    animation-delay: 3.2s;
+}
+
+
+@keyframes contactTransmission {
+
+    0% {
+        transform: scale(0.45);
+        opacity: 0;
+    }
+
+    12% {
+        opacity: 0.75;
+    }
+
+    65% {
+        opacity: 0.18;
+    }
+
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   CORE ENERGY UPGRADE
+   ========================================================= */
+
+.contact-signal__core-center {
+    animation:
+        contactCoreBreath
+        3.8s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes contactCoreBreath {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 35px rgba(34, 211, 238, 0.12),
+            inset 0 0 20px rgba(34, 211, 238, 0.04);
+    }
+
+    50% {
+        box-shadow:
+            0 0 55px rgba(34, 211, 238, 0.26),
+            0 0 90px rgba(59, 130, 246, 0.08),
+            inset 0 0 28px rgba(34, 211, 238, 0.09);
+    }
+}
+
+
+/* =========================================================
+   DIAGNOSTIC LIVE STATES
+   ========================================================= */
+
+.contact-signal__row strong {
+    position: relative;
+
+    transition:
+        color 300ms ease,
+        text-shadow 300ms ease;
+}
+
+
+.contact-signal__row.is-scanning strong {
+    color: #d9fbff;
+
+    text-shadow:
+        0 0 8px rgba(34, 211, 238, 0.9),
+        0 0 20px rgba(34, 211, 238, 0.35);
+}
+
+
+/* =========================================================
+   CONSOLE IDLE FLOAT
+   ========================================================= */
+
+.contact-signal {
+    animation:
+        contactConsoleFloat
+        7s
+        ease-in-out
+        3s
+        infinite;
+}
+
+
+@keyframes contactConsoleFloat {
+
+    0%,
+    100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -7px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE OPTIMIZATION
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+    .contact-hero__sweep {
+        width: 28%;
+    }
+
+    .contact-hero__sweep-glow {
+        width: 48%;
+    }
+
+    .contact-hero__stream {
+        opacity: 0.28;
+    }
+
+    .contact-signal__edge-energy {
+        animation-duration: 6.5s;
+    }
+
+    .contact-signal__corner {
+        opacity: 0.45;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .contact-hero__sweep,
+    .contact-hero__sweep-glow,
+    .contact-hero__data-streams,
+    .contact-signal__edge-energy,
+    .contact-signal__scan-line,
+    .contact-signal__transmission,
+    .contact-signal,
+    .contact-signal__core-center {
+        animation: none !important;
+    }
+}
+
+
+
+html[lang="ar"] .contact-hero__sweep {
+    animation-name: contactCinematicSweepRTL;
+}
+
+html[lang="ar"] .contact-hero__sweep-glow {
+    animation-name: contactCinematicSweepGlowRTL;
+}
+
+
+@keyframes contactCinematicSweepRTL {
+
+    0% {
+        left: 115%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.95;
+    }
+
+    50% {
+        opacity: 0.75;
+    }
+
+    85% {
+        opacity: 0.25;
+    }
+
+    100% {
+        left: -30%;
+        opacity: 0;
+    }
+}
+
+
+@keyframes contactCinematicSweepGlowRTL {
+
+    0% {
+        left: 120%;
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.9;
+    }
+
+    50% {
+        opacity: 0.65;
+    }
+
+    80% {
+        opacity: 0.18;
+    }
+
+    100% {
+        left: -40%;
+        opacity: 0;
+    }
+}
+

@@ -1,0 +1,745 @@
+/* ==========================================================
+   CERTIFIED — HOME
+   TRUSTED SECTION
+   ==========================================================
+
+   File:
+   trusted.css
+
+   Section:
+   Home → Trusted
+
+   Purpose:
+   ----------------------------------------------------------
+   Styles the Trusted Section on the Home page.
+
+   The section presents:
+   - Platform trust indicators
+   - Rating / learner / partner metrics
+   - Trusted company logos
+   - Infinite company-logo slider
+   - Decorative background effects
+   - Mouse-follow glow interaction
+   - Scroll reveal animation
+   - Responsive layouts
+
+
+   Data Source:
+   ----------------------------------------------------------
+   Static / Translation-based content.
+
+   The section does NOT retrieve transactional data
+   from the database or API.
+
+
+   Backend Integration:
+   ----------------------------------------------------------
+   NOT REQUIRED.
+
+   Reason:
+   - Company logos are static presentation content.
+   - Trust metrics are marketing values.
+   - No CRUD operation exists.
+   - No user-submitted data is handled.
+   - No API request is required.
+
+
+   Localization:
+   ----------------------------------------------------------
+   Text content is provided through Laravel translation keys.
+
+   Example:
+       {{ __('trusted.tag') }}
+       {{ __('trusted.rating') }}
+       {{ __('trusted.learners') }}
+       {{ __('trusted.partners') }}
+       {{ __('trusted.title') }}
+       {{ __('trusted.subtitle') }}
+
+
+   Assets:
+   ----------------------------------------------------------
+   Company logos are loaded from:
+
+       public/images/companies/
+
+
+   Main Components:
+   ----------------------------------------------------------
+   .trusted-section
+       Main section wrapper.
+
+   .trusted-bg
+       Decorative background layer.
+
+   .bg-grid
+       Background grid effect.
+
+   .blob-left / .blob-right
+       Decorative blurred background blobs.
+
+   .mouse-glow
+       Mouse-follow visual glow.
+
+   .section-header
+       Section heading content.
+
+   .trust-meta
+       Trust statistics / indicators.
+
+   .companies-slider
+       Slider viewport.
+
+   .companies-track
+       Infinite animation track.
+
+   .company-item
+       Individual company card.
+
+
+   Animations:
+   ----------------------------------------------------------
+   trustedTagShine
+       Shine animation for the section tag.
+
+   trustedLogoSlider
+       Infinite horizontal company-logo movement.
+
+   reveal-up / show
+       Scroll reveal state.
+
+
+   Responsive:
+   ----------------------------------------------------------
+   Breakpoints:
+   - 992px
+   - 768px
+   - 480px
+
+   Responsive behavior adjusts:
+   - Section spacing
+   - Heading size
+   - Company card dimensions
+   - Slider gap
+   - Slider speed
+   - Edge fade width
+
+
+   Architecture:
+   ----------------------------------------------------------
+   Selectors are scoped under .trusted-section wherever
+   practical to prevent CSS conflicts with other sections.
+
+   Do NOT introduce generic global selectors for this section.
+
+
+   Maintenance Rule:
+   ----------------------------------------------------------
+   Avoid changing layout values unless a real visual bug
+   or responsive issue is identified.
+
+   This section has been finalized after integration review.
+
+   Status:
+   CLOSED
+   ========================================================== */
+
+
+/* ==========================================================
+   01. SECTION ROOT
+   ========================================================== */
+
+.trusted-section {
+    position: relative;
+    overflow: hidden;
+
+    padding-top: 40px;
+    padding-bottom: 70px;
+
+    background: linear-gradient(
+        180deg,
+        #ffffff,
+        #f8fbff,
+        #ffffff
+    );
+}
+
+
+/* ==========================================================
+   02. BACKGROUND LAYER
+   Decorative background elements are visual only.
+   No backend data is required.
+   ========================================================== */
+
+.trusted-section .trusted-bg {
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+}
+
+
+/* Background Grid */
+
+.trusted-section .bg-grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(37, 99, 235, 0.04) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(37, 99, 235, 0.04) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+}
+
+
+/* Decorative Blobs */
+
+.trusted-section .blob {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(70px);
+    opacity: 0.35;
+}
+
+.trusted-section .blob-left {
+    width: 320px;
+    height: 320px;
+
+    left: -100px;
+    top: -100px;
+
+    background: #60a5fa;
+}
+
+.trusted-section .blob-right {
+    width: 260px;
+    height: 260px;
+
+    right: -80px;
+    bottom: -80px;
+
+    background: #22d3ee;
+}
+
+
+/* Mouse Glow */
+
+.trusted-section .mouse-glow {
+    position: absolute;
+
+    width: 320px;
+    height: 320px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(37, 99, 235, 0.18),
+        transparent 70%
+    );
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition: 0.3s;
+}
+
+
+/* ==========================================================
+   03. SECTION HEADER
+   ========================================================== */
+
+.trusted-section .section-header {
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+
+/* Section Tag */
+
+.trusted-section .section-tag {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 10px 22px;
+
+    border: 1px solid rgba(79, 70, 229, 0.25);
+    border-radius: 999px;
+
+    background: rgba(79, 70, 229, 0.08);
+
+    backdrop-filter: blur(12px);
+
+    color: #4f46e5;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    position: relative;
+    overflow: hidden;
+
+    transition: all 0.35s ease;
+}
+
+
+/* Section Tag Icon */
+
+.trusted-section .section-tag::before {
+    content: "🌍";
+
+    font-size: 16px;
+}
+
+
+/* Section Tag Shine */
+
+.trusted-section .section-tag::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 60%;
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.8),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+
+    animation: trustedTagShine 4s infinite;
+}
+
+
+/* Section Tag Hover */
+
+.trusted-section .section-tag:hover {
+    transform: translateY(-3px);
+
+    background: rgba(79, 70, 229, 0.12);
+
+    box-shadow:
+        0 10px 30px rgba(79, 70, 229, 0.18);
+}
+
+
+/* ==========================================================
+   04. SECTION TITLE & DESCRIPTION
+   ========================================================== */
+
+.trusted-section .section-header h2 {
+    font-size: 42px;
+
+    font-weight: 800;
+
+    margin-bottom: 18px;
+
+    color: #0f172a;
+}
+
+.trusted-section .section-header p {
+    max-width: 650px;
+
+    margin: auto;
+
+    line-height: 1.8;
+
+    color: #64748b;
+}
+
+
+/* ==========================================================
+   05. TRUST META
+   ========================================================== */
+
+.trusted-section .trust-meta {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+
+    margin: 20px 0 30px;
+}
+
+.trusted-section .trust-meta span {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #475569;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.trusted-section .trust-meta i {
+    color: #fbbf24;
+
+    font-size: 14px;
+}
+
+.trusted-section .divider {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #cbd5e1;
+}
+
+
+/* ==========================================================
+   06. COMPANIES INFINITE SLIDER
+   ========================================================== */
+
+.trusted-section .companies-slider {
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin-top: 30px;
+
+    padding: 10px 0 0;
+
+    isolation: isolate;
+}
+
+
+/* ==========================================================
+   07. SLIDER EDGE FADE
+   ========================================================== */
+
+.trusted-section .companies-slider::before,
+.trusted-section .companies-slider::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    width: 180px;
+    height: 100%;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+.trusted-section .companies-slider::before {
+    left: 0;
+
+    background: linear-gradient(
+        to right,
+        #ffffff 0%,
+        rgba(255, 255, 255, 0.95) 20%,
+        rgba(255, 255, 255, 0.75) 45%,
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
+.trusted-section .companies-slider::after {
+    right: 0;
+
+    background: linear-gradient(
+        to left,
+        #ffffff 0%,
+        rgba(255, 255, 255, 0.95) 20%,
+        rgba(255, 255, 255, 0.75) 45%,
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
+
+/* ==========================================================
+   08. SLIDER TRACK
+   ========================================================== */
+
+.trusted-section .companies-track {
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    width: max-content;
+
+    animation: trustedLogoSlider 32s linear infinite;
+
+    will-change: transform;
+}
+
+
+/* Pause slider while hovering */
+
+.trusted-section .companies-slider:hover .companies-track {
+    animation-play-state: paused;
+}
+
+
+/* ==========================================================
+   09. COMPANY CARD
+   ========================================================== */
+
+.trusted-section .company-item {
+    width: 230px;
+    height: 140px;
+
+    position: relative;
+
+    isolation: isolate;
+
+    flex-shrink: 0;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        145deg,
+        #1d2230,
+        #10131c
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    transition: 0.45s;
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Card Shine */
+
+.trusted-section .company-item::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.15),
+        transparent
+    );
+
+    transform: translateX(-100%);
+
+    transition: 0.8s;
+}
+
+
+/* Card Hover */
+
+.trusted-section .company-item:hover {
+    transform: translateY(-12px) scale(1.03);
+
+    box-shadow:
+        0 25px 50px rgba(13, 110, 253, 0.25);
+
+    border-color: #0d6efd;
+}
+
+
+/* Card Shine Hover */
+
+.trusted-section .company-item:hover::before {
+    transform: translateX(100%);
+}
+
+
+/* Company Image */
+
+.trusted-section .company-item img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.45s;
+}
+
+
+/* ==========================================================
+   10. REVEAL ANIMATION
+   ========================================================== */
+
+.trusted-section .reveal-up {
+    opacity: 0;
+
+    transform: translateY(50px);
+
+    transition: 0.8s;
+}
+
+.trusted-section .reveal-up.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ==========================================================
+   11. ANIMATION KEYFRAMES
+   ========================================================== */
+
+@keyframes trustedTagShine {
+    0% {
+        left: -120%;
+    }
+
+    35% {
+        left: 140%;
+    }
+
+    100% {
+        left: 140%;
+    }
+}
+
+@keyframes trustedLogoSlider {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-50% - 15px));
+    }
+}
+
+
+/* ==========================================================
+   12. RESPONSIVE — TABLET
+   ========================================================== */
+
+@media (max-width: 992px) {
+
+    .trusted-section {
+        padding: 90px 0;
+    }
+
+    .trusted-section .section-header h2 {
+        font-size: 34px;
+    }
+
+    .trusted-section .company-item {
+        width: 190px;
+        height: 120px;
+    }
+}
+
+
+/* ==========================================================
+   13. RESPONSIVE — MOBILE
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+    .trusted-section {
+        padding: 70px 0;
+    }
+
+    .trusted-section .section-header {
+        margin-bottom: 45px;
+    }
+
+    .trusted-section .section-header h2 {
+        font-size: 28px;
+        line-height: 1.3;
+    }
+
+    .trusted-section .section-header p {
+        font-size: 15px;
+        line-height: 1.8;
+
+        padding-inline: 10px;
+    }
+
+    .trusted-section .trust-meta {
+        gap: 12px;
+
+        margin: 18px 0 25px;
+    }
+
+    .trusted-section .trust-meta span {
+        font-size: 14px;
+    }
+
+    .trusted-section .company-item {
+        width: 160px;
+        height: 95px;
+
+        border-radius: 18px;
+    }
+
+    .trusted-section .companies-track {
+        gap: 20px;
+
+        animation-duration: 22s;
+    }
+}
+
+
+/* ==========================================================
+   14. RESPONSIVE — SMALL MOBILE
+   ========================================================== */
+
+@media (max-width: 480px) {
+
+    .trusted-section .section-header h2 {
+        font-size: 24px;
+    }
+
+    .trusted-section .company-item {
+        width: 135px;
+        height: 82px;
+    }
+
+    .trusted-section .companies-slider::before,
+    .trusted-section .companies-slider::after {
+        width: 70px;
+    }
+}

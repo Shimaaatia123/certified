@@ -1,0 +1,514 @@
+/* ==========================================================
+                HERO BACKGROUND
+========================================================== */
+
+.hero-background {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+/* ================= Glow ================= */
+ 
+.hero-glow {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    opacity: 0.45;
+
+    transition: transform 0.2s;
+}
+
+.hero-glow-1 {
+    width: 420px;
+
+    height: 420px;
+
+    left: -120px;
+
+    top: -80px;
+
+    background: #2563eb;
+}
+
+.hero-glow-2 {
+    width: 380px;
+
+    height: 380px;
+
+    right: -100px;
+
+    bottom: -60px;
+
+    background: #06b6d4;
+}
+
+/* ================= Grid ================= */
+
+.hero-grid {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+
+    background-size: 50px 50px;
+
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+
+    opacity: 0.25;
+}
+
+/* ================= Floating Dots ================= */
+
+.hero-particles {
+    position: absolute;
+
+    inset: 0;
+
+    background-image: radial-gradient(circle, #3b82f6 1.5px, transparent 2px);
+
+    background-size: 70px 70px;
+
+    opacity: 0.25;
+}
+
+.courses-hero {
+    position: relative;
+
+    overflow: hidden;
+
+    padding:50px 0 90px;
+
+    background: linear-gradient(135deg, #081120 0%, #0f172a 50%, #18263f 100%);
+}
+
+/* ================= Container ================= */
+
+.courses-hero .container {
+    position: relative;
+
+    z-index: 2;
+}
+
+/* ================= Content ================= */
+
+.courses-hero-content {
+    max-width: 620px;
+}
+
+/* ================= Badge ================= */
+
+.hero-badge {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 28px;
+
+    margin-bottom: 30px;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+
+    background: rgba(37, 99, 235, 0.08);
+
+    border: 1px solid rgba(96, 165, 250, 0.35);
+
+    color: #dbeafe;
+
+    font-size: 0.95rem;
+
+    font-weight: 600;
+
+    backdrop-filter: blur(14px);
+
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.15);
+
+    animation: badgeFloat 4s ease-in-out infinite;
+}
+
+.hero-badge::before {
+    content: "";
+
+    position: absolute;
+
+    left: -120%;
+
+    top: 0;
+
+    width: 60%;
+
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.55),
+        transparent
+    );
+
+    animation: badgeShine 4s linear infinite;
+}
+
+.badge-icon {
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: #2563eb;
+
+    color: #fff;
+
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.45);
+}
+/* ================= Title ================= */
+
+.hero-title {
+    color: #fff;
+
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+
+    font-weight: 800;
+
+    line-height: 1.15;
+
+    margin-bottom: 25px;
+}
+
+.hero-title span {
+    color: var(--primary-color);
+}
+
+/* ================= Description ================= */
+
+.hero-description {
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 1.1rem;
+
+    line-height: 1.9;
+
+    margin-bottom: 24px;
+}
+
+.hero-stats p{
+    color:rgba(255,255,255,.82);
+
+    font-size:15px;
+
+    font-weight:500;
+}
+
+.hero-stats h3{
+    color:#fff;
+}
+
+.popular-tags span{
+
+    color:#fff;
+
+    border:1px solid rgba(96,165,250,.28);
+
+    background:rgba(255,255,255,.06);
+
+}
+
+/* ==========================================================
+                    HERO DIVIDER
+========================================================== */
+
+.hero-divider {
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 100%;
+
+    height: 90px;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 3;
+}
+
+/* ==========================================================
+                PREMIUM CURVED DIVIDER
+========================================================== */
+
+.hero-divider {
+    position: absolute;
+
+    left: 0;
+
+    bottom: -1px;
+
+    width: 100%;
+
+    height: 170px;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 5;
+}
+
+.hero-divider-svg {
+    width: 100%;
+
+    height: 100%;
+}
+
+.hero-divider-path {
+    fill: none;
+
+    stroke: #3b82f6;
+
+    stroke-width: 3;
+
+    stroke-linecap: round;
+
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.8))
+        drop-shadow(0 0 18px rgba(37, 99, 235, 0.6));
+}
+
+.hero-divider-dot {
+    fill: #ffffff;
+
+    filter: drop-shadow(0 0 12px #60a5fa) drop-shadow(0 0 24px #3b82f6);
+}
+
+.hero-divider::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 25px;
+
+    transform: translateX(-50%);
+
+    width: 620px;
+
+    height: 140px;
+
+    border-radius: 50%;
+
+    background: rgba(37, 99, 235, 0.25);
+
+    filter: blur(90px);
+
+    animation: dividerPulse 6s ease-in-out infinite;
+}
+
+/* ==========================================================
+                    HERO ANIMATION
+========================================================== */
+
+.hero-badge,
+.hero-title,
+.hero-description,
+.hero-buttons,
+.hero-image {
+    will-change: transform, opacity;
+}
+
+.hero-image{
+    position: relative;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 16px;
+
+    border-radius: 36px;
+
+    background: rgba(255,255,255,.04);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    backdrop-filter: blur(16px);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.35),
+        0 0 40px rgba(37,99,235,.12);
+
+    overflow: hidden;
+
+    animation: heroFloat 6s ease-in-out infinite;
+}
+
+.hero-image img{
+
+    display:block;
+
+    width:100%;
+
+    border-radius:28px;
+
+    transition:transform .5s ease;
+
+    filter:
+        drop-shadow(0 25px 45px rgba(0,0,0,.35));
+
+}
+
+.hero-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120%;
+
+    left:-40%;
+
+    width:60%;
+
+    height:300%;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.18),
+        transparent
+    );
+
+    transform:rotate(25deg);
+
+    animation:heroImageShine 6s linear infinite;
+
+}
+
+.hero-image:hover img{
+
+    transform:scale(1.03);
+
+}
+
+/* ==========================================================
+                HERO SCROLL REVEAL
+========================================================== */
+
+.hero-badge,
+.hero-title,
+.hero-description,
+.hero-search,
+.popular-tags,
+.hero-stats,
+.hero-image {
+    opacity: 0;
+
+    transform: translateY(45px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-badge.show,
+.hero-title.show,
+.hero-description.show,
+.hero-search.show,
+.popular-tags.show,
+.hero-stats.show,
+.hero-image.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.hero-search{
+   margin-bottom:22px;
+}
+.popular-tags{
+   margin-bottom:20px;
+}
+
+@keyframes dividerPulse {
+    0%,
+    100% {
+        opacity: 0.35;
+
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+
+        transform: translateX(-50%) scale(1.08);
+    }
+}
+
+@keyframes badgeFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes badgeShine {
+    from {
+        left: -120%;
+    }
+
+    to {
+        left: 140%;
+    }
+}
+
+@keyframes heroFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes heroImageShine{
+
+    from{
+        left:-60%;
+    }
+
+    to{
+        left:140%;
+    }
+
+}     

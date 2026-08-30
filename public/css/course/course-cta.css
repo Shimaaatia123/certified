@@ -1,0 +1,1199 @@
+/*==================================================
+                COURSE CTA
+==================================================*/
+
+/*
+01. SECTION
+02. BACKGROUND
+03. GRID
+04. NOISE
+05. AURORA
+06. ORBS
+07. RINGS
+08. STARS
+09. CARD
+10. HEADER
+11. BADGE
+12. TITLE
+13. SUBTITLE
+14. STATS
+15. BUTTONS
+16. TRUST
+17. HOVER
+18. ANIMATIONS
+19. RESPONSIVE
+20. ACCESSIBILITY
+21. PERFORMANCE
+*/
+/*==================================================
+                TOP DIVIDER
+==================================================*/
+
+.course-cta-divider {
+    position: relative;
+
+    height: 2px;
+
+    overflow: hidden;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(96, 165, 250, 0.18),
+        rgba(124, 58, 237, 0.18),
+        transparent
+    );
+}
+
+.course-cta-divider span {
+    position: absolute;
+
+    left: -20%;
+
+    top: 0;
+
+    width: 20%;
+
+    height: 100%;
+
+    border-radius: 999px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #60a5fa,
+        #fff,
+        #8b5cf6,
+        transparent
+    );
+
+    filter: blur(0.3px);
+
+    animation: dividerLight 4s linear infinite;
+}
+
+@keyframes dividerLight {
+    to {
+        left: 120%;
+    }
+}
+
+
+/*==================================================
+                    SECTION
+==================================================*/
+
+.course-cta-section {
+    position: relative;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    padding: 55px 0 28px;
+
+    background: linear-gradient(180deg, #071321 0%, #09192b 55%, #0b1d31 100%);
+
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+}
+
+.course-cta-section::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    background: radial-gradient(
+        450px circle at var(--mouse-x) var(--mouse-y),
+        rgba(96, 165, 250, 0.18),
+        rgba(124, 58, 237, 0.12) 35%,
+        transparent 70%
+    );
+
+    opacity: 0;
+
+    transition: opacity 0.35s ease;
+}
+
+.course-cta-section:hover::before{
+
+opacity:1;
+
+}
+
+/*==================================================
+                BACKGROUND
+==================================================*/
+
+.course-cta-background {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    contain: layout paint;
+}
+
+.course-cta-background::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(circle, #7c3aed 1.4px, transparent 1.6px),
+        radial-gradient(circle, #60a5fa 1.2px, transparent 1.5px),
+        radial-gradient(circle, #22d3ee 1.2px, transparent 1.5px);
+
+    background-size:
+        170px 170px,
+        240px 240px,
+        310px 310px;
+
+    opacity: 0.25;
+
+    animation: courseParticles 25s linear infinite;
+}
+
+.course-cta-wave {
+    position: absolute;
+
+    left: -20%;
+
+    top: 45%;
+
+    width: 140%;
+
+    height: 220px;
+
+    border-top: 2px solid rgba(96, 165, 250, 0.2);
+
+    border-radius: 50%;
+
+    filter: drop-shadow(0 0 12px #60a5fa);
+
+    animation: waveMove 8s ease-in-out infinite;
+}
+
+.course-cta-wave::before {
+    content: "";
+
+    position: absolute;
+
+    left: -10%;
+
+    top: -2px;
+
+    width: 18%;
+
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        white,
+        #60a5fa,
+        #8b5cf6,
+        transparent
+    );
+
+    filter: blur(0.5px);
+
+    animation: waveLight 5s linear infinite;
+}
+
+/*==================================================
+                    GRID
+==================================================*/
+
+.course-cta-grid {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.22;
+
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+
+    background-size: 46px 46px;
+}
+
+/*==================================================
+                    NOISE
+==================================================*/
+
+.course-cta-noise {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.045;
+
+    background-image:
+        radial-gradient(circle at 20% 20%, #fff 1px, transparent 1px),
+        radial-gradient(circle at 70% 60%, #fff 1px, transparent 1px),
+        radial-gradient(circle at 40% 90%, #fff 1px, transparent 1px);
+
+    background-size: 170px 170px;
+}
+
+/*==================================================
+                    AURORA
+==================================================*/
+
+.course-cta-aurora {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(95px);
+
+    opacity: 0.35;
+
+    animation: courseCtaAurora 14s ease-in-out infinite;
+}
+
+.aurora-1 {
+    width: 520px;
+
+    height: 520px;
+
+    left: -180px;
+
+    top: -170px;
+
+    background: #2563eb;
+}
+
+.aurora-2 {
+    width: 470px;
+
+    height: 470px;
+
+    right: -160px;
+
+    bottom: -180px;
+
+    background: #7c3aed;
+
+    animation-delay: 4s;
+}
+
+/*==================================================
+                    ORBS
+==================================================*/
+
+.course-cta-orb {
+    position: absolute;
+
+    border-radius: 50%;
+
+    backdrop-filter: blur(8px);
+
+    animation: courseCtaOrb 9s ease-in-out infinite;
+
+    will-change: transform;
+}
+
+.orb-1 {
+    width: 24px;
+
+    height: 24px;
+
+    top: 16%;
+
+    left: 11%;
+
+    background: #60a5fa;
+}
+
+.orb-2 {
+    width: 18px;
+
+    height: 18px;
+
+    right: 14%;
+
+    top: 28%;
+
+    background: #8b5cf6;
+
+    animation-delay: 2s;
+}
+
+.orb-3 {
+    width: 14px;
+
+    height: 14px;
+
+    bottom: 18%;
+
+    left: 22%;
+
+    background: #22d3ee;
+
+    animation-delay: 5s;
+}
+
+/*==================================================
+                    RINGS
+==================================================*/
+
+.course-cta-ring {
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    animation: courseCtaRing 13s linear infinite;
+
+    will-change: transform;
+}
+
+.ring-1 {
+    width: 240px;
+
+    height: 240px;
+
+    top: -80px;
+
+    right: 7%;
+}
+
+.ring-2 {
+    width: 160px;
+
+    height: 160px;
+
+    left: 6%;
+
+    bottom: -60px;
+
+    animation-direction: reverse;
+}
+
+/*==================================================
+                    CARD
+==================================================*/
+
+.course-cta-card {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 1180px;
+
+    margin: auto;
+
+    padding: 50px 60px;
+
+    border-radius: 36px;
+
+    overflow: hidden;
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.08),
+        rgba(255, 255, 255, 0.04)
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    backdrop-filter: blur(24px);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(37, 99, 235, 0.1),
+        0 0 45px rgba(124, 58, 237, 0.08),
+        inset 0 1px rgba(255, 255, 255, 0.08);
+
+    animation: courseBorderGlow 5s ease-in-out infinite;
+    isolation: isolate;
+}
+
+/* Glass Shine */
+
+.course-cta-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: -170%;
+
+    top: -45%;
+
+    width: 90%;
+
+    height: 240%;
+
+    pointer-events: none;
+
+    background: linear-gradient(
+        115deg,
+        transparent 35%,
+
+        rgba(255, 255, 255, 0.08) 45%,
+
+        rgba(255, 255, 255, 0.95) 50%,
+
+        rgba(96, 165, 250, 0.65) 52%,
+
+        rgba(124, 58, 237, 0.45) 55%,
+
+        transparent 65%
+    );
+
+    transform: rotate(-20deg);
+
+    filter: blur(2px);
+
+    animation: courseLaser 8s linear infinite;
+
+    will-change: transform, left, opacity;
+}
+
+.course-cta-card:hover::before {
+    animation: courseCtaShine 1.4s ease;
+}
+
+/* Border Glow */
+
+.course-cta-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    padding: 1px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(96, 165, 250, 0.45),
+        rgba(124, 58, 237, 0.3),
+        rgba(34, 211, 238, 0.4)
+    );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite: xor;
+
+    mask-composite: exclude;
+
+    pointer-events: none;
+
+    opacity: 0.55;
+
+    background-size: 300% 300%;
+
+    animation: courseBorderGradient 10s linear infinite;
+
+    will-change: background-position;
+}
+
+/*==================================================
+                    HEADER
+==================================================*/
+
+.course-cta-header {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 760px;
+
+    margin: 0 auto 42px;
+
+    text-align: center;
+}
+
+/*==================================================
+                    BADGE
+==================================================*/
+
+.course-cta-badge {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 24px;
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    color: #fff;
+
+    font-size: 0.92rem;
+
+    font-weight: 700;
+
+    overflow: hidden;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 0 18px rgba(96, 165, 250, 0.15),
+        0 0 45px rgba(124, 58, 237, 0.18),
+        inset 0 1px rgba(255, 255, 255, 0.2);
+
+    animation: courseCtaBadgeFloat 5s ease-in-out infinite;
+}
+
+.course-cta-badge::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -150%;
+
+    width: 90%;
+
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.95),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+
+    animation: courseCtaBadgeShine 4s linear infinite;
+}
+
+.course-cta-badge i {
+    color: #facc15;
+
+    animation: courseCtaRocket 2.5s ease-in-out infinite;
+}
+
+/*==================================================
+                    TITLE
+==================================================*/
+
+.course-cta-title {
+    margin: 22px 0 16px;
+
+    color: #fff;
+
+    font-size: clamp(2.4rem, 4vw, 4.4rem);
+
+    font-weight: 800;
+
+    line-height: 1.15;
+}
+
+.course-cta-title span {
+    background: linear-gradient(90deg, #60a5fa, #8b5cf6, #22d3ee);
+
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    animation: courseCtaGradient 6s linear infinite;
+}
+
+/*==================================================
+                    SUBTITLE
+==================================================*/
+
+.course-cta-subtitle {
+    max-width: 720px;
+
+    margin: 0 auto 10px;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    font-size: 1.08rem;
+
+    line-height: 1.9;
+}
+
+/*==================================================
+                    STATS
+==================================================*/
+
+.course-cta-stats {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+
+    margin: 45px 0;
+}
+
+.course-cta-stat {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.course-cta-stat strong {
+    font-size: 1.55rem;
+
+    color: white;
+
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+.course-cta-stat span {
+    font-size: 1rem;
+
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.course-cta-stat {
+    overflow: hidden;
+
+    position: relative;
+}
+
+.course-cta-stat::before {
+    content: "";
+
+    position: absolute;
+
+    left: -140%;
+
+    top: 0;
+
+    width: 45%;
+
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.18),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+}
+
+.course-cta-stat:hover::before {
+    animation: courseCtaCardShine 0.9s;
+}
+
+.course-cta-stat:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(96, 165, 250, 0.28);
+
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+}
+
+.course-cta-stat-icon {
+    width: 56px;
+
+    height: 56px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 16px;
+
+    color: #fff;
+
+    font-size: 22px;
+
+    background: linear-gradient(135deg, #3b82f6, #7c3aed);
+
+    box-shadow: 0 10px 24px rgba(59, 130, 246, 0.28);
+
+    animation: courseIconFloat 3s ease-in-out infinite;
+}
+
+.course-cta-stat:nth-child(2) .course-cta-stat-icon {
+    animation-delay: 1s;
+}
+
+.course-cta-stat:nth-child(3) .course-cta-stat-icon {
+    animation-delay: 2s;
+}
+
+.course-cta-stat-content {
+    text-align: left;
+}
+
+html[dir="rtl"] .course-cta-stat-content {
+    text-align: right;
+}
+
+.course-cta-stat-number {
+    display: block;
+
+    color: #fff;
+
+    font-size: 1.55rem;
+
+    font-weight: 800;
+
+    line-height: 1;
+}
+
+.course-cta-stat-label {
+    display: block;
+
+    margin-top: 6px;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 0.93rem;
+}
+
+/*==================================================
+                    BUTTONS
+==================================================*/
+
+.course-cta-actions {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-top: 10px;
+
+    flex-wrap: wrap;
+}
+
+.course-cta-btn {
+    position: relative;
+
+    overflow: hidden;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    min-width: 205px;
+
+    padding: 16px 30px;
+
+    border-radius: 999px;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.course-cta-btn::before {
+    content: "";
+
+    position: absolute;
+
+    left: -120%;
+
+    top: 0;
+
+    width: 60%;
+
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent
+    );
+
+    transform: skewX(-25deg);
+}
+
+.course-cta-btn:hover::before {
+    animation: courseCtaButtonShine 0.9s ease;
+}
+
+.course-cta-btn-primary {
+    color: #fff;
+
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+
+    box-shadow: 0 18px 40px rgba(37, 99, 235, 0.28);
+}
+
+.course-cta-btn-primary:hover {
+    box-shadow:
+        0 0 25px #3b82f6,
+        0 0 55px rgba(124, 58, 237, 0.45);
+}
+
+.course-cta-btn-secondary {
+    color: #fff;
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.course-cta-btn-secondary:hover {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+
+    border-color: transparent;
+
+    box-shadow: 0 0 25px rgba(96, 165, 250, 0.4);
+}
+
+.course-cta-btn:hover {
+    transform: translateY(-5px);
+}
+
+/*==================================================
+                    TRUST
+==================================================*/
+
+.course-cta-trust {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 42px;
+}
+
+.course-cta-stars {
+    display: flex;
+
+    gap: 6px;
+
+    color: #facc15;
+
+    font-size: 20px;
+}
+
+.course-cta-rating {
+    color: #fff;
+
+    font-weight: 700;
+}
+
+.course-cta-rating-stars i {
+    font-size: 22px;
+
+    margin: 0 2px;
+
+    background: linear-gradient(180deg, #fff4a3, #ffd43b, #f59e0b);
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.45));
+
+    animation: courseStarTwinkle 2.5s ease-in-out infinite;
+}
+
+.course-cta-rating-stars i:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.course-cta-rating-stars i:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.course-cta-rating-stars i:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.course-cta-rating-stars i:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+.course-cta-trusted {
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: 0.95rem;
+}
+
+/*==================================================
+                    Animation
+==================================================*/
+@keyframes courseCtaBadgeFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes courseParticles {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-180px);
+    }
+}
+
+@keyframes waveMove {
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes waveLight {
+    to {
+        left: 120%;
+    }
+}
+
+@keyframes courseIconFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-6px) rotate(6deg);
+    }
+}
+
+@keyframes courseStarTwinkle {
+    50% {
+        transform: scale(1.2);
+
+        filter: drop-shadow(0 0 18px gold);
+    }
+}
+
+@keyframes courseLaser {
+    0% {
+        left: -170%;
+
+        opacity: 0;
+    }
+
+    8% {
+        opacity: 1;
+    }
+
+    45% {
+        left: 170%;
+
+        opacity: 1;
+    }
+
+    46% {
+        opacity: 0;
+    }
+
+    100% {
+        left: 170%;
+
+        opacity: 0;
+    }
+}
+
+@keyframes courseBorderGlow {
+    0%,
+    100% {
+        box-shadow:
+            0 30px 80px rgba(0, 0, 0, 0.35),
+            0 0 20px rgba(37, 99, 235, 0.1),
+            0 0 40px rgba(124, 58, 237, 0.08),
+            inset 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    50% {
+        box-shadow:
+            0 35px 90px rgba(0, 0, 0, 0.45),
+            0 0 45px rgba(96, 165, 250, 0.28),
+            0 0 70px rgba(124, 58, 237, 0.24),
+            inset 0 1px rgba(255, 255, 255, 0.14);
+    }
+}
+
+@keyframes courseBorderGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/*==================================================
+                RESPONSIVE
+==================================================*/
+
+@media (max-width: 992px) {
+    .course-cta-card {
+        padding: 45px 35px;
+
+        border-radius: 28px;
+    }
+
+    .course-cta-title {
+        font-size: clamp(2rem, 5vw, 3.2rem);
+    }
+
+    .course-cta-stats {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .course-cta-stat {
+        justify-content: flex-start;
+    }
+
+    .course-cta-trust {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .course-cta-section {
+        padding: 45px 0 22px;
+    }
+
+    .course-cta-card {
+        padding: 32px 22px;
+
+        border-radius: 22px;
+    }
+
+    .course-cta-title {
+        font-size: 2rem;
+
+        line-height: 1.3;
+    }
+
+    .course-cta-subtitle {
+        font-size: 0.98rem;
+
+        line-height: 1.8;
+    }
+
+    .course-cta-actions {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .course-cta-btn {
+        width: 100%;
+
+        max-width: 340px;
+    }
+
+    .course-cta-stat {
+        padding: 18px;
+    }
+
+    .course-cta-stat strong {
+        font-size: 1.3rem;
+    }
+
+    .course-cta-stat-icon {
+        width: 50px;
+
+        height: 50px;
+
+        font-size: 20px;
+    }
+
+    .course-cta-rating,
+    .course-cta-trusted {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .course-cta-card {
+        padding: 26px 18px;
+    }
+
+    .course-cta-title {
+        font-size: 1.7rem;
+    }
+
+    .course-cta-badge {
+        padding: 11px 18px;
+
+        font-size: 0.82rem;
+    }
+
+    .course-cta-stat {
+        gap: 12px;
+    }
+
+    .course-cta-rating-stars i {
+        font-size: 18px;
+    }
+}
