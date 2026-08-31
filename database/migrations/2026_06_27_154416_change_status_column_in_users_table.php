@@ -7,11 +7,19 @@ return new class extends Migration
 {
     public function up(): void
     {
-        DB::statement("ALTER TABLE users MODIFY status TINYINT(1) NOT NULL DEFAULT 1");
+        if (DB::getDriverName() === 'mysql') {
+            DB::statement(
+                "ALTER TABLE users MODIFY status TINYINT(1) NOT NULL DEFAULT 1"
+            );
+        }
     }
 
     public function down(): void
     {
-        DB::statement("ALTER TABLE users MODIFY status ENUM('0','1') NOT NULL DEFAULT '1'");
+        if (DB::getDriverName() === 'mysql') {
+            DB::statement(
+                "ALTER TABLE users MODIFY status ENUM('0','1') NOT NULL DEFAULT '1'"
+            );
+        }
     }
 };
