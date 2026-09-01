@@ -1,103 +1,124 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-4">
+    <div class="container-fluid mt-5 pt-5 px-4">
         <div class="row">
-            <div class="col-md-8 m-auto">
+            <div class="col-lg-11 col-xl-10 m-auto">
 
                 <div class="card shadow border-0">
 
-                    <div class="card-header bg-success text-white text-center">
-                        <h5 class="mb-0">
+                    <div class="card-header bg-success text-white text-center py-2">
+                        <h6 class="mb-0">
                             <i class="fas fa-file-circle-plus me-2"></i>
                             {{ __('language.Create New Exam🔵') }}
-                        </h5>
+                        </h6>
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body py-2">
 
                         <form action="{{ route('exams.store') }}" method="POST">
                             @csrf
 
-                            <label>
-                                <i class="fas fa-book-open text-primary me-1"></i>
-                                {{ __('language.Course ID') }}
-                            </label>
-                            <input type="number" name="course_id" class="form-control mb-3" value="{{ old('course_id') }}">
-                            @error('course_id')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                            <div class="row">
 
-                            <label>
-                                <i class="fas fa-language text-success me-1"></i>
-                                {{ __('language.Title AR') }}
-                            </label>
-                            <input type="text" name="title_ar" class="form-control mb-3" value="{{ old('title_ar') }}">
-                            @error('title_ar')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                                {{-- LEFT COLUMN --}}
+                                <div class="col-md-6">
 
-                            <label>
-                                <i class="fas fa-language text-info me-1"></i>
-                                {{ __('language.Title EN') }}
-                            </label>
-                            <input type="text" name="title_en" class="form-control mb-3" value="{{ old('title_en') }}">
-                            @error('title_en')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                                    <label class="small mb-1">
+                                        <i class="fas fa-book-open text-primary me-1"></i>
+                                        {{ __('language.Course ID') }}
+                                    </label>
+                                    <input type="number" name="course_id" class="form-control form-control-sm mb-2" value="{{ old('course_id') }}">
+                                    @error('course_id')
+                                        <div class="alert alert-danger py-1 px-2 small mb-2">{{ $message }}</div>
+                                    @enderror
 
-                            <label>
-                                <i class="fas fa-star text-warning me-1"></i>
-                                {{ __('language.Total Marks') }}
-                            </label>
-                            <input type="number" name="total_marks" class="form-control mb-3"
-                                value="{{ old('total_marks') }}">
-                            @error('total_marks')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                                    <label class="small mb-1">
+                                        <i class="fas fa-language text-success me-1"></i>
+                                        {{ __('language.Title AR') }}
+                                    </label>
+                                    <input type="text" name="title_ar" class="form-control form-control-sm mb-2" value="{{ old('title_ar') }}">
+                                    @error('title_ar')
+                                        <div class="alert alert-danger py-1 px-2 small mb-2">{{ $message }}</div>
+                                    @enderror
 
-                            <label>
-                                <i class="fas fa-check-circle text-success me-1"></i>
-                                {{ __('language.Pass Marks') }}
-                            </label>
-                            <input type="number" name="pass_marks" class="form-control mb-3"
-                                value="{{ old('pass_marks') }}">
-                            @error('pass_marks')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                                    <label class="small mb-1">
+                                        <i class="fas fa-clock text-danger me-1"></i>
+                                        {{ __('language.Duration (Minutes)') }}
+                                    </label>
+                                    <input type="number" name="duration" class="form-control form-control-sm mb-2" value="{{ old('duration') }}">
+                                    @error('duration')
+                                        <div class="alert alert-danger py-1 px-2 small mb-2">{{ $message }}</div>
+                                    @enderror
 
-                            <label>
-                                <i class="fas fa-clock text-danger me-1"></i>
-                                {{ __('language.Duration (Minutes)') }}
-                            </label>
-                            <input type="number" name="duration" class="form-control mb-3" value="{{ old('duration') }}">
-                            @error('duration')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                                </div>
 
-                            <label>
-                                <i class="fas fa-toggle-on text-primary me-1"></i>
-                                {{ __('language.Status') }}
-                            </label>
+                                {{-- RIGHT COLUMN --}}
+                                <div class="col-md-6">
 
-                            <select name="status" class="form-control mb-4">
-                                <option value="">
-                                    {{ __('language.Choose Status') }}
-                                </option>
+                                    <label class="small mb-1">
+                                        <i class="fas fa-language text-info me-1"></i>
+                                        {{ __('language.Title EN') }}
+                                    </label>
+                                    <input type="text" name="title_en" class="form-control form-control-sm mb-2" value="{{ old('title_en') }}">
+                                    @error('title_en')
+                                        <div class="alert alert-danger py-1 px-2 small mb-2">{{ $message }}</div>
+                                    @enderror
 
-                                <option value="1">
-                                    {{ __('language.Active') }}
-                                </option>
+                                    <label class="small mb-1">
+                                        <i class="fas fa-star text-warning me-1"></i>
+                                        {{ __('language.Total Marks') }}
+                                    </label>
+                                    <input type="number" name="total_marks" class="form-control form-control-sm mb-2"
+                                        value="{{ old('total_marks') }}">
+                                    @error('total_marks')
+                                        <div class="alert alert-danger py-1 px-2 small mb-2">{{ $message }}</div>
+                                    @enderror
 
-                                <option value="0">
-                                    {{ __('language.Inactive') }}
-                                </option>
-                            </select>
+                                    <label class="small mb-1">
+                                        <i class="fas fa-check-circle text-success me-1"></i>
+                                        {{ __('language.Pass Marks') }}
+                                    </label>
+                                    <input type="number" name="pass_marks" class="form-control form-control-sm mb-2"
+                                        value="{{ old('pass_marks') }}">
+                                    @error('pass_marks')
+                                        <div class="alert alert-danger py-1 px-2 small mb-2">{{ $message }}</div>
+                                    @enderror
 
-                            <button class="btn btn-success w-100">
-                                <i class="fas fa-file-circle-plus me-2"></i>
-                                {{ __('language.Create Exam') }}
-                            </button>
+                                </div>
+
+                            </div>
+
+                            {{-- STATUS + BUTTON in one row --}}
+                            <div class="row align-items-end">
+                                <div class="col-md-8">
+                                    <label class="small mb-1">
+                                        <i class="fas fa-toggle-on text-primary me-1"></i>
+                                        {{ __('language.Status') }}
+                                    </label>
+
+                                    <select name="status" class="form-control form-control-sm">
+                                        <option value="">
+                                            {{ __('language.Choose Status') }}
+                                        </option>
+
+                                        <option value="1">
+                                            {{ __('language.Active') }}
+                                        </option>
+
+                                        <option value="0">
+                                            {{ __('language.Inactive') }}
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <button class="btn btn-success btn-sm w-100">
+                                        <i class="fas fa-file-circle-plus me-2"></i>
+                                        {{ __('language.Create Exam') }}
+                                    </button>
+                                </div>
+                            </div>
 
                         </form>
 

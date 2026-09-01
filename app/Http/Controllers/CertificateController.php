@@ -24,7 +24,7 @@ class CertificateController extends Controller
     {
         $certificates = Certificate::findOrFail($id);
         $certificates->delete();
-        return redirect()->route("home")->with("certificates_message", "Certificate Deleted Successfully✨");
+        return redirect()->route("admin.home")->with("certificates_message", "Certificate Deleted Successfully✨");
     }
 
     public function create()
@@ -61,7 +61,7 @@ class CertificateController extends Controller
         ]);
 
         return redirect()
-            ->route('home')
+            ->route("admin.home")
             ->with('certificates_message', 'Certificate Added Successfully 🎉');
     }
 
@@ -100,7 +100,7 @@ class CertificateController extends Controller
         ]);
 
         return redirect()
-            ->route('home')
+            ->route("admin.home")
             ->with('certificates_message', 'Certificate Updated Successfully ✨');
     }
 }

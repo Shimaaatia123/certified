@@ -32,8 +32,8 @@ class CategoryController extends Controller
         // ✨ حذف القسم من قاعدة البيانات
         $category->delete();
 
-        return redirect()->route("home")
-            ->with("categories_message", "Category Deleted Successfully✨");
+       return redirect()->route("admin.home")
+    ->with("categories_message", "Category Deleted Successfully✨");
     }
 
     public function create()
@@ -59,7 +59,7 @@ class CategoryController extends Controller
 
         Category::create($data);
 
-        return redirect()->route('home')
+        return redirect()->route("admin.home")
             ->with('categories_message', 'Category Created Successfully 🎉');
     }
 
@@ -100,7 +100,7 @@ class CategoryController extends Controller
 
         $category->update($data);
 
-        return redirect()->route('home')
+        return redirect()->route("admin.home")
             ->with('categories_message', 'Category Updated Successfully ✨');
     }
 }

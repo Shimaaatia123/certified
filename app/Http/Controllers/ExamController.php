@@ -23,7 +23,7 @@ class ExamController extends Controller
     {
         $exams = Exam::findOrFail($id);
         $exams->delete();
-        return redirect()->route("home")->with("exams_message", "Exam Deleted Successfully ✨");
+        return redirect()->route("admin.home")->with("exams_message", "Exam Deleted Successfully ✨");
     }
 
     public function create()
@@ -53,7 +53,7 @@ class ExamController extends Controller
             'status'      => $request->status,
         ]);
 
-        return redirect()->route("home")
+        return redirect()->route("admin.home")
             ->with("exams_message", "Exam Added Successfully 🎉");
     }
 
@@ -97,7 +97,7 @@ class ExamController extends Controller
 
         ]);
 
-        return redirect()->route("home")
+        return redirect()->route("admin.home")
             ->with("exams_message", "Exam Updated Successfully ✨");
     }
 }

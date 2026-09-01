@@ -24,7 +24,7 @@ class ResultController extends Controller
     {
         $results = Result::findOrFail($id);
         $results->delete();
-        return redirect()->route("home")->with("results_message", "Result Deleted Successfully✨");
+        return redirect()->route("admin.home")->with("results_message", "Result Deleted Successfully✨");
     }
 
     public function create()
@@ -70,7 +70,7 @@ class ResultController extends Controller
             "grade"      => $grade,
         ]);
 
-        return redirect()->route("home")
+        return redirect()->route("admin.home")
             ->with("results_message", "Result Added Successfully 🎉");
     }
 
@@ -130,7 +130,7 @@ class ResultController extends Controller
         $result->update($data);
 
         // 9. رجوع
-        return redirect()->route('home')
+        return redirect()->route('admin.home')
             ->with('results_message', 'Result Updated Successfully ✨');
     }
 }

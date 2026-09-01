@@ -1,131 +1,151 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-4">
+    <div class="container-fluid mt-5 pt-5 px-4">
 
         <div class="row">
-            <div class="col-md-8 m-auto">
+            <div class="col-lg-11 col-xl-10 m-auto">
 
                 <div class="card border-0 shadow-lg">
 
                     {{-- HEADER --}}
-                    <div class="card-header bg-success text-white text-center">
-                        <h5 class="mb-0">
+                    <div class="card-header bg-success text-white text-center py-2">
+                        <h6 class="mb-0">
                             <i class="fas fa-circle-plus me-2"></i>
                             {{ __('language.Create Lesson') }}
-                        </h5>
+                        </h6>
                     </div>
 
                     {{-- BODY --}}
-                    <div class="card-body">
+                    <div class="card-body py-2">
 
                         <form action="{{ route('lessons.store') }}" method="POST">
                             @csrf
 
-                            {{-- COURSE --}}
-                            <label>
-                                <i class="fas fa-book me-1 text-primary"></i>
-                                {{ __('language.Course') }}
-                            </label>
-                            <input type="number" name="course_id" class="form-control mb-3" value="{{ old('course_id') }}">
+                            <div class="row">
 
-                            @error('course_id')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                                {{-- LEFT COLUMN --}}
+                                <div class="col-md-6">
 
-                            {{-- TITLE AR --}}
-                            <label>
-                                <i class="fas fa-language me-1 text-success"></i>
-                                {{ __('language.Title AR') }}
-                            </label>
-                            <input type="text" name="title_ar" class="form-control mb-3" value="{{ old('title_ar') }}">
+                                    {{-- COURSE --}}
+                                    <label class="small mb-1">
+                                        <i class="fas fa-book me-1 text-primary"></i>
+                                        {{ __('language.Course') }}
+                                    </label>
+                                    <input type="number" name="course_id" class="form-control form-control-sm mb-2" value="{{ old('course_id') }}">
 
-                            @error('title_ar')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                                    @error('course_id')
+                                        <div class="alert alert-danger py-1 px-2 small mb-2">{{ $message }}</div>
+                                    @enderror
 
-                            {{-- TITLE EN --}}
-                            <label>
-                                <i class="fas fa-language me-1 text-info"></i>
-                                {{ __('language.Title EN') }}
-                            </label>
-                            <input type="text" name="title_en" class="form-control mb-3" value="{{ old('title_en') }}">
+                                    {{-- TITLE AR --}}
+                                    <label class="small mb-1">
+                                        <i class="fas fa-language me-1 text-success"></i>
+                                        {{ __('language.Title AR') }}
+                                    </label>
+                                    <input type="text" name="title_ar" class="form-control form-control-sm mb-2" value="{{ old('title_ar') }}">
 
-                            @error('title_en')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                                    @error('title_ar')
+                                        <div class="alert alert-danger py-1 px-2 small mb-2">{{ $message }}</div>
+                                    @enderror
 
-                            {{-- CONTENT AR --}}
-                            <label>
-                                <i class="fas fa-file-lines me-1 text-success"></i>
-                                {{ __('language.Content AR') }}
-                            </label>
-                            <textarea name="content_ar" class="form-control mb-3" rows="3">{{ old('content_ar') }}</textarea>
+                                    {{-- CONTENT AR --}}
+                                    <label class="small mb-1">
+                                        <i class="fas fa-file-lines me-1 text-success"></i>
+                                        {{ __('language.Content AR') }}
+                                    </label>
+                                    <textarea name="content_ar" class="form-control form-control-sm mb-2" rows="2">{{ old('content_ar') }}</textarea>
 
-                            @error('content_ar')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                                    @error('content_ar')
+                                        <div class="alert alert-danger py-1 px-2 small mb-2">{{ $message }}</div>
+                                    @enderror
 
-                            {{-- CONTENT EN --}}
-                            <label>
-                                <i class="fas fa-file-lines me-1 text-info"></i>
-                                {{ __('language.Content EN') }}
-                            </label>
-                            <textarea name="content_en" class="form-control mb-3" rows="3">{{ old('content_en') }}</textarea>
+                                    {{-- VIDEO --}}
+                                    <label class="small mb-1">
+                                        <i class="fas fa-video me-1 text-danger"></i>
+                                        {{ __('language.Video URL') }}
+                                    </label>
+                                    <input type="url" name="video_url" class="form-control form-control-sm mb-2"
+                                        value="{{ old('video_url') }}">
 
-                            @error('content_en')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                                    @error('video_url')
+                                        <div class="alert alert-danger py-1 px-2 small mb-2">{{ $message }}</div>
+                                    @enderror
 
-                            {{-- VIDEO --}}
-                            <label>
-                                <i class="fas fa-video me-1 text-danger"></i>
-                                {{ __('language.Video URL') }}
-                            </label>
-                            <input type="url" name="video_url" class="form-control mb-3"
-                                value="{{ old('video_url') }}">
+                                </div>
 
-                            @error('video_url')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                                {{-- RIGHT COLUMN --}}
+                                <div class="col-md-6">
 
-                            {{-- ORDER --}}
-                            <label>
-                                <i class="fas fa-list-ol me-1 text-warning"></i>
-                                {{ __('language.Order') }}
-                            </label>
-                            <input type="number" name="order" class="form-control mb-3" value="{{ old('order') }}">
+                                    {{-- TITLE EN --}}
+                                    <label class="small mb-1">
+                                        <i class="fas fa-language me-1 text-info"></i>
+                                        {{ __('language.Title EN') }}
+                                    </label>
+                                    <input type="text" name="title_en" class="form-control form-control-sm mb-2" value="{{ old('title_en') }}">
 
-                            @error('order')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
+                                    @error('title_en')
+                                        <div class="alert alert-danger py-1 px-2 small mb-2">{{ $message }}</div>
+                                    @enderror
 
-                            {{-- STATUS --}}
-                            <label>
-                                <i class="fas fa-toggle-on me-1 text-primary"></i>
-                                {{ __('language.Status') }}
-                            </label>
+                                    {{-- CONTENT EN --}}
+                                    <label class="small mb-1">
+                                        <i class="fas fa-file-lines me-1 text-info"></i>
+                                        {{ __('language.Content EN') }}
+                                    </label>
+                                    <textarea name="content_en" class="form-control form-control-sm mb-2" rows="2">{{ old('content_en') }}</textarea>
 
-                            <select name="status" class="form-control mb-4">
+                                    @error('content_en')
+                                        <div class="alert alert-danger py-1 px-2 small mb-2">{{ $message }}</div>
+                                    @enderror
 
-                                <option value="">
-                                    {{ __('language.Choose Status') }}
-                                </option>
+                                    {{-- ORDER --}}
+                                    <label class="small mb-1">
+                                        <i class="fas fa-list-ol me-1 text-warning"></i>
+                                        {{ __('language.Order') }}
+                                    </label>
+                                    <input type="number" name="order" class="form-control form-control-sm mb-2" value="{{ old('order') }}">
 
-                                <option value="1">
-                                    {{ __('language.Active') }}
-                                </option>
+                                    @error('order')
+                                        <div class="alert alert-danger py-1 px-2 small mb-2">{{ $message }}</div>
+                                    @enderror
 
-                                <option value="0">
-                                    {{ __('language.Inactive') }}
-                                </option>
+                                </div>
 
-                            </select>
+                            </div>
 
-                            <button class="btn btn-success w-100">
-                                <i class="fas fa-circle-plus me-2"></i>
-                                {{ __('language.Create Lesson') }}
-                            </button>
+                            {{-- STATUS + BUTTON in one row --}}
+                            <div class="row align-items-end">
+                                <div class="col-md-8">
+                                    <label class="small mb-1">
+                                        <i class="fas fa-toggle-on me-1 text-primary"></i>
+                                        {{ __('language.Status') }}
+                                    </label>
+
+                                    <select name="status" class="form-control form-control-sm">
+
+                                        <option value="">
+                                            {{ __('language.Choose Status') }}
+                                        </option>
+
+                                        <option value="1">
+                                            {{ __('language.Active') }}
+                                        </option>
+
+                                        <option value="0">
+                                            {{ __('language.Inactive') }}
+                                        </option>
+
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <button class="btn btn-success btn-sm w-100">
+                                        <i class="fas fa-circle-plus me-2"></i>
+                                        {{ __('language.Create Lesson') }}
+                                    </button>
+                                </div>
+                            </div>
 
                         </form>
 

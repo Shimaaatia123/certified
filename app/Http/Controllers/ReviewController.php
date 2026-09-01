@@ -24,7 +24,7 @@ class ReviewController extends Controller
     {
         $reviews = Review::findOrFail($id);
         $reviews->delete();
-        return redirect()->route("home")->with("reviews_message", "Review Deleted Successfully✨");
+        return redirect()->route("admin.home")->with("reviews_message", "Review Deleted Successfully✨");
     }
 
     public function create()
@@ -57,7 +57,7 @@ class ReviewController extends Controller
             "status"    => $request->status,
         ]);
 
-        return redirect()->route("home")->with("reviews_message", "Review Added Successfully 🎉");
+        return redirect()->route("admin.home")->with("reviews_message", "Review Added Successfully 🎉");
     }
 
     public function edit($id)
@@ -117,7 +117,7 @@ class ReviewController extends Controller
         $review->update($data);
 
         // 5. Redirect
-        return redirect()->route('home')
+        return redirect()->route('admin.home')
             ->with('reviews_message', 'Review Updated Successfully ✨');
     }
 }

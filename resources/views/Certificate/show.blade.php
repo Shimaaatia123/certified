@@ -104,7 +104,7 @@
 
                         <!-- Back Button -->
                         <div class="text-center mt-3">
-                            <a href="{{ route('home') }}" class="btn btn-success px-4">
+                            <a href="{{ route('admin.home') }}" class="btn btn-success px-4">
                                 <i class="fa-solid fa-house me-2"></i>
                                 {{ __('language.Back') }}
                             </a>

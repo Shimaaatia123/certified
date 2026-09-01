@@ -124,7 +124,7 @@
                                     <td>{{ $exam->created_at }}</td>
 
                                     <td>
-                                        <a href="{{ route('home') }}" class="btn btn-primary btn-sm">
+                                        <a href="{{ route('admin.home') }}" class="btn btn-primary btn-sm">
                                             <i class="fas fa-house me-1"></i>
                                             {{ __('language.Back Home') }}
                                         </a>

@@ -26,7 +26,7 @@ class UserController extends Controller
     {
         $users = User::findOrFail($id);
         $users->delete();
-        return redirect()->route("home")->with("users_message", "User Deleted Successfully✨");
+        return redirect()->route("admin.home")->with("users_message", "User Deleted Successfully✨");
     }
 
     public function create()
@@ -36,10 +36,7 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-
         $request->validate([
-
-            'id'       => ['required', 'unique:users,id'],
 
             'name'     => ['required', 'string', 'min:3', 'max:255'],
 
@@ -47,22 +44,22 @@ class UserController extends Controller
 
             'password' => ['required', 'min:8', 'max:20'],
 
-            'role'     => ['required'],
+            'role'     => ['required', 'in:admin,user'],
 
-            'status'   => ['required'],
+            'status'   => ['required', 'in:0,1'],
 
         ]);
 
         User::create([
-            "id"       => $request->id,
             "name"     => $request->name,
             "email"    => $request->email,
             'password' => Hash::make($request->password),
             "role"     => $request->role,
             "status"   => $request->status,
-
         ]);
-        return redirect()->route("home")->with("users_message", "User Added Successfully 🎉");
+
+        return redirect()->route("admin.home")
+            ->with("users_message", "User Created Successfully 🎉");
     }
 
     public function edit($id)
@@ -71,52 +68,42 @@ class UserController extends Controller
         return view("User.edit", ["user" => $users]);
     }
 
-    public function update(Request $request)
-    {
-        $old_id = $request->old_id;
+ public function update(Request $request, $id)
+{
+    $user = User::findOrFail($id);
 
-        $users = User::findOrFail($old_id);
+    $request->validate([
 
-        $request->validate([
+        'name' => ['required', 'string', 'min:3', 'max:255'],
 
-            'id'       => [
-                'required',
-                Rule::unique('users', 'id')->ignore($old_id),
-            ],
+        'email' => [
+            'required',
+            'email',
+            Rule::unique('users', 'email')->ignore($user->id),
+        ],
 
-            'name'     => 'required|min:3|max:255',
+        'password' => ['nullable', 'min:8', 'max:20'],
 
-            'email'    => [
-                'required',
-                'email',
-                Rule::unique('users', 'email')->ignore($old_id),
-            ],
+        'role' => ['required', 'in:admin,user'],
 
-            'password' => 'nullable|min:6',
+        'status' => ['required', 'in:0,1'],
+    ]);
 
-            'role'     => 'required',
+    $data = [
+        'name'   => $request->name,
+        'email'  => $request->email,
+        'role'   => $request->role,
+        'status' => $request->status,
+    ];
 
-            'status'   => 'required',
-        ]);
-
-        $data = [
-
-            "id"     => $request->id,
-            "name"   => $request->name,
-            "email"  => $request->email,
-            "role"   => $request->role,
-            "status" => $request->status,
-        ];
-
-        if ($request->filled('password')) {
-
-            $data['password'] = Hash::make($request->password);
-        }
-
-        $users->update($data);
-
-        return redirect()->route("home")
-            ->with("users_message", "Updated User Successfully✨");
+    if ($request->filled('password')) {
+        $data['password'] = Hash::make($request->password);
     }
+
+    $user->update($data);
+
+    return redirect()->route('admin.home')
+        ->with('users_message', 'User Updated Successfully ✨');
+}
 
 }

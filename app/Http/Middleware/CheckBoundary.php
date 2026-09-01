@@ -9,17 +9,16 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CheckBoundary
 {
-   
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user() && Auth::user()->role =="admin"){
+        if (Auth::check() && Auth::user()->role === 'admin') {
             return $next($request);
-            
-        }else if (Auth::user() && Auth::user()->role =="user"){
-            return redirect()->route("home");
-            }else{
-                return redirect()->route("login");
-                
         }
+
+        if (Auth::check() && Auth::user()->role === 'user') {
+            return redirect()->route('home');
+        }
+
+        return redirect()->route('login');
     }
 }

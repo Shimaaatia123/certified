@@ -14,9 +14,10 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
+require __DIR__ . '/auth.php';
 
 Route::group(
     [
@@ -25,9 +26,9 @@ Route::group(
     ], function () { //...
 
         Route::view('/', 'pages.welcome')->name('home');
-        
-       Route::get('/courses', [CourseController::class, 'page'])
-    ->name('courses.route');
+
+        Route::get('/courses', [CourseController::class, 'page'])
+            ->name('courses.route');
 
         Route::view('/about', 'pages.about')->name('about');
 
@@ -37,7 +38,6 @@ Route::group(
 
         Route::view('/contact', 'pages.contact')->name('contact');
 
-        
         Route::post('/contact/send', [ContactMessageController::class, 'store'])
             ->name('contact.send');
 
@@ -51,13 +51,10 @@ Route::group(
             Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
         });
 
-        require __DIR__ . '/auth.php';
-
-        Auth::routes();
-
         Route::group(["middleware" => "CheckBoundary"], function () {
 
-            Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+            Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
+                ->name('admin.home');
 
             // USERS
             Route::get("/users/show/{id}", [UserController::class, "show"])->name("users.show");
@@ -65,7 +62,8 @@ Route::group(
             Route::get("/users/create", [UserController::class, "create"])->name("users.create");
             Route::post("/users/store", [UserController::class, "store"])->name("users.store");
             Route::get("/users/edit/{id}", [UserController::class, "edit"])->name("users.edit");
-            Route::post("/users/update", [UserController::class, "update"])->name("users.update");
+            Route::put("/users/update/{id}", [UserController::class, "update"])
+                ->name("users.update");
 
             //COURSES
             Route::get("/courses/show/{id}", [CourseController::class, "show"])->name("courses.show");
@@ -166,5 +164,3 @@ Route::group(
         });
 
     });
-
-

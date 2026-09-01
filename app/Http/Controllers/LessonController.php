@@ -42,7 +42,7 @@ class LessonController extends Controller
             $i++;
         }
 
-        return redirect()->route("home")
+        return redirect()->route("admin.home")
             ->with("lessons_message", "Lesson Deleted and Reordered Successfully✨");
     }
 
@@ -98,7 +98,7 @@ class LessonController extends Controller
             "status"     => $request->status,
         ]);
 
-        return redirect()->route("home")
+        return redirect()->route("admin.home")
             ->with("lessons_message", "Lesson Added Successfully 🎉");
     }
 
@@ -178,7 +178,7 @@ class LessonController extends Controller
         // 5️⃣ Update
         $lesson->update($data);
 
-        return redirect()->route("home")
+        return redirect()->route("admin.home")
             ->with("lessons_message", "Lesson Updated Successfully ✨");
     }
 }
