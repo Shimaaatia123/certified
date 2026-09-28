@@ -1,30 +1,23 @@
 {
   "info": {
     "_postman_id": "9c18f8ed-f873-473c-90ba-bfae6b473304",
-    "name": "certified",
+    "name": "Certified API Collection",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "55150423",
-    "_collection_link": "https://go.postman.co/collection/55150423-9c18f8ed-f873-473c-90ba-bfae6b473304?source=collection_link"
+    "description": "Postman collection for the Certified Online Learning & Certification Platform API. Endpoints are preserved from the project API. The collection uses {{base_url}} and contains positive and negative API checks. File-upload requests use a placeholder path; select a local image file in Postman before sending them."
   },
   "item": [
     {
       "name": "answers",
       "item": [
         {
-          "name": "showall",
+          "name": "Get All",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/answers/all",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/answers/all",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "answers",
@@ -32,23 +25,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "showone",
+          "name": "Get One / Verify",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/answers/show/1",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/answers/show/1",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "answers",
@@ -57,23 +53,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "delete",
+          "name": "Delete",
           "request": {
             "method": "DELETE",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/answers/39",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/answers/39",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "answers",
@@ -81,13 +80,27 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "store",
+          "name": "Create",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\r\n    \"question_id\": 999999,\r\n    \"answer_ar\": \"Orphan\",\r\n    \"answer_en\": \"Orphan\",\r\n    \"is_correct\": 0\r\n}",
@@ -98,15 +111,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/answers/store",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/answers/store",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "answers",
@@ -114,13 +122,27 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(422);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "update",
+          "name": "Update",
           "request": {
             "method": "PUT",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\r\n    \"question_id\": 99999,\r\n    \"answer_ar\": \"Updated\",\r\n    \"answer_en\": \"Updated\",\r\n    \"is_correct\": 1\r\n}",
@@ -131,15 +153,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/answers/34",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/answers/34",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "answers",
@@ -147,7 +164,16 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         }
       ]
     },
@@ -155,20 +181,14 @@
       "name": "categories",
       "item": [
         {
-          "name": "showall",
+          "name": "Get All",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/categories/all",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/categories/all",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "categories",
@@ -176,23 +196,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "showone",
+          "name": "Get One / Verify",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/categories/show/8888",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/categories/show/8888",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "categories",
@@ -201,23 +224,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "delete",
+          "name": "Delete",
           "request": {
             "method": "DELETE",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/categories/12",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/categories/12",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "categories",
@@ -225,16 +251,24 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "store",
+          "name": "Create",
           "protocolProfileBehavior": {
             "disabledSystemHeaders": {}
           },
           "request": {
             "method": "POST",
-            "header": [],
             "body": {
               "mode": "formdata",
               "formdata": [
@@ -262,7 +296,7 @@
                   "key": "image",
                   "type": "file",
                   "src": [
-                    "/C:/Users/WINDOWS SOFT/Downloads/Gemini_Generated_Image_xg3rnfxg3rnfxg3r.jpg"
+                    "/path/to/image.jpg"
                   ]
                 },
                 {
@@ -273,15 +307,10 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/categories/store",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/categories/store",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "categories",
@@ -289,13 +318,21 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(422);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "update",
+          "name": "Update",
           "request": {
             "method": "POST",
-            "header": [],
             "body": {
               "mode": "formdata",
               "formdata": [
@@ -328,7 +365,7 @@
                   "key": "image",
                   "type": "file",
                   "src": [
-                    "/D:/laravel/certified/storage/app/public/categories/image_2.png.jpg"
+                    "/path/to/image.jpg"
                   ]
                 },
                 {
@@ -339,15 +376,10 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/categories/1",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/categories/1",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "categories",
@@ -355,7 +387,16 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         }
       ]
     },
@@ -363,20 +404,14 @@
       "name": "results",
       "item": [
         {
-          "name": "showall",
+          "name": "Get All",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/results/all",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/results/all",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "results",
@@ -384,23 +419,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "showone",
+          "name": "Get One / Verify",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/results/show/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/results/show/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "results",
@@ -409,23 +447,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "delete",
+          "name": "Delete",
           "request": {
             "method": "DELETE",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/results/8",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/results/8",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "results",
@@ -433,13 +474,27 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "store",
+          "name": "Create",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\r\n    \"user_id\": 1,\r\n    \"exam_id\": 1,\r\n    \"score\": 70,\r\n    \"total\": 100,\r\n    \"status\": \"pass\"\r\n}",
@@ -450,15 +505,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/results/store",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/results/store",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "results",
@@ -466,13 +516,27 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "update",
+          "name": "Update",
           "request": {
             "method": "PUT",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\r\n    \"user_id\": 1,\r\n    \"exam_id\": 1,\r\n    \"score\": 120,\r\n    \"total\": 100,\r\n    \"status\": \"pass\"\r\n}",
@@ -483,15 +547,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/results/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/results/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "results",
@@ -499,7 +558,16 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         }
       ]
     },
@@ -507,20 +575,14 @@
       "name": "users",
       "item": [
         {
-          "name": "showall",
+          "name": "Get All",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/users/all",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/users/all",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "users",
@@ -528,23 +590,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "showone",
+          "name": "Get One / Verify",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/users/show/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/users/show/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "users",
@@ -553,23 +618,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "delete",
+          "name": "Delete",
           "request": {
             "method": "DELETE",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/users/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/users/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "users",
@@ -577,13 +645,27 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "store",
+          "name": "Create",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\r\n    \"name\": \"Invalid Email User\",\r\n    \"email\": \"not-an-email\",\r\n    \"password\": \"Password123\",\r\n    \"role\": \"user\",\r\n    \"status\": 1\r\n}",
@@ -594,15 +676,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/users/store",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/users/store",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "users",
@@ -610,19 +687,28 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(422);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "update",
+          "name": "Update",
           "request": {
             "method": "PUT",
             "header": [
               {
-                "key": "Content-Type",
+                "key": "Accept",
                 "value": "application/json"
               },
               {
-                "key": "Accept",
+                "key": "Content-Type",
                 "value": "application/json"
               }
             ],
@@ -636,15 +722,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/users/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/users/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "users",
@@ -652,7 +733,16 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         }
       ]
     },
@@ -660,20 +750,14 @@
       "name": "certificates",
       "item": [
         {
-          "name": "showall",
+          "name": "Get All",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/certificates/all",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/certificates/all",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "certificates",
@@ -681,10 +765,19 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "showone",
+          "name": "Get One / Verify",
           "request": {
             "method": "GET",
             "header": [
@@ -694,15 +787,10 @@
               }
             ],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/certificates/verify",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/certificates/verify",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "certificates",
@@ -710,23 +798,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "delete",
+          "name": "Delete",
           "request": {
             "method": "DELETE",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/certificates/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/certificates/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "certificates",
@@ -734,13 +825,27 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "store",
+          "name": "Create",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{}",
@@ -751,15 +856,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/certificates/store",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/certificates/store",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "certificates",
@@ -767,13 +867,27 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(422);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "update",
+          "name": "Update",
           "request": {
             "method": "PUT",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\r\n    \"user_id\": 9999,\r\n    \"course_id\": 9999,\r\n    \"issue_date\": \"wrong-date\",\r\n    \"status\": \"pending\"\r\n}",
@@ -784,15 +898,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/certificates/1",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/certificates/1",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "certificates",
@@ -800,7 +909,16 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(422);\n});"
+              }
+            }
+          ]
         }
       ]
     },
@@ -808,20 +926,14 @@
       "name": "exams",
       "item": [
         {
-          "name": "showall",
+          "name": "Get All",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/exams/all",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/exams/all",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "exams",
@@ -829,23 +941,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "showone",
+          "name": "Get One / Verify",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/exams/show/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/exams/show/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "exams",
@@ -854,23 +969,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "delete",
+          "name": "Delete",
           "request": {
             "method": "DELETE",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/exams/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/exams/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "exams",
@@ -878,13 +996,27 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "store",
+          "name": "Create",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{}\r\n",
@@ -895,15 +1027,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/exams/store",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/exams/store",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "exams",
@@ -911,19 +1038,28 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(422);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "update",
+          "name": "Update",
           "request": {
             "method": "PUT",
             "header": [
               {
-                "key": "Content-Type",
+                "key": "Accept",
                 "value": "application/json"
               },
               {
-                "key": "Accept",
+                "key": "Content-Type",
                 "value": "application/json"
               }
             ],
@@ -932,20 +1068,15 @@
               "raw": "{\r\n    \"course_id\": 9999,\r\n    \"title_ar\": \"Invalid Course Exam\",\r\n    \"title_en\": \"Invalid Course Exam\",\r\n    \"total_marks\": 100,\r\n    \"pass_marks\": 60,\r\n    \"duration\": 60,\r\n    \"status\": 1\r\n}",
               "options": {
                 "raw": {
-                  "language": "text"
+                  "language": "json"
                 }
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/exams/1",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/exams/1",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "exams",
@@ -953,7 +1084,16 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(422);\n});"
+              }
+            }
+          ]
         }
       ]
     },
@@ -961,20 +1101,14 @@
       "name": "questions",
       "item": [
         {
-          "name": "showall",
+          "name": "Get All",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/questions/all",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/questions/all",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "questions",
@@ -982,23 +1116,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "showone",
+          "name": "Get One / Verify",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/questions/show/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/questions/show/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "questions",
@@ -1007,23 +1144,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "delete",
+          "name": "Delete",
           "request": {
             "method": "DELETE",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/questions/12",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/questions/12",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "questions",
@@ -1031,13 +1171,27 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "store",
+          "name": "Create",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{}",
@@ -1048,15 +1202,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/questions/store",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/questions/store",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "questions",
@@ -1064,19 +1213,28 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(422);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "update",
+          "name": "Update",
           "request": {
             "method": "PUT",
             "header": [
               {
-                "key": "Content-Type",
+                "key": "Accept",
                 "value": "application/json"
               },
               {
-                "key": "Accept",
+                "key": "Content-Type",
                 "value": "application/json"
               }
             ],
@@ -1085,20 +1243,15 @@
               "raw": "{\r\n    \"mark\": 100\r\n}",
               "options": {
                 "raw": {
-                  "language": "text"
+                  "language": "json"
                 }
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/questions/3",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/questions/3",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "questions",
@@ -1106,7 +1259,16 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         }
       ]
     },
@@ -1114,20 +1276,14 @@
       "name": "enrollments",
       "item": [
         {
-          "name": "showall",
+          "name": "Get All",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/enrollments/all",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/enrollments/all",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "enrollments",
@@ -1135,23 +1291,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "showone",
+          "name": "Get One / Verify",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/enrollments/show/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/enrollments/show/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "enrollments",
@@ -1160,23 +1319,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "delete",
+          "name": "Delete",
           "request": {
             "method": "DELETE",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/enrollments/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/enrollments/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "enrollments",
@@ -1184,13 +1346,27 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "store",
+          "name": "Create",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{}",
@@ -1201,15 +1377,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/enrollments/store",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/enrollments/store",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "enrollments",
@@ -1217,19 +1388,28 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(422);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "update",
+          "name": "Update",
           "request": {
             "method": "PUT",
             "header": [
               {
-                "key": "Content-Type",
+                "key": "Accept",
                 "value": "application/json"
               },
               {
-                "key": "Accept",
+                "key": "Content-Type",
                 "value": "application/json"
               }
             ],
@@ -1238,20 +1418,15 @@
               "raw": "{\r\n    \"status\": \"active\"\r\n}",
               "options": {
                 "raw": {
-                  "language": "text"
+                  "language": "json"
                 }
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/enrollments/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/enrollments/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "enrollments",
@@ -1259,7 +1434,16 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         }
       ]
     },
@@ -1267,54 +1451,41 @@
       "name": "courses",
       "item": [
         {
-          "name": "showall",
+          "name": "Get All",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/courses/all?search=Cloud&filter=popular",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/courses/all?search=Cloud&filter=popular",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "courses",
-                "all"
-              ],
-              "query": [
-                {
-                  "key": "search",
-                  "value": "Cloud"
-                },
-                {
-                  "key": "filter",
-                  "value": "popular"
-                }
+                "all?search=Cloud&filter=popular"
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "showone",
+          "name": "Get One / Verify",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/courses/show/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/courses/show/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "courses",
@@ -1323,23 +1494,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "delete",
+          "name": "Delete",
           "request": {
             "method": "DELETE",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/courses/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/courses/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "courses",
@@ -1347,13 +1521,21 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "store",
+          "name": "Create",
           "request": {
             "method": "POST",
-            "header": [],
             "body": {
               "mode": "formdata",
               "formdata": [
@@ -1391,7 +1573,7 @@
                   "key": "image",
                   "type": "file",
                   "src": [
-                    "/C:/Users/WINDOWS SOFT/Downloads/New folder (2)/admin-course-show.png.png"
+                    "/path/to/image.jpg"
                   ]
                 },
                 {
@@ -1412,15 +1594,10 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/courses/store",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/courses/store",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "courses",
@@ -1428,17 +1605,22 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "update",
+          "name": "Update",
           "request": {
-            "method": "PUT",
+            "method": "POST",
             "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
               {
                 "key": "Accept",
                 "value": "application/json"
@@ -1447,6 +1629,11 @@
             "body": {
               "mode": "formdata",
               "formdata": [
+                {
+                  "key": "_method",
+                  "value": "put",
+                  "type": "text"
+                },
                 {
                   "key": "title_ar",
                   "value": "معسكر Full Stack",
@@ -1476,7 +1663,7 @@
                   "key": "image",
                   "type": "file",
                   "src": [
-                    "/C:/Users/WINDOWS SOFT/Downloads/New folder (2)/admin-courses-table.png.png"
+                    "/path/to/image.jpg"
                   ]
                 },
                 {
@@ -1485,27 +1672,22 @@
                   "type": "text"
                 },
                 {
-                  "key": "Badge",
+                  "key": "badge",
                   "value": "مميز / Featured",
                   "type": "text"
                 },
                 {
-                  "key": "Duration",
+                  "key": "duration",
                   "value": "5 Months\n",
                   "type": "text"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/courses/1",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/courses/1",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "courses",
@@ -1513,7 +1695,16 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         }
       ]
     },
@@ -1521,20 +1712,14 @@
       "name": "contactmessages",
       "item": [
         {
-          "name": "showall",
+          "name": "Get All",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/contacts/all",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/contacts/all",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "contacts",
@@ -1542,30 +1727,29 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "showone",
+          "name": "Get One / Verify",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           },
           "request": {
             "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "formdata",
-              "formdata": []
-            },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/contacts/show/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/contacts/show/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "contacts",
@@ -1574,23 +1758,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "delete",
+          "name": "Delete",
           "request": {
             "method": "DELETE",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/contacts/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/contacts/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "contacts",
@@ -1598,13 +1785,27 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "store",
+          "name": "Create",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\r\n    \"name\": \"Omar Test\",\r\n    \"email\": \"omar.test@example.com\",\r\n    \"subject\": \"Test\",\r\n    \"message\": \"Short\"\r\n}",
@@ -1615,15 +1816,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/contacts/store",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/contacts/store",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "contacts",
@@ -1631,19 +1827,28 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(422);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "update",
+          "name": "Update",
           "request": {
             "method": "PUT",
             "header": [
               {
-                "key": "Content-Type",
+                "key": "Accept",
                 "value": "application/json"
               },
               {
-                "key": "Accept",
+                "key": "Content-Type",
                 "value": "application/json"
               }
             ],
@@ -1657,15 +1862,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/contacts/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/contacts/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "contacts",
@@ -1673,7 +1873,16 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         }
       ]
     },
@@ -1681,20 +1890,14 @@
       "name": "reviews",
       "item": [
         {
-          "name": "showall",
+          "name": "Get All",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/reviews/all",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/reviews/all",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "reviews",
@@ -1702,23 +1905,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "showone",
+          "name": "Get One / Verify",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/reviews/show/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/reviews/show/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "reviews",
@@ -1727,23 +1933,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "delete",
+          "name": "Delete",
           "request": {
             "method": "DELETE",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/reviews/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/reviews/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "reviews",
@@ -1751,13 +1960,27 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "store",
+          "name": "Create",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\r\n    \"user_id\": 3,\r\n    \"course_id\": 5,\r\n    \"rating\": 5,\r\n    \"comment\": \"Testing invalid status value.\",\r\n    \"status\": \"2\"\r\n}",
@@ -1768,15 +1991,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/reviews/store",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/reviews/store",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "reviews",
@@ -1784,19 +2002,28 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(422);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "update",
+          "name": "Update",
           "request": {
             "method": "PUT",
             "header": [
               {
-                "key": "Content-Type",
+                "key": "Accept",
                 "value": "application/json"
               },
               {
-                "key": "Accept",
+                "key": "Content-Type",
                 "value": "application/json"
               }
             ],
@@ -1810,15 +2037,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/reviews/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/reviews/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "reviews",
@@ -1826,7 +2048,16 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         }
       ]
     },
@@ -1834,20 +2065,14 @@
       "name": "lessons",
       "item": [
         {
-          "name": "showall",
+          "name": "Get All",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/lessons/all",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/lessons/all",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "lessons",
@@ -1855,23 +2080,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "showone",
+          "name": "Get One / Verify",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/lessons/show/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/lessons/show/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "lessons",
@@ -1880,23 +2108,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "delete",
+          "name": "Delete",
           "request": {
             "method": "DELETE",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/lessons/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/lessons/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "lessons",
@@ -1904,13 +2135,27 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "store",
+          "name": "Create",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {
               "mode": "raw",
               "raw": "{\r\n    \"course_id\": 9999,\r\n    \"title_ar\": \"\",\r\n    \"title_en\": \"\",\r\n    \"content_ar\": \"\",\r\n    \"content_en\": \"\",\r\n    \"video_url\": \"invalid-url\",\r\n    \"status\": \"\"\r\n}",
@@ -1921,15 +2166,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/lessons/store",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/lessons/store",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "lessons",
@@ -1937,19 +2177,28 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(422);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "update",
+          "name": "Update",
           "request": {
             "method": "PUT",
             "header": [
               {
-                "key": "Content-Type",
+                "key": "Accept",
                 "value": "application/json"
               },
               {
-                "key": "Accept",
+                "key": "Content-Type",
                 "value": "application/json"
               }
             ],
@@ -1963,15 +2212,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/lessons/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/lessons/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "lessons",
@@ -1979,7 +2223,16 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         }
       ]
     },
@@ -1987,20 +2240,14 @@
       "name": "instructors",
       "item": [
         {
-          "name": "showall",
+          "name": "Get All",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/instructors/all",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/instructors/all",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "instructors",
@@ -2008,23 +2255,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "showone",
+          "name": "Get One / Verify",
           "request": {
             "method": "GET",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/instructors/show/9999",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/instructors/show/9999",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "instructors",
@@ -2033,23 +2283,26 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});\n\npm.test(\"API status field matches expected result\", function () {\n    const body = pm.response.json();\n    pm.expect(body[\"status\"]).to.eql(404);\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "delete",
+          "name": "Delete",
           "request": {
             "method": "DELETE",
-            "header": [],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/instructors/7",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/instructors/7",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "instructors",
@@ -2057,13 +2310,21 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "store",
+          "name": "Create",
           "request": {
             "method": "POST",
-            "header": [],
             "body": {
               "mode": "formdata",
               "formdata": [
@@ -2091,7 +2352,7 @@
                   "key": "image",
                   "type": "file",
                   "src": [
-                    "/C:/Users/WINDOWS SOFT/Downloads/Gemini_Generated_Image_sg054usg054usg05.jpg"
+                    "/path/to/image.jpg"
                   ]
                 },
                 {
@@ -2102,15 +2363,10 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/instructors/store",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/instructors/store",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "instructors",
@@ -2118,17 +2374,22 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         },
         {
-          "name": "update",
+          "name": "Update",
           "request": {
-            "method": "PUT",
+            "method": "POST",
             "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
               {
                 "key": "Accept",
                 "value": "application/json"
@@ -2166,7 +2427,7 @@
                   "key": "image",
                   "type": "file",
                   "src": [
-                    "/C:/Users/WINDOWS SOFT/Downloads/Gemini_Generated_Image_8vijl58vijl58vij.jpg"
+                    "/path/to/image.jpg"
                   ]
                 },
                 {
@@ -2177,15 +2438,10 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8000/api/instructors/7",
-              "protocol": "http",
+              "raw": "{{base_url}}/api/instructors/7",
               "host": [
-                "127",
-                "0",
-                "0",
-                "1"
+                "{{base_url}}"
               ],
-              "port": "8000",
               "path": [
                 "api",
                 "instructors",
@@ -2193,9 +2449,25 @@
               ]
             }
           },
-          "response": []
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": "pm.test(\"HTTP response is 200\", function () {\n    pm.response.to.have.status(200);\n});\n\npm.test(\"Response is JSON\", function () {\n    pm.response.to.be.json;\n});"
+              }
+            }
+          ]
         }
       ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000",
+      "type": "string"
     }
   ]
 }
