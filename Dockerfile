@@ -47,6 +47,11 @@ RUN composer install --no-dev --optimize-autoloader
 
 RUN chown -R www-data:www-data storage bootstrap/cache
 
+RUN mkdir -p storage/framework/views \
+    && chown -R www-data:www-data storage/framework/views
+
+ENV VIEW_COMPILED_PATH=/var/www/html/storage/framework/views
+
 RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|g' \
     /etc/apache2/sites-available/000-default.conf
 
