@@ -13,5 +13,6 @@
     <x-ui.about.verification-verdict />
 
     <x-ui.footer />
+
+    <x-ui.back-to-top />
 @endsection
- 

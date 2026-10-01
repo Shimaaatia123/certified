@@ -34,5 +34,5 @@
     <x-ui.home.call-to-action />
     <x-ui.home.faq />
     <x-ui.footer />
-    <x-ui.home.back-to-top />
+    <x-ui.back-to-top />
 @endsection

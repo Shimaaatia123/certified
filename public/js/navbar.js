@@ -1,230 +1,152 @@
-
 document.addEventListener("DOMContentLoaded", () => {
-
-
     /* ==========================================================
-                            NAVBAR
+                        NAVBAR SCROLL
     ========================================================== */
 
     const navbar = document.getElementById("navbar");
 
-
     if (navbar) {
-
-        function handleScroll() {
-
-            if (window.scrollY > 40) {
-
-                navbar.classList.add("scrolled");
-
-            } else {
-
-                navbar.classList.remove("scrolled");
-
-            }
-
-        }
-
+        const handleScroll = () => {
+            navbar.classList.toggle("scrolled", window.scrollY > 40);
+        };
 
         handleScroll();
 
-
-        window.addEventListener(
-            "scroll",
-            handleScroll
-        );
-
+        window.addEventListener("scroll", handleScroll, { passive: true });
     }
 
-
     /* ==========================================================
-                        MOBILE MENU
+                        ELEMENTS
     ========================================================== */
 
-    const mobileToggle =
-        document.getElementById("mobileToggle");
+    const mobileToggle = document.getElementById("mobileToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileOverlay = document.getElementById("mobileOverlay");
+    const mobileClose = document.getElementById("mobileClose");
 
-    const mobileMenu =
-        document.getElementById("mobileMenu");
+    const userButton = document.getElementById("userMenuButton");
+    const userDropdown = document.getElementById("userDropdown");
 
-    const mobileOverlay =
-        document.getElementById("mobileOverlay");
+    const languageButton = document.getElementById("navbarLanguageButton");
+    const languageDropdown = document.getElementById("navbarLanguageDropdown");
 
-    const mobileClose =
-        document.getElementById("mobileClose");
+    /* ==========================================================
+                    MOBILE MENU
+    ========================================================== */
 
-
-    mobileToggle?.addEventListener("click", () => {
-
+    function openMobileMenu() {
         mobileMenu?.classList.add("active");
-
         mobileOverlay?.classList.add("active");
-
+        mobileToggle?.setAttribute("aria-expanded", "true");
+        mobileMenu?.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
+    }
 
+    function closeMobileMenu() {
+        mobileMenu?.classList.remove("active");
+        mobileOverlay?.classList.remove("active");
+        mobileToggle?.setAttribute("aria-expanded", "false");
+        mobileMenu?.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+    }
+
+    mobileToggle?.addEventListener("click", openMobileMenu);
+    mobileClose?.addEventListener("click", closeMobileMenu);
+    mobileOverlay?.addEventListener("click", closeMobileMenu);
+
+    /* ==========================================================
+                    DROPDOWN HELPERS
+    ========================================================== */
+
+    function setDropdown(button, dropdown, open) {
+        if (!button || !dropdown) {
+            return;
+        }
+
+        dropdown.classList.toggle("show", open);
+        button.classList.toggle("active", open);
+        button.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+
+    function closeUserMenu() {
+        setDropdown(userButton, userDropdown, false);
+    }
+
+    function closeLanguageMenu() {
+        setDropdown(languageButton, languageDropdown, false);
+    }
+
+    function bindDropdown(button, dropdown, closeOther) {
+        if (!button || !dropdown) {
+            return;
+        }
+
+        button.addEventListener("click", (event) => {
+            event.stopPropagation();
+
+            const willOpen = !dropdown.classList.contains("show");
+
+            if (willOpen) {
+                closeOther();
+            }
+
+            setDropdown(button, dropdown, willOpen);
+        });
+
+        dropdown.addEventListener("click", (event) => {
+            event.stopPropagation();
+        });
+    }
+
+    bindDropdown(userButton, userDropdown, closeLanguageMenu);
+    bindDropdown(languageButton, languageDropdown, closeUserMenu);
+
+    /* ==========================================================
+                    CLICK OUTSIDE
+    ========================================================== */
+
+    document.addEventListener("click", () => {
+        closeUserMenu();
+        closeLanguageMenu();
     });
 
-
-    function closeMenu() {
-
-        mobileMenu?.classList.remove("active");
-
-        mobileOverlay?.classList.remove("active");
-
-        document.body.style.overflow = "";
-
-    }
-
-
-    mobileClose?.addEventListener(
-        "click",
-        closeMenu
-    );
-
-
-    mobileOverlay?.addEventListener(
-        "click",
-        closeMenu
-    );
-
-
     /* ==========================================================
-                            USER MENU
+                        ESCAPE
     ========================================================== */
 
-    const userButton =
-        document.getElementById("userMenuButton");
-
-    const userDropdown =
-        document.getElementById("userDropdown");
-
-
-    /*
-     * Only initialize User Menu
-     * when the user is authenticated.
-     */
-
-    if (userButton && userDropdown) {
-
-
-        /* ------------------------------------------------------
-                            OPEN / CLOSE
-        ------------------------------------------------------ */
-
-        userButton.addEventListener(
-            "click",
-            (event) => {
-
-                event.stopPropagation();
-
-
-                const isOpen =
-                    userDropdown.classList.contains("show");
-
-
-                if (isOpen) {
-
-                    closeUserMenu();
-
-                } else {
-
-                    openUserMenu();
-
-                }
-
-            }
-        );
-
-
-        /* ------------------------------------------------------
-                        OPEN USER MENU
-        ------------------------------------------------------ */
-
-        function openUserMenu() {
-
-            userDropdown.classList.add("show");
-
-            userButton.classList.add("active");
-
-            userButton.setAttribute(
-                "aria-expanded",
-                "true"
-            );
-
+    document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") {
+            return;
         }
 
-
-        /* ------------------------------------------------------
-                        CLOSE USER MENU
-        ------------------------------------------------------ */
-
-        function closeUserMenu() {
-
-            userDropdown.classList.remove("show");
-
-            userButton.classList.remove("active");
-
-            userButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
+        if (languageDropdown?.classList.contains("show")) {
+            languageButton?.focus();
+        } else if (userDropdown?.classList.contains("show")) {
+            userButton?.focus();
         }
 
+        closeUserMenu();
+        closeLanguageMenu();
+        closeMobileMenu();
+    });
 
-        /* ------------------------------------------------------
-                    CLICK INSIDE DROPDOWN
-        ------------------------------------------------------ */
+    /* ==========================================================
+            CLOSE EVERYTHING WHEN SWITCHING TO DESKTOP
+    ========================================================== */
 
-        userDropdown.addEventListener(
-            "click",
-            (event) => {
+    window.matchMedia("(min-width: 993px)").addEventListener("change", (event) => {
+        if (event.matches) {
+            closeMobileMenu();
+        }
+    });
 
-                event.stopPropagation();
+    /* ==========================================================
+                CLOSE MOBILE MENU ON LINK CLICK
+    ========================================================== */
 
-            }
-        );
-
-
-        /* ------------------------------------------------------
-                    CLICK OUTSIDE
-        ------------------------------------------------------ */
-
-        document.addEventListener(
-            "click",
-            (event) => {
-
-                if (
-                    !userButton.contains(event.target) &&
-                    !userDropdown.contains(event.target)
-                ) {
-
-                    closeUserMenu();
-
-                }
-
-            }
-        );
-
-
-        /* ------------------------------------------------------
-                            ESCAPE
-        ------------------------------------------------------ */
-
-        document.addEventListener(
-            "keydown",
-            (event) => {
-
-                if (event.key === "Escape") {
-
-                    closeUserMenu();
-
-                }
-
-            }
-        );
-
-    }
-
+    document
+        .querySelectorAll(".mobile-nav a, .mobile-language-option, .mobile-dashboard")
+        .forEach((link) => {
+            link.addEventListener("click", closeMobileMenu);
+        });
 });
-

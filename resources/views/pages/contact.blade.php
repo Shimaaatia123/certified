@@ -11,6 +11,8 @@
 <x-ui.contact.conversation-terminal />
 
 <x-ui.footer />
+
+<x-ui.back-to-top />
    
 @endsection
  

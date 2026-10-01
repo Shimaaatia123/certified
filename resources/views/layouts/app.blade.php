@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/back-to-top.css') }}">
 
     <!-- home CSS -->
     <link rel="stylesheet" href="{{ asset('css/home/services.css') }}">
@@ -63,7 +64,7 @@
     <link rel="stylesheet" href="{{ asset('css/home/call-to-action.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home/stats.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home/faq.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/home/back-to-top.css') }}">
+
 
     <!-- course CSS -->
     <link rel="stylesheet" href="{{ asset('css/course/courses.css') }}">
@@ -142,7 +143,7 @@
     <script src="{{ asset('js/home/call-to-action.js') }}"></script>
     <script src="{{ asset('js/home/faq.js') }}"></script>
     <script src="{{ asset('js/footer.js') }}"></script>
-    <script src="{{ asset('js/home/back-to-top.js') }}"></script>
+    <script src="{{ asset('js/back-to-top.js') }}"></script>
 
     <!-- course js -->
     <script src="{{ asset('js/course/courses.js') }}"></script>
@@ -165,7 +166,7 @@
 
     <script src="{{ asset('js/certificate/verification-demo.js') }}"></script>
 
-    
+
     <!-- about js -->
     <script src="{{ asset('js/about/about-hero.js') }}"></script>
     <script src="{{ asset('js/about/trust-story.js') }}"></script>

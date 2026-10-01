@@ -15,5 +15,6 @@
     <x-ui.course.learning-journey />
     <x-ui.course.course-cta />
     <x-ui.footer />
+    <x-ui.back-to-top />
 
 @endsection
