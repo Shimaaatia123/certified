@@ -39,7 +39,7 @@ public function page()
         // ✨ حذف الكورس من قاعدة البيانات
         $course->delete();
 
-        return redirect()->route("admin.home")
+        return redirect()->route("admin.dashboard")
             ->with("courses_message", "Course Deleted Successfully✨");
     }
 
@@ -86,7 +86,7 @@ public function page()
 
         ]);
 
-        return redirect()->route("admin.home")
+        return redirect()->route("admin.dashboard")
             ->with("courses_message", "Course Added Successfully 🎉");
     }
 
@@ -144,7 +144,7 @@ public function page()
 
         ]);
 
-        return redirect()->route("admin.home")
+        return redirect()->route("admin.dashboard")
             ->with('courses_message', 'Course Updated Successfully ✨');
     }
 }

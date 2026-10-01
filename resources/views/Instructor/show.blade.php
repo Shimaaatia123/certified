@@ -120,7 +120,7 @@
                         </div>
 
                         <div class="text-center mt-4">
-                            <a href="{{ route('admin.home') }}" class="btn btn-success">
+                            <a href="{{ route('admin.dashboard') }}" class="btn btn-success">
                                 <i class="fas fa-house me-2"></i>
                                 {{ __('language.Back Home') }}
                             </a>

@@ -26,7 +26,7 @@ class UserController extends Controller
     {
         $users = User::findOrFail($id);
         $users->delete();
-        return redirect()->route("admin.home")->with("users_message", "User Deleted Successfully✨");
+        return redirect()->route("admin.dashboard")->with("users_message", "User Deleted Successfully✨");
     }
 
     public function create()
@@ -58,7 +58,7 @@ class UserController extends Controller
             "status"   => $request->status,
         ]);
 
-        return redirect()->route("admin.home")
+        return redirect()->route("admin.dashboard")
             ->with("users_message", "User Created Successfully 🎉");
     }
 
@@ -102,7 +102,7 @@ class UserController extends Controller
 
     $user->update($data);
 
-    return redirect()->route('admin.home')
+    return redirect()->route('admin.dashboard')
         ->with('users_message', 'User Updated Successfully ✨');
 }
 

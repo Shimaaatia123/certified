@@ -28,7 +28,7 @@ class EnrollmentController extends Controller
 
         $enrollments->delete();
 
-        return redirect()->route("admin.home")
+        return redirect()->route("admin.dashboard")
             ->with("enrollments_message", "Enrollment Deleted Successfully✨");
     }
 
@@ -56,7 +56,7 @@ class EnrollmentController extends Controller
             ]
         );
 
-        return redirect()->route("admin.home")
+        return redirect()->route("admin.dashboard")
             ->with("enrollments_message", "Enrollment Added Successfully 🎉");
     }
 
@@ -94,7 +94,7 @@ class EnrollmentController extends Controller
             'status'    => $request->status,
         ]);
 
-        return redirect()->route("admin.home")
+        return redirect()->route("admin.dashboard")
             ->with("enrollments_message", "Enrollment Updated Successfully ✨");
     }
 }

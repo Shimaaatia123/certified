@@ -23,7 +23,7 @@ class AnswerController extends Controller
     {
         $answers = Answer::findOrFail($id);
         $answers->delete();
-        return redirect()->route("admin.home")->with("answers_message", "Answer Deleted Successfully✨");
+        return redirect()->route("admin.dashboard")->with("answers_message", "Answer Deleted Successfully✨");
     }
 
     public function create()
@@ -46,7 +46,7 @@ class AnswerController extends Controller
             'is_correct'  => filter_var($request->is_correct, FILTER_VALIDATE_BOOLEAN),
         ]);
 
-        return redirect()->route("admin.home")
+        return redirect()->route("admin.dashboard")
             ->with('answers_message', 'Answer Added Successfully 🎉');
     }
 
@@ -85,7 +85,7 @@ class AnswerController extends Controller
 
         ]);
 
-        return redirect()->route("admin.home")
+        return redirect()->route("admin.dashboard")
             ->with('answers_message', 'Answer Updated Successfully ✨');
     }
 }

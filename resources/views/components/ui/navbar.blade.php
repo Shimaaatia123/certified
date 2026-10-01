@@ -178,8 +178,8 @@
                  Dashboard
             ========================== --}}
 
-                <a href="{{ route('admin.home') }}"
-                    class="navbar-dashboard {{ request()->routeIs('admin.home') ? 'active' : '' }}" aria-label="Dashboard">
+                <a href="{{ route('admin.dashboard') }}"
+                    class="navbar-dashboard {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" aria-label="Dashboard">
 
                     <span class="dashboard-icon" aria-hidden="true">
                         <i class="fa-solid fa-gauge-high"></i>
@@ -236,7 +236,7 @@
                         <div class="user-dropdown-divider"></div>
 
 
-                        <a href="{{ route('admin.home') }}" class="user-dropdown-item" role="menuitem">
+                        <a href="{{ route('admin.dashboard') }}" class="user-dropdown-item" role="menuitem">
 
                             <span class="dropdown-item-icon" aria-hidden="true">
                                 <i class="fa-solid fa-gauge-high"></i>
@@ -414,7 +414,7 @@
              Mobile Dashboard
         ========================== --}}
 
-            <a href="{{ route('admin.home') }}" class="mobile-dashboard">
+            <a href="{{ route('admin.dashboard') }}" class="mobile-dashboard">
 
                 <span class="mobile-dashboard-icon" aria-hidden="true">
                     <i class="fa-solid fa-gauge-high"></i>

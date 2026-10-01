@@ -59,7 +59,7 @@
                         </table>
 
                         <div class="text-center">
-                            <a href="{{ route('admin.home') }}" class="btn btn-success">
+                            <a href="{{ route('admin.dashboard') }}" class="btn btn-success">
                                 <i class="fa-solid fa-house"></i> {{ __('language.Back Home') }}
                             </a>
                         </div>

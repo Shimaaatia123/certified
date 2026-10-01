@@ -25,7 +25,7 @@ class QuestionController extends Controller
     {
         $questions = Question::findOrFail($id);
         $questions->delete();
-        return redirect()->route("admin.home")->with("questions_message", "Question Deleted Successfully ✨");
+        return redirect()->route("admin.dashboard")->with("questions_message", "Question Deleted Successfully ✨");
     }
 
     public function create()
@@ -66,7 +66,7 @@ class QuestionController extends Controller
             "type"        => $request->type,
         ]);
 
-        return redirect()->route("admin.home")
+        return redirect()->route("admin.dashboard")
             ->with("questions_message", "Question Added Successfully 🎉");
     }
 
@@ -142,7 +142,7 @@ class QuestionController extends Controller
         $question->update($data);
 
         // 8. redirect
-        return redirect()->route('admin.home')
+        return redirect()->route('admin.dashboard')
             ->with('questions_message', 'Question Updated Successfully ✨🎉');
     }
 }

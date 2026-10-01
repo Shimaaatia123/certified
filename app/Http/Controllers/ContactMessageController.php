@@ -23,7 +23,7 @@ class ContactMessageController extends Controller
     {
         $contacts = Contact_Message::findOrFail($id);
         $contacts->delete();
-        return redirect()->route("admin.home")->with("contacts_message", "Contact_Message Deleted Successfully✨");
+        return redirect()->route("admin.dashboard")->with("contacts_message", "Contact_Message Deleted Successfully✨");
     }
 
     public function create()
@@ -49,7 +49,7 @@ class ContactMessageController extends Controller
             'status'  => 'new',
         ]);
 
-        return redirect()->route("admin.home")->with('contact_message', 'Message Sent Successfully 🎉');
+        return redirect()->route("admin.dashboard")->with('contact_message', 'Message Sent Successfully 🎉');
     }
 
     public function edit($id)
@@ -86,7 +86,7 @@ class ContactMessageController extends Controller
 
         ]);
 
-        return redirect()->route("admin.home")
+        return redirect()->route("admin.dashboard")
             ->with('contacts_message', 'Contact Message Updated Successfully ✨');
     }
 

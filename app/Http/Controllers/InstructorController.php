@@ -33,7 +33,7 @@ class InstructorController extends Controller
         // ✨ حذف الـ instructor من قاعدة البيانات
         $instructor->delete();
 
-        return redirect()->route("admin.home")
+        return redirect()->route("admin.dashboard")
             ->with("instructors_message", "Instructor Deleted Successfully ✨");
     }
 
@@ -80,7 +80,7 @@ class InstructorController extends Controller
 
         ]);
 
-        return redirect()->route("admin.home")
+        return redirect()->route("admin.dashboard")
             ->with("instructors_message", "Instructor Added Successfully 🎉");
     }
 
@@ -136,7 +136,7 @@ class InstructorController extends Controller
 
         ]);
 
-        return redirect()->route("admin.home")
+        return redirect()->route("admin.dashboard")
             ->with("instructors_message", "Instructor Updated Successfully ✨");
     }
 
